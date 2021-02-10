@@ -94,7 +94,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по работе с Classroom</a></li><li class="chapter-item expanded "><a href="practice.html"><strong aria-hidden="true">5.</strong> Практики</a></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">6.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hw/asm.html"><strong aria-hidden="true">6.1.</strong> Asm</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по работе с Classroom</a></li><li class="chapter-item expanded "><a href="practice.html"><strong aria-hidden="true">5.</strong> Практики</a></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">6.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">6.1.</strong> Asm</li><li class="chapter-item expanded "><strong aria-hidden="true">6.2.</strong> BigInteger</li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -318,75 +318,6 @@ $ sudo snap install clion --classic
 </blockquote>
 <h1><a class="header" href="#Домашние-задания" id="Домашние-задания">Домашние задания</a></h1>
 <p>Список домашних заданий с описанием и ссылками на Github.Classroom.</p>
-<h1><a class="header" href="#asm" id="asm">Asm</a></h1>
-<blockquote>
-<p><a href="https://github.com">GitHub Classroom - TBD</a></p>
-</blockquote>
-<h2><a class="header" href="#Задание" id="Задание">Задание</a></h2>
-<p>По <a href="http://github.com/sorokin/cpp-course">адресу</a> лежит пример двух программ на ассемблере:</p>
-<ul>
-<li>Программа <code>hello.asm</code> — это программа выводящая строку &quot;Hello, world&quot;. В ней подробно прокомментирована каждая строчка.</li>
-<li>Программа <code>add.asm</code> — это программа, которая выполняет сложение двух длинных чисел.</li>
-</ul>
-<p>Вам необходимо разобраться в этих примерах и написать на их основе программы выполняющие вычитание и умножение беззнаковых длинных чисел.</p>
-<p>Обратите внимание, что приведенные примеры заточены на конкретную архитектуру процессора (x86-64), конкретный ассемблер (NASM) и операционную систему (Linux).</p>
-<p>Разрешается писать программы под другие архитектуры, ассемблеры и операционные системы, при этом вам придется самим переписать код на нужную архитектуру и разобраться как сделать ввод-вывод. Если вы будете делать программу под архитектуру отличную от x86_64 или i386, предварительно согласуйте это со мной.</p>
-<h2><a class="header" href="#Запуск-примеров" id="Запуск-примеров">Запуск примеров</a></h2>
-<p>Для того, чтобы запустить примеры на понадобится любой 64-битный дистрибутив Linux. Чтобы проверить битность вашего дистрибутива, можно исполнить команду:</p>
-<pre><code class="language-console">$ uname -m
-</code></pre>
-<p>Если команда выводит x86_64, то система 64-битная, если i386 или i686 — 32-битная.</p>
-<p>Для работы нам потребуются следующие инструменты:</p>
-<ul>
-<li>NASM — собственно сам ассемблер</li>
-<li>GNU Binutils — пакет программ для работы с бинарными файлами от проекта GNU (нам из них понадобится только ld)</li>
-<li>GCC — коллекция компиляторов проекта GNU (нам из них понадобится только драйвер gcc)</li>
-<li>GDB — отладчик</li>
-<li>Qt Creator — IDE</li>
-<li>CMake — система сборки</li>
-<li>Git — система контроля версий</li>
-<li>Чтобы установить эти программы (в Debian-based дистрибутивах) необходимо исполнить команду:</li>
-</ul>
-<pre><code class="language-console">$ sudo apt-get install nasm binutils gcc gdb qtcreator cmake git
-</code></pre>
-<p>Чтобы взять исходный код примеров необходимо исполнить команду:</p>
-<pre><code class="language-console">$ git clone https://github.com/sorokin/cpp-course.git
-</code></pre>
-<p>После этого в текущем каталоге появится каталог cpp-course. Заходим внутрь:</p>
-<pre><code class="language-console">$ cd cpp-course/helloasm
-</code></pre>
-<p>Проверяем, что всё компилируется:</p>
-<pre><code class="language-console">$ cmake .
-$ make
-</code></pre>
-<p>В текущем каталоге должны появится файлы hello и add. Проверяем, что всё работает:</p>
-<pre><code class="language-console">$ ./hello
-Hello, world!
-$ ./add
-10000000000000000000000000000000000000
-100000000000000000000000000000000000000000000000000000000000000
-100000000000000000000000010000000000000000000000000000000000000
-</code></pre>
-<p>Чтобы редактировать код в IDE, необходимо запустить Qt Creator:</p>
-<pre><code class="language-console">$ qtcreator
-</code></pre>
-<p>И попытаться открыть файл helloasm/CMakeLists.txt.</p>
-<h2><a class="header" href="#Возможные-проблемы" id="Возможные-проблемы">Возможные проблемы</a></h2>
-<p>Поскольку мы не создаем корректных стековых фреймов и не генерим dwarf-символов для отладки, то отладчик не может корректно показать стек вызовов (видно на скриншоте), по этой же причине иногда не работает Step Over (F10).</p>
-<ul>
-<li>Решение 1: Можно создавать стековый фрейм руками, но это придется делать в каждой функции.</li>
-<li>Решение 2: Можно использовать CFI-директивы для указания того, как нужно раскручивать стек, но NASM их не поддерживает, поэтому в качестве ассемблера придется использовать GNU as.</li>
-</ul>
-<p>Нажатие Step Into (F11)/Step Over(F10), когда программа не запущена приводит к тому, что программа запускается и отрабатывает до выхода, вместо того, чтобы остановиться на первой строчке. Дело в том, что QtCreator ставит breakpoint на main и запускает программу, чтобы она брейкнулась в main. Но поскольку в наших программа функции main нет, программа просто отрабатывает до конца.</p>
-<ul>
-<li>Решение 1: Поставить breakpoint в начале программы.</li>
-<li>Решение 2: Создать метку main. Её можно добавить там же, где и _start:</li>
-</ul>
-<pre><code class="language-asm">                global          _start
-                global          main
-_start:      
-main:
-</code></pre>
 
                     </main>
 
