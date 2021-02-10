@@ -8,3 +8,4 @@ title = "C++ Course"
 [output.html]
 default-theme = "ayu"
 git-repository-url = "https://github.com/CPP-KT/course"
+mathjax-support = true
