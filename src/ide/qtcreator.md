@@ -15,11 +15,11 @@ __QtCreator__ имеет встроенный *clang-tidy*, но вы может
 
 До настроек clang-tidy можно добраться через Tools -> Options -> Analyzer -> Diagnostic Configuration
 
-![clang-tidy-qtcreator](images/clang-tidy-qtcreator.png)
+![clang-tidy-qtcreator](../images/clang-tidy-qtcreator.png)
 
 Там нужно будет создать копию и нажать Edit checks as string, куда вставить содержимое нашего файлика.
 
-![clang-tidy-qtcreator-2](images/clang-tidy-qtcreator-2.png)
+![clang-tidy-qtcreator-2](../images/clang-tidy-qtcreator-2.png)
 
 
 ## [clang-format](https://doc.qt.io/qtcreator/creator-beautifier.html)
@@ -30,5 +30,5 @@ __QtCreator__ имеет встроенный *clang-tidy*, но вы может
 
 После перезапуска QtCreator идем в Tools -> Options -> Beautifier -> ClangFormat. Если у вас не стоит clang-format, его нужно поставить, в Ubuntu это `sudo apt install clang-format`. Далее в Options в `Use predefinde styles` выбираем опцию `File` вместо `LLVM`
 
-![clang-format-qtcreator](images/clang-format-qtcreator.png)
+![clang-format-qtcreator](../images/clang-format-qtcreator.png)
 
