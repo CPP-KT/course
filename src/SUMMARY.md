@@ -2,8 +2,8 @@
 
 - [About & Links](./course.md)
 - [IDE](./ide.md)
-  - [CLion](./clion.md)
-  - [QtCreator](./qtcreator.md)
+  - [CLion](./ide/clion.md)
+  - [QtCreator](./ide/qtcreator.md)
 - [Практики](./practice.md)
 - [Домашние задания](./hw.md)
   - [bimap](./hw/bimap.md)
