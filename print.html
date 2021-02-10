@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="qtcreator.html"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="practice/intrusive_list.html"><strong aria-hidden="true">3.1.</strong> intrusive_list</a></li><li class="chapter-item expanded "><a href="practice/shared_ptr.html"><strong aria-hidden="true">3.2.</strong> shared_ptr</a></li><li class="chapter-item expanded "><a href="practice/function.html"><strong aria-hidden="true">3.3.</strong> function</a></li><li class="chapter-item expanded "><a href="practice/signal.html"><strong aria-hidden="true">3.4.</strong> signal</a></li><li class="chapter-item expanded "><a href="practice/optional.html"><strong aria-hidden="true">3.5.</strong> optional</a></li></ol></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hw/bimap.html"><strong aria-hidden="true">4.1.</strong> bimap</a></li><li class="chapter-item expanded "><a href="hw/variant.html"><strong aria-hidden="true">4.2.</strong> variant</a></li><li class="chapter-item expanded "><a href="hw/mandelbrot.html"><strong aria-hidden="true">4.3.</strong> mandelbrot</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hw/asm.html"><strong aria-hidden="true">4.1.</strong> Asm</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -213,16 +213,16 @@ $ sudo snap install clion --classic
 <p>Нужно убедиться, что вы поставили галочку на <code>Prefer .clang-tidy files over IDE settings</code> чтобы использовать <strong>.clang-tidy</strong> курса.</p>
 </blockquote>
 <p>Path: <code>Settings / Preferences | Editor | Inspections - C/C++, General, Clang-Tidy</code></p>
-<p><img src="images/clang-tidy-clion.png" alt="clang-tidy-clion" /></p>
+<p><img src="ide/images/clang-tidy-clion.png" alt="clang-tidy-clion" /></p>
 <h2><a class="header" href="#a-hrefhttpswwwjetbrainscomhelpclionclangformat-as-alternative-formatterhtmlclang-formata" id="a-hrefhttpswwwjetbrainscomhelpclionclangformat-as-alternative-formatterhtmlclang-formata"><a href="https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html">clang-format</a></a></h2>
 <p><strong>Clion</strong> имеет встроенный (альтернативный) <em>clang-format</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
 <blockquote>
 <p>Нужно убедиться, что вы поставили галочку на <code>Enable ClangFormat (only for C/C++/Objective-C</code> чтобы использовать <strong>.clang-format</strong> курса.</p>
 </blockquote>
 <p>Path: <code>Settings / Preferences | Editor | Code Style - ClangFormat</code></p>
-<p><img src="images/clang-format-clion.png" alt="clang-format-clion" /></p>
+<p><img src="ide/images/clang-format-clion.png" alt="clang-format-clion" /></p>
 <p>Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
-<img src="images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
+<img src="ide/images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
 <h1><a class="header" href="#qtcreator" id="qtcreator">QtCreator</a></h1>
 <h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-getting-startedhtmlУстановкаa" id="a-hrefhttpsdocqtioqtcreatorcreator-getting-startedhtmlУстановкаa"><a href="https://doc.qt.io/qtcreator/creator-getting-started.html">Установка</a></a></h2>
 <p>Есть мануал на официальном сайте (ссылка в header-e - кликабельна). <a href="https://www.qt.io/offline-installers">Здесь</a> можно найти offline установщики Qt (в который собственно и входит Creator) для Windows и Linux/MacOS. </p>
@@ -235,16 +235,16 @@ $ sudo snap install clion --classic
 <p>Чтобы использовать <strong>.clang-tidy</strong> курса, к сожалению, нужно будет копипастнуть наш файлик в Edit checks as string (смотрите конец инструкции в header - e)</p>
 </blockquote>
 <p>До настроек clang-tidy можно добраться через Tools -&gt; Options -&gt; Analyzer -&gt; Diagnostic Configuration</p>
-<p><img src="images/clang-tidy-qtcreator.png" alt="clang-tidy-qtcreator" /></p>
+<p><img src="ide/images/clang-tidy-qtcreator.png" alt="clang-tidy-qtcreator" /></p>
 <p>Там нужно будет создать копию и нажать Edit checks as string, куда вставить содержимое нашего файлика.</p>
-<p><img src="images/clang-tidy-qtcreator-2.png" alt="clang-tidy-qtcreator-2" /></p>
+<p><img src="ide/images/clang-tidy-qtcreator-2.png" alt="clang-tidy-qtcreator-2" /></p>
 <h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-beautifierhtmlclang-formata" id="a-hrefhttpsdocqtioqtcreatorcreator-beautifierhtmlclang-formata"><a href="https://doc.qt.io/qtcreator/creator-beautifier.html">clang-format</a></a></h2>
 <p>Для установки автоматического форматирования кода в <strong>QtCreator</strong> нужен плагин Beautifier. О том как его установить можно почитать по ссылке.</p>
 <blockquote>
 <p>Рекомендуем поставить галочку на  <code>Enable auto format on file save</code></p>
 </blockquote>
 <p>После перезапуска QtCreator идем в Tools -&gt; Options -&gt; Beautifier -&gt; ClangFormat. Если у вас не стоит clang-format, его нужно поставить, в Ubuntu это <code>sudo apt install clang-format</code>. Далее в Options в <code>Use predefinde styles</code> выбираем опцию <code>File</code> вместо <code>LLVM</code></p>
-<p><img src="images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
+<p><img src="ide/images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
 <h1><a class="header" href="#Практики" id="Практики">Практики</a></h1>
 <p>Здесь перечислены описания практик и ссылки на Github / GithubClassroom</p>
 <blockquote>
@@ -265,119 +265,10 @@ $ sudo snap install clion --classic
 <li>После того как вы выполните ДЗ вы отправляете его на проверку с помощью соотвествующей формы (в папке на GoogleDrive). Если это ваша первая попытка - то выбирайте режим сдача, иначе - правки. В качестве ссылки на PR присылайте ссылку на тот самый автоматически созданный PR <code>master -&gt; feedback</code>.</li>
 <li>Далее заявка автоматически попадёт в таблицу и вы сможете наблюдать за её статусом.</li>
 </ol>
-<h1><a class="header" href="#intrusive-list" id="intrusive-list">Intrusive List</a></h1>
+<h2><a class="header" href="#Список-практик" id="Список-практик">Список практик</a></h2>
 <blockquote>
-<p><a href="https://github.com/CPP-KT/intrusive_list_task">Github</a></p>
+<p>TBD</p>
 </blockquote>
-<p>В данном задании необходимо написать <a href="https://www.boost.org/doc/libs/1_74_0/doc/html/intrusive/intrusive_vs_nontrusive.html">Intrusive List</a>. Intrusive List —  это такой контейнер, который представляет из себя двусвязный список. В отличие от <code>std::list</code> он не делает копии элементов вставляемых в список, а строит список из тех объектов, что ему передаются в <code>insert</code>, <code>push_front</code> и <code>push_back</code>. </p>
-<h2><a class="header" href="#Пример-использования" id="Пример-использования">Пример использования</a></h2>
-<pre><code class="language-cpp">struct bookmark : intrusive::list_element&lt;struct bookmark_tag&gt;
-{
-    uint32_t page;
-
-    bookmark(uint32_t page)
-        : page(page)
-    {}
-};
-
-int main()
-{
-    std::vector&lt;bookmark&gt; bookmarks;
-    for (uint32_t i = 0; i != 100; i += 10)
-        bookmarks.push_back(bookmark(i));
-
-    intrusive::list&lt;bookmark, bookmark_tag&gt; bookmark_list;
-    for (auto&amp; e : bookmarks)
-        bookmark_list.push_front(e);
-
-    for (auto const&amp; e : bookmark_list)
-        std::cout &lt;&lt; e.get_page() &lt;&lt; '\n';
-}
-</code></pre>
-<p>В <code>intrusive::list</code> можно добавлять объекты не любых типов, а лишь тех, что наследуются от <code>intrusive::list_element&lt;Tag&gt;</code>. Шаблонный параметр <code>Tag</code> позволяет пользовательскому классу отнаследоваться сразу несколько раз от <code>intrusive::list_element</code> если это необходимо. Множественное наследование от <code>intrusive::list_element&lt;Tag&gt;</code> необходимо, если нужно добавлять один объект сразу в несколько разных списков. Чтобы указать <code>intrusive::list&lt;T, Tag&gt;</code> какую из баз у <code>T</code> он использует, ему передаётся <code>Tag</code> вторым параметром.</p>
-<p>Если у <code>list_element</code> вызывается деструктор и этот <code>list_element</code> добавлен в какой-то список, то он должен быть автоматически удалён из этого списка (в <code>Boost.Intrusive</code> такое поведение называется <a href="https://www.boost.org/doc/libs/1_74_0/doc/html/intrusive/auto_unlink_hooks.html">auto-unlink hooks</a>).</p>
-<h2><a class="header" href="#Список-функций" id="Список-функций">Список функций</a></h2>
-<pre><code class="language-cpp">namespace intrusive
-{
-    /*
-    Тег по-умолчанию чтобы пользователям не нужно было
-    придумывать теги, если они используют лишь одну базу
-    list_element.
-    */
-    struct default_tag;
-
-    template &lt;typename Tag = default_tag&gt;
-    struct list_element
-    {
-        /* Отвязывает элемент из списка в котором он находится. */
-        void unlink();
-    };
-
-    template &lt;typename T, typename Tag = default_tag&gt;
-    struct list
-    {
-        typedef /*определяется реализацией*/ iterator;
-        typedef /*определяется реализацией*/ const_iterator;
-
-        static_assert(std::is_convertible_v&lt;T&amp;, list_element&lt;Tag&gt;&amp;&gt;,
-            &quot;value type is not convertible to list_element&quot;);
-
-        list() noexcept;
-        list(list const&amp;) = delete;
-        list(list&amp;&amp;) noexcept;
-        ~list();
-
-        list&amp; operator=(list const&amp;) = delete;
-        list&amp; operator=(list&amp;&amp;) noexcept;
-
-        void clear() noexcept;
-
-        /*
-        Поскольку вставка изменяет данные в list_element
-        мы принимаем неконстантный T&amp;.
-        */
-        void push_back(T&amp;) noexcept;
-        void pop_back() noexcept;
-        T&amp; back() noexcept;
-        T const&amp; back() const noexcept;
-
-        void push_front(T&amp;) noexcept;
-        void pop_front() noexcept;
-        T&amp; front() noexcept;
-        T const&amp; front() const noexcept;
-
-        bool empty() const noexcept;
-
-        iterator begin() noexcept;
-        const_iterator begin() const noexcept;
-
-        iterator end() noexcept;
-        const_iterator end() const noexcept;
-
-        iterator insert(const_iterator pos, T&amp;) noexcept;
-        iterator erase(const_iterator pos) noexcept;
-        void splice(const_iterator pos, list&amp;, const_iterator first, const_iterator last) noexcept;
-    };
-}
-</code></pre>
-<h1><a class="header" href="#shared-pointer" id="shared-pointer">Shared Pointer</a></h1>
-<blockquote>
-<p><a href="https://github.com/CPP-KT/shared_ptr_task">Github</a></p>
-</blockquote>
-<h1><a class="header" href="#function" id="function">Function</a></h1>
-<blockquote>
-<p><a href="https://github.com/CPP-KT/function_task">Github</a></p>
-</blockquote>
-<h1><a class="header" href="#signal" id="signal">Signal</a></h1>
-<blockquote>
-<p><a href="https://github.com/CPP-KT/signal_task">Github</a></p>
-</blockquote>
-<h1><a class="header" href="#optional" id="optional">Optional</a></h1>
-<blockquote>
-<p><a href="https://classroom.github.com/a/1qqSAHQl">GitHub Classroom</a></p>
-</blockquote>
-<p>В этом задании вам необходимо написать <a href="https://en.cppreference.com/w/cpp/utility/optional"><code>optional</code></a></p>
-<p>Интерфейс вы найдете в репозитории, в файле <code>optional.h</code></p>
 <h1><a class="header" href="#Домашние-задания" id="Домашние-задания">Домашние задания</a></h1>
 <p>Здесь перечислены описания домашних заданий и ссылки на <strong>GithubClassroom</strong></p>
 <h2><a class="header" href="#Краткая-инструкция-по-работе" id="Краткая-инструкция-по-работе">Краткая инструкция по работе</a></h2>
@@ -388,59 +279,75 @@ int main()
 <li>После того как вы выполните ДЗ вы отправляете его на проверку с помощью соотвествующей формы (в папке на GoogleDrive). Если это ваша первая попытка - то выбирайте режим сдача, иначе - правки. В качестве ссылки на PR присылайте ссылку на тот самый автоматически созданный PR <code>master -&gt; feedback</code>.</li>
 <li>Далее заявка автоматически попадёт в таблицу и вы сможете наблюдать за её статусом.</li>
 </ol>
-<h1><a class="header" href="#bimap" id="bimap">Bimap</a></h1>
+<h1><a class="header" href="#asm" id="asm">Asm</a></h1>
 <blockquote>
-<p><a href="https://classroom.github.com/a/S-IrHqh3">GitHub Classroom</a></p>
+<p><a href="https://github.com">GitHub Classroom - TBD</a></p>
 </blockquote>
-<p>В этом задании вам необходимо написать <a href="https://en.wikipedia.org/wiki/Bidirectional_map"><code>bimap</code></a><br />
-Интерфейс вы найдете в репозитории, в файле <code>bimap.h</code></p>
-<p><code>bimap</code> —  это структура данных, в которой хранится набор пар и эффективно выполняется поиск ключа по значению. В отличие от <code>map</code>, поиск в <code>bimap</code> может выполняться как по левым (left) элементам пар, так и по правым (right).</p>
-<p><code>bimap</code> параметризуется 2 типами (left и right) и 2 компараторами, которые определяют порядок на этих типах.</p>
-<p>Итераторы вашего <code>bimap</code> должны повторять соответствующее поведение для <code>map</code> и позволять проходить все элементы с одной стороны в порядке, определенном переданным компаратором.</p>
-<p>Вам предлагается с помощью описания изложенного выше, интерфейсу и уже пройденным материалам курса придумать и реализовать эффективный <code>bimap</code> по</p>
+<h2><a class="header" href="#Задание" id="Задание">Задание</a></h2>
+<p>По <a href="http://github.com/sorokin/cpp-course">адресу</a> лежит пример двух программ на ассемблере:</p>
 <ul>
-<li>Использованию памяти
+<li>Программа <code>hello.asm</code> — это программа выводящая строку &quot;Hello, world&quot;. В ней подробно прокомментирована каждая строчка.</li>
+<li>Программа <code>add.asm</code> — это программа, которая выполняет сложение двух длинных чисел.</li>
+</ul>
+<p>Вам необходимо разобраться в этих примерах и написать на их основе программы выполняющие вычитание и умножение беззнаковых длинных чисел.</p>
+<p>Обратите внимание, что приведенные примеры заточены на конкретную архитектуру процессора (x86-64), конкретный ассемблер (NASM) и операционную систему (Linux).</p>
+<p>Разрешается писать программы под другие архитектуры, ассемблеры и операционные системы, при этом вам придется самим переписать код на нужную архитектуру и разобраться как сделать ввод-вывод. Если вы будете делать программу под архитектуру отличную от x86_64 или i386, предварительно согласуйте это со мной.</p>
+<h2><a class="header" href="#Запуск-примеров" id="Запуск-примеров">Запуск примеров</a></h2>
+<p>Для того, чтобы запустить примеры на понадобится любой 64-битный дистрибутив Linux. Чтобы проверить битность вашего дистрибутива, можно исполнить команду:</p>
+<pre><code class="language-console">$ uname -m
+</code></pre>
+<p>Если команда выводит x86_64, то система 64-битная, если i386 или i686 — 32-битная.</p>
+<p>Для работы нам потребуются следующие инструменты:</p>
 <ul>
-<li>Общее количество аллокаций</li>
-<li>Пустое дерево не должно делать никаких динамических аллокаций</li>
-<li>Пустые компораторы не должны занимать дополнительную память</li>
+<li>NASM — собственно сам ассемблер</li>
+<li>GNU Binutils — пакет программ для работы с бинарными файлами от проекта GNU (нам из них понадобится только ld)</li>
+<li>GCC — коллекция компиляторов проекта GNU (нам из них понадобится только драйвер gcc)</li>
+<li>GDB — отладчик</li>
+<li>Qt Creator — IDE</li>
+<li>CMake — система сборки</li>
+<li>Git — система контроля версий</li>
+<li>Чтобы установить эти программы (в Debian-based дистрибутивах) необходимо исполнить команду:</li>
 </ul>
-</li>
-<li>Скорости операций</li>
-<li>Количеству копипасты, особенно стоит присмотреться к итераторам</li>
-</ul>
-<h1><a class="header" href="#variant" id="variant">Variant</a></h1>
-<blockquote>
-<p><a href="https://classroom.github.com/a/lnUHyt9_">Github Classrom</a></p>
-</blockquote>
-<p>В этом задании вам нужно будет написать плюсовую вариацию алгебраических типов — <a href="https://en.cppreference.com/w/cpp/utility/variant"><code>variant</code></a></p>
-<p>По ссылке выше вы найдёте подробное описание данного класса со всеми функциями и вспомогательными структурами. Однако в рамках данного ДЗ вам необязательно реализовывать следующие его части:</p>
+<pre><code class="language-console">$ sudo apt-get install nasm binutils gcc gdb qtcreator cmake git
+</code></pre>
+<p>Чтобы взять исходный код примеров необходимо исполнить команду:</p>
+<pre><code class="language-console">$ git clone https://github.com/sorokin/cpp-course.git
+</code></pre>
+<p>После этого в текущем каталоге появится каталог cpp-course. Заходим внутрь:</p>
+<pre><code class="language-console">$ cd cpp-course/helloasm
+</code></pre>
+<p>Проверяем, что всё компилируется:</p>
+<pre><code class="language-console">$ cmake .
+$ make
+</code></pre>
+<p>В текущем каталоге должны появится файлы hello и add. Проверяем, что всё работает:</p>
+<pre><code class="language-console">$ ./hello
+Hello, world!
+$ ./add
+10000000000000000000000000000000000000
+100000000000000000000000000000000000000000000000000000000000000
+100000000000000000000000010000000000000000000000000000000000000
+</code></pre>
+<p>Чтобы редактировать код в IDE, необходимо запустить Qt Creator:</p>
+<pre><code class="language-console">$ qtcreator
+</code></pre>
+<p>И попытаться открыть файл helloasm/CMakeLists.txt.</p>
+<h2><a class="header" href="#Возможные-проблемы" id="Возможные-проблемы">Возможные проблемы</a></h2>
+<p>Поскольку мы не создаем корректных стековых фреймов и не генерим dwarf-символов для отладки, то отладчик не может корректно показать стек вызовов (видно на скриншоте), по этой же причине иногда не работает Step Over (F10).</p>
 <ul>
-<li>Конструкторы и операторы присваивания, включающие <a href="https://en.cppreference.com/w/cpp/utility/initializer_list"><code>initializer_list</code></a></li>
-<li><a href="https://en.cppreference.com/w/cpp/utility/variant/monostate"><code>monostate</code></a></li>
-<li>Специализацию <code>std::hash</code></li>
+<li>Решение 1: Можно создавать стековый фрейм руками, но это придется делать в каждой функции.</li>
+<li>Решение 2: Можно использовать CFI-директивы для указания того, как нужно раскручивать стек, но NASM их не поддерживает, поэтому в качестве ассемблера придется использовать GNU as.</li>
 </ul>
-<p>Во время написания советуем обратить особое внимание на следующие вещи:</p>
+<p>Нажатие Step Into (F11)/Step Over(F10), когда программа не запущена приводит к тому, что программа запускается и отрабатывает до выхода, вместо того, чтобы остановиться на первой строчке. Дело в том, что QtCreator ставит breakpoint на main и запускает программу, чтобы она брейкнулась в main. Но поскольку в наших программа функции main нет, программа просто отрабатывает до конца.</p>
 <ul>
-<li>Гарантии исключений</li>
-<li><code>constexpr</code> возможности данного класса</li>
-<li>Тривиальность различных функций</li>
+<li>Решение 1: Поставить breakpoint в начале программы.</li>
+<li>Решение 2: Создать метку main. Её можно добавить там же, где и _start:</li>
 </ul>
-<h1><a class="header" href="#mandelbrot" id="mandelbrot">Mandelbrot</a></h1>
-<blockquote>
-<p><a href="https://classroom.github.com/a/oyIMhqF3">Github Classrom</a></p>
-</blockquote>
-<p>В этом задании нужно написать простейшую визуализацию множества мандельброта. Подробное описание задание было 
-дано Ваней <a href="https://www.youtube.com/watch?v=JcEOi9Pg7V4">на практике</a>.</p>
-<p>Форма реализации свободная. Однако во время проверки будут учитываться:</p>
-<ul>
-<li>Использование многопоточного программирования (обязательно)</li>
-<li>Скорость отрисовки, возможность отмены и UX в целом</li>
-<li>Хорошее владение бибилиотекой Qt, предоставляемыми функциями и классами (без велосипедов, пожалуйста)</li>
-<li>Чем приятнее GUI, тем лучше (пойдет в карму)</li>
-</ul>
-<p>P.S. Просьба убедиться, что вы используете разного рода санитайзеры у себя в проекте (thread в том числе)</p>
-<p>Формально дедлайн 15.01.2020 23:59 +0300. Просьба засылать раньше, чтобы была возможность проверить до конца сессии.</p>
+<pre><code class="language-asm">                global          _start
+                global          main
+_start:      
+main:
+</code></pre>
 
                     </main>
 

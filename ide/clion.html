@@ -17,23 +17,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
         
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -43,7 +43,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
         </script>
 
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="clion.html" class="active"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="qtcreator.html"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="practice/intrusive_list.html"><strong aria-hidden="true">3.1.</strong> intrusive_list</a></li><li class="chapter-item expanded "><a href="practice/shared_ptr.html"><strong aria-hidden="true">3.2.</strong> shared_ptr</a></li><li class="chapter-item expanded "><a href="practice/function.html"><strong aria-hidden="true">3.3.</strong> function</a></li><li class="chapter-item expanded "><a href="practice/signal.html"><strong aria-hidden="true">3.4.</strong> signal</a></li><li class="chapter-item expanded "><a href="practice/optional.html"><strong aria-hidden="true">3.5.</strong> optional</a></li></ol></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hw/bimap.html"><strong aria-hidden="true">4.1.</strong> bimap</a></li><li class="chapter-item expanded "><a href="hw/variant.html"><strong aria-hidden="true">4.2.</strong> variant</a></li><li class="chapter-item expanded "><a href="hw/mandelbrot.html"><strong aria-hidden="true">4.3.</strong> mandelbrot</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ide/clion.html" class="active"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="../ide/qtcreator.html"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="../practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li class="chapter-item expanded "><a href="../hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hw/asm.html"><strong aria-hidden="true">4.1.</strong> Asm</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -124,7 +124,7 @@
                     <h1 class="menu-title">C++ Course</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
@@ -188,13 +188,13 @@ $ sudo snap install clion --classic
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="ide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../ide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="qtcreator.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../ide/qtcreator.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -206,13 +206,13 @@ $ sudo snap install clion --classic
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="ide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../ide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="qtcreator.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../ide/qtcreator.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -235,14 +235,14 @@ $ sudo snap install clion --classic
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

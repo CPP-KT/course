@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>signal - C++ Course</title>
+        <title>QtCreator - C++ Course</title>
         
         
 
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="../qtcreator.html"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="../practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../practice/intrusive_list.html"><strong aria-hidden="true">3.1.</strong> intrusive_list</a></li><li class="chapter-item expanded "><a href="../practice/shared_ptr.html"><strong aria-hidden="true">3.2.</strong> shared_ptr</a></li><li class="chapter-item expanded "><a href="../practice/function.html"><strong aria-hidden="true">3.3.</strong> function</a></li><li class="chapter-item expanded "><a href="../practice/signal.html" class="active"><strong aria-hidden="true">3.4.</strong> signal</a></li><li class="chapter-item expanded "><a href="../practice/optional.html"><strong aria-hidden="true">3.5.</strong> optional</a></li></ol></li><li class="chapter-item expanded "><a href="../hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hw/bimap.html"><strong aria-hidden="true">4.1.</strong> bimap</a></li><li class="chapter-item expanded "><a href="../hw/variant.html"><strong aria-hidden="true">4.2.</strong> variant</a></li><li class="chapter-item expanded "><a href="../hw/mandelbrot.html"><strong aria-hidden="true">4.3.</strong> mandelbrot</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ide/clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="../ide/qtcreator.html" class="active"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="../practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li class="chapter-item expanded "><a href="../hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hw/asm.html"><strong aria-hidden="true">4.1.</strong> Asm</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -159,23 +159,41 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#signal" id="signal">Signal</a></h1>
+                        <h1><a class="header" href="#qtcreator" id="qtcreator">QtCreator</a></h1>
+<h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-getting-startedhtmlУстановкаa" id="a-hrefhttpsdocqtioqtcreatorcreator-getting-startedhtmlУстановкаa"><a href="https://doc.qt.io/qtcreator/creator-getting-started.html">Установка</a></a></h2>
+<p>Есть мануал на официальном сайте (ссылка в header-e - кликабельна). <a href="https://www.qt.io/offline-installers">Здесь</a> можно найти offline установщики Qt (в который собственно и входит Creator) для Windows и Linux/MacOS. </p>
+<p>На <strong>Ubuntu</strong> рекомендуется следующий процесс установки (чтобы можно было обновлять среду разработки через пакетный менеджер):</p>
+<pre><code class="language-console">$ sudo apt install qtcreator
+</code></pre>
+<h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-clang-toolshtmlclang-tidya" id="a-hrefhttpsdocqtioqtcreatorcreator-clang-toolshtmlclang-tidya"><a href="https://doc.qt.io/qtcreator/creator-clang-tools.html">clang-tidy</a></a></h2>
+<p><strong>QtCreator</strong> имеет встроенный <em>clang-tidy</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
 <blockquote>
-<p><a href="https://github.com/CPP-KT/signal_task">Github</a></p>
+<p>Чтобы использовать <strong>.clang-tidy</strong> курса, к сожалению, нужно будет копипастнуть наш файлик в Edit checks as string (смотрите конец инструкции в header - e)</p>
 </blockquote>
+<p>До настроек clang-tidy можно добраться через Tools -&gt; Options -&gt; Analyzer -&gt; Diagnostic Configuration</p>
+<p><img src="images/clang-tidy-qtcreator.png" alt="clang-tidy-qtcreator" /></p>
+<p>Там нужно будет создать копию и нажать Edit checks as string, куда вставить содержимое нашего файлика.</p>
+<p><img src="images/clang-tidy-qtcreator-2.png" alt="clang-tidy-qtcreator-2" /></p>
+<h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-beautifierhtmlclang-formata" id="a-hrefhttpsdocqtioqtcreatorcreator-beautifierhtmlclang-formata"><a href="https://doc.qt.io/qtcreator/creator-beautifier.html">clang-format</a></a></h2>
+<p>Для установки автоматического форматирования кода в <strong>QtCreator</strong> нужен плагин Beautifier. О том как его установить можно почитать по ссылке.</p>
+<blockquote>
+<p>Рекомендуем поставить галочку на  <code>Enable auto format on file save</code></p>
+</blockquote>
+<p>После перезапуска QtCreator идем в Tools -&gt; Options -&gt; Beautifier -&gt; ClangFormat. Если у вас не стоит clang-format, его нужно поставить, в Ubuntu это <code>sudo apt install clang-format</code>. Далее в Options в <code>Use predefinde styles</code> выбираем опцию <code>File</code> вместо <code>LLVM</code></p>
+<p><img src="images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../practice/function.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../ide/clion.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../practice/optional.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../practice.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -187,13 +205,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../practice/function.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../ide/clion.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../practice/optional.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../practice.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

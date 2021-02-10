@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>variant - C++ Course</title>
+        <title>Asm - C++ Course</title>
         
         
 
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="../qtcreator.html"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="../practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../practice/intrusive_list.html"><strong aria-hidden="true">3.1.</strong> intrusive_list</a></li><li class="chapter-item expanded "><a href="../practice/shared_ptr.html"><strong aria-hidden="true">3.2.</strong> shared_ptr</a></li><li class="chapter-item expanded "><a href="../practice/function.html"><strong aria-hidden="true">3.3.</strong> function</a></li><li class="chapter-item expanded "><a href="../practice/signal.html"><strong aria-hidden="true">3.4.</strong> signal</a></li><li class="chapter-item expanded "><a href="../practice/optional.html"><strong aria-hidden="true">3.5.</strong> optional</a></li></ol></li><li class="chapter-item expanded "><a href="../hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hw/bimap.html"><strong aria-hidden="true">4.1.</strong> bimap</a></li><li class="chapter-item expanded "><a href="../hw/variant.html" class="active"><strong aria-hidden="true">4.2.</strong> variant</a></li><li class="chapter-item expanded "><a href="../hw/mandelbrot.html"><strong aria-hidden="true">4.3.</strong> mandelbrot</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ide/clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="../ide/qtcreator.html"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="../practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li class="chapter-item expanded "><a href="../hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hw/asm.html" class="active"><strong aria-hidden="true">4.1.</strong> Asm</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -159,38 +159,86 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#variant" id="variant">Variant</a></h1>
+                        <h1><a class="header" href="#asm" id="asm">Asm</a></h1>
 <blockquote>
-<p><a href="https://classroom.github.com/a/lnUHyt9_">Github Classrom</a></p>
+<p><a href="https://github.com">GitHub Classroom - TBD</a></p>
 </blockquote>
-<p>В этом задании вам нужно будет написать плюсовую вариацию алгебраических типов — <a href="https://en.cppreference.com/w/cpp/utility/variant"><code>variant</code></a></p>
-<p>По ссылке выше вы найдёте подробное описание данного класса со всеми функциями и вспомогательными структурами. Однако в рамках данного ДЗ вам необязательно реализовывать следующие его части:</p>
+<h2><a class="header" href="#Задание" id="Задание">Задание</a></h2>
+<p>По <a href="http://github.com/sorokin/cpp-course">адресу</a> лежит пример двух программ на ассемблере:</p>
 <ul>
-<li>Конструкторы и операторы присваивания, включающие <a href="https://en.cppreference.com/w/cpp/utility/initializer_list"><code>initializer_list</code></a></li>
-<li><a href="https://en.cppreference.com/w/cpp/utility/variant/monostate"><code>monostate</code></a></li>
-<li>Специализацию <code>std::hash</code></li>
+<li>Программа <code>hello.asm</code> — это программа выводящая строку &quot;Hello, world&quot;. В ней подробно прокомментирована каждая строчка.</li>
+<li>Программа <code>add.asm</code> — это программа, которая выполняет сложение двух длинных чисел.</li>
 </ul>
-<p>Во время написания советуем обратить особое внимание на следующие вещи:</p>
+<p>Вам необходимо разобраться в этих примерах и написать на их основе программы выполняющие вычитание и умножение беззнаковых длинных чисел.</p>
+<p>Обратите внимание, что приведенные примеры заточены на конкретную архитектуру процессора (x86-64), конкретный ассемблер (NASM) и операционную систему (Linux).</p>
+<p>Разрешается писать программы под другие архитектуры, ассемблеры и операционные системы, при этом вам придется самим переписать код на нужную архитектуру и разобраться как сделать ввод-вывод. Если вы будете делать программу под архитектуру отличную от x86_64 или i386, предварительно согласуйте это со мной.</p>
+<h2><a class="header" href="#Запуск-примеров" id="Запуск-примеров">Запуск примеров</a></h2>
+<p>Для того, чтобы запустить примеры на понадобится любой 64-битный дистрибутив Linux. Чтобы проверить битность вашего дистрибутива, можно исполнить команду:</p>
+<pre><code class="language-console">$ uname -m
+</code></pre>
+<p>Если команда выводит x86_64, то система 64-битная, если i386 или i686 — 32-битная.</p>
+<p>Для работы нам потребуются следующие инструменты:</p>
 <ul>
-<li>Гарантии исключений</li>
-<li><code>constexpr</code> возможности данного класса</li>
-<li>Тривиальность различных функций</li>
+<li>NASM — собственно сам ассемблер</li>
+<li>GNU Binutils — пакет программ для работы с бинарными файлами от проекта GNU (нам из них понадобится только ld)</li>
+<li>GCC — коллекция компиляторов проекта GNU (нам из них понадобится только драйвер gcc)</li>
+<li>GDB — отладчик</li>
+<li>Qt Creator — IDE</li>
+<li>CMake — система сборки</li>
+<li>Git — система контроля версий</li>
+<li>Чтобы установить эти программы (в Debian-based дистрибутивах) необходимо исполнить команду:</li>
 </ul>
+<pre><code class="language-console">$ sudo apt-get install nasm binutils gcc gdb qtcreator cmake git
+</code></pre>
+<p>Чтобы взять исходный код примеров необходимо исполнить команду:</p>
+<pre><code class="language-console">$ git clone https://github.com/sorokin/cpp-course.git
+</code></pre>
+<p>После этого в текущем каталоге появится каталог cpp-course. Заходим внутрь:</p>
+<pre><code class="language-console">$ cd cpp-course/helloasm
+</code></pre>
+<p>Проверяем, что всё компилируется:</p>
+<pre><code class="language-console">$ cmake .
+$ make
+</code></pre>
+<p>В текущем каталоге должны появится файлы hello и add. Проверяем, что всё работает:</p>
+<pre><code class="language-console">$ ./hello
+Hello, world!
+$ ./add
+10000000000000000000000000000000000000
+100000000000000000000000000000000000000000000000000000000000000
+100000000000000000000000010000000000000000000000000000000000000
+</code></pre>
+<p>Чтобы редактировать код в IDE, необходимо запустить Qt Creator:</p>
+<pre><code class="language-console">$ qtcreator
+</code></pre>
+<p>И попытаться открыть файл helloasm/CMakeLists.txt.</p>
+<h2><a class="header" href="#Возможные-проблемы" id="Возможные-проблемы">Возможные проблемы</a></h2>
+<p>Поскольку мы не создаем корректных стековых фреймов и не генерим dwarf-символов для отладки, то отладчик не может корректно показать стек вызовов (видно на скриншоте), по этой же причине иногда не работает Step Over (F10).</p>
+<ul>
+<li>Решение 1: Можно создавать стековый фрейм руками, но это придется делать в каждой функции.</li>
+<li>Решение 2: Можно использовать CFI-директивы для указания того, как нужно раскручивать стек, но NASM их не поддерживает, поэтому в качестве ассемблера придется использовать GNU as.</li>
+</ul>
+<p>Нажатие Step Into (F11)/Step Over(F10), когда программа не запущена приводит к тому, что программа запускается и отрабатывает до выхода, вместо того, чтобы остановиться на первой строчке. Дело в том, что QtCreator ставит breakpoint на main и запускает программу, чтобы она брейкнулась в main. Но поскольку в наших программа функции main нет, программа просто отрабатывает до конца.</p>
+<ul>
+<li>Решение 1: Поставить breakpoint в начале программы.</li>
+<li>Решение 2: Создать метку main. Её можно добавить там же, где и _start:</li>
+</ul>
+<pre><code class="language-asm">                global          _start
+                global          main
+_start:      
+main:
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../hw/bimap.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../hw.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="../hw/mandelbrot.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -200,15 +248,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../hw/bimap.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../hw.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a rel="next" href="../hw/mandelbrot.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
