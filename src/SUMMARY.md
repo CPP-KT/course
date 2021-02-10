@@ -1,0 +1,16 @@
+# Summary
+
+- [About & Links](./course.md)
+- [IDE](./ide.md)
+  - [CLion](./clion.md)
+  - [QtCreator](./qtcreator.md)
+- [Практики](./practice.md)
+  - [intrusive_list](./practice/intrusive_list.md)
+  - [shared_ptr](./practice/shared_ptr.md)
+  - [function](./practice/function.md)
+  - [signal](./practice/signal.md)
+  - [optional](./practice/optional.md)
+- [Домашние задания](./hw.md)
+  - [bimap](./hw/bimap.md)
+  - [variant](./hw/variant.md)
+  - [mandelbrot](./hw/mandelbrot.md)
