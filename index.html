@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>About &amp; Links - C++ Course</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="qtcreator.html"><strong aria-hidden="true">2.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="practice/intrusive_list.html"><strong aria-hidden="true">3.1.</strong> intrusive_list</a></li><li class="chapter-item expanded "><a href="practice/shared_ptr.html"><strong aria-hidden="true">3.2.</strong> shared_ptr</a></li><li class="chapter-item expanded "><a href="practice/function.html"><strong aria-hidden="true">3.3.</strong> function</a></li><li class="chapter-item expanded "><a href="practice/signal.html"><strong aria-hidden="true">3.4.</strong> signal</a></li><li class="chapter-item expanded "><a href="practice/optional.html"><strong aria-hidden="true">3.5.</strong> optional</a></li></ol></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hw/bimap.html"><strong aria-hidden="true">4.1.</strong> bimap</a></li><li class="chapter-item expanded "><a href="hw/variant.html"><strong aria-hidden="true">4.2.</strong> variant</a></li><li class="chapter-item expanded "><a href="hw/mandelbrot.html"><strong aria-hidden="true">4.3.</strong> mandelbrot</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">C++ Course</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/CPP-KT/course" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#about-course" id="about-course">About course</a></h1>
+<p>Данный курс читается студентам кафедры КТ в университете ИТМО.</p>
+<p>Лектор —  <strong>Иван Сорокин</strong></p>
+<p>Преподаватели практики и контакты:</p>
+<ul>
+<li>Лев Довжик <a href="https://t.me/Dogzik">@Dogzik</a></li>
+<li>Нурсан Валеев <a href="https://t.me/Tindarid">@Tindarid</a></li>
+<li>Павел Безбородов <a href="https://t.me/hazzus">@hazzus</a></li>
+<li>Захар Коваль <a href="https://t.me/StarOrpheus">@StarOrpheus</a></li>
+<li>Джиблави Ибрагим <a href="https://t.me/c1c9c7bi1">@c1c9c7bi1</a></li>
+</ul>
+<h2><a class="header" href="#С" id="С">С++</a></h2>
+<ul>
+<li><a href="http://sorokin.github.io/cpp-course/">Начало начал</a> —  :)</li>
+<li><a href="http://sorokin.github.io/cpp-course/3rd-sem-plan-draft">2020 draft</a> —  описание осеннего курса (3 семестр)</li>
+</ul>
+<h2><a class="header" href="#organization" id="organization">Organization</a></h2>
+<ul>
+<li><strong>Slack &amp; Discord</strong> —  можно получить у преподавателей (анонсы, вопросы, сдача экзамена, проведение практик)</li>
+<li><a href="https://drive.google.com/drive/folders/1G9DQnAa3LQCZn63yAuLQ96Q8AWDbzEdk">GoogleDrive</a> —  все нужные вам формы и таблицы
+<ul>
+<li><a href="https://docs.google.com/spreadsheets/d/1IZ-othuxxx07whw1N3ZewSyZbsg1gaGggW8MIUlq47M/edit?usp=drive_web&amp;ouid=104557952189311120441">Баллы</a> —  текущая успеваемость</li>
+<li><a href="https://docs.google.com/forms/d/1BYw4O-rTU-5Ot5tLzRO8vgk1c83mzJRPqOHya02mxjc">Запись на сдачу дз и практик</a></li>
+<li><a href="https://docs.google.com/forms/d/1Hb5f-MzoYz9QpprGTdpWU2xeZhbPALTD5_XKP-HPhO8/edit?usp=drive_web">Match github and student</a></li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#lectures" id="lectures">Lectures</a></h2>
+<ul>
+<li><a href="https://www.twitch.tv/sorokin_ivan">Twitch</a> — лекции &amp; разборы практик</li>
+<li><a href="https://www.youtube.com/playlist?list=PLd7QXkfmSY7YsYNecuoJLsurtqsMNyhNF">Youtube</a> — записи</li>
+<li><a href="https://lejabque.github.io/cpp-notes">cpp-notes</a> — конспекты, ведущиеся руками студентов</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+                            <a rel="next" href="ide.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+                    <a rel="next" href="ide.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
