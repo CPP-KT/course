@@ -6,4 +6,4 @@
   - [QtCreator](./ide/qtcreator.md)
 - [Практики](./practice.md)
 - [Домашние задания](./hw.md)
-  - [bimap](./hw/bimap.md)
+  - [Asm](./hw/asm.md)
