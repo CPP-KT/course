@@ -247,16 +247,16 @@ $ sudo snap install clion --classic
 <p>Нужно убедиться, что вы поставили галочку на <code>Prefer .clang-tidy files over IDE settings</code> чтобы использовать <strong>.clang-tidy</strong> курса.</p>
 </blockquote>
 <p>Path: <code>Settings / Preferences | Editor | Inspections - C/C++, General, Clang-Tidy</code></p>
-<p><img src="ide/images/clang-tidy-clion.png" alt="clang-tidy-clion" /></p>
+<p><img src="ide/../images/clang-tidy-clion.png" alt="clang-tidy-clion" /></p>
 <h2><a class="header" href="#a-hrefhttpswwwjetbrainscomhelpclionclangformat-as-alternative-formatterhtmlclang-formata" id="a-hrefhttpswwwjetbrainscomhelpclionclangformat-as-alternative-formatterhtmlclang-formata"><a href="https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html">clang-format</a></a></h2>
 <p><strong>Clion</strong> имеет встроенный (альтернативный) <em>clang-format</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
 <blockquote>
 <p>Нужно убедиться, что вы поставили галочку на <code>Enable ClangFormat (only for C/C++/Objective-C</code> чтобы использовать <strong>.clang-format</strong> курса.</p>
 </blockquote>
 <p>Path: <code>Settings / Preferences | Editor | Code Style - ClangFormat</code></p>
-<p><img src="ide/images/clang-format-clion.png" alt="clang-format-clion" /></p>
+<p><img src="ide/../images/clang-format-clion.png" alt="clang-format-clion" /></p>
 <p>Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
-<img src="ide/images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
+<img src="ide/../images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
 <h1><a class="header" href="#qtcreator" id="qtcreator">QtCreator</a></h1>
 <h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-getting-startedhtmlУстановкаa" id="a-hrefhttpsdocqtioqtcreatorcreator-getting-startedhtmlУстановкаa"><a href="https://doc.qt.io/qtcreator/creator-getting-started.html">Установка</a></a></h2>
 <p>Есть мануал на официальном сайте (ссылка в header-e - кликабельна). <a href="https://www.qt.io/offline-installers">Здесь</a> можно найти offline установщики Qt (в который собственно и входит Creator) для Windows и Linux/MacOS. </p>
@@ -269,16 +269,16 @@ $ sudo snap install clion --classic
 <p>Чтобы использовать <strong>.clang-tidy</strong> курса, к сожалению, нужно будет копипастнуть наш файлик в Edit checks as string (смотрите конец инструкции в header - e)</p>
 </blockquote>
 <p>До настроек clang-tidy можно добраться через Tools -&gt; Options -&gt; Analyzer -&gt; Diagnostic Configuration</p>
-<p><img src="ide/images/clang-tidy-qtcreator.png" alt="clang-tidy-qtcreator" /></p>
+<p><img src="ide/../images/clang-tidy-qtcreator.png" alt="clang-tidy-qtcreator" /></p>
 <p>Там нужно будет создать копию и нажать Edit checks as string, куда вставить содержимое нашего файлика.</p>
-<p><img src="ide/images/clang-tidy-qtcreator-2.png" alt="clang-tidy-qtcreator-2" /></p>
+<p><img src="ide/../images/clang-tidy-qtcreator-2.png" alt="clang-tidy-qtcreator-2" /></p>
 <h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-beautifierhtmlclang-formata" id="a-hrefhttpsdocqtioqtcreatorcreator-beautifierhtmlclang-formata"><a href="https://doc.qt.io/qtcreator/creator-beautifier.html">clang-format</a></a></h2>
 <p>Для установки автоматического форматирования кода в <strong>QtCreator</strong> нужен плагин Beautifier. О том как его установить можно почитать по ссылке.</p>
 <blockquote>
 <p>Рекомендуем поставить галочку на  <code>Enable auto format on file save</code></p>
 </blockquote>
 <p>После перезапуска QtCreator идем в Tools -&gt; Options -&gt; Beautifier -&gt; ClangFormat. Если у вас не стоит clang-format, его нужно поставить, в Ubuntu это <code>sudo apt install clang-format</code>. Далее в Options в <code>Use predefinde styles</code> выбираем опцию <code>File</code> вместо <code>LLVM</code></p>
-<p><img src="ide/images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
+<p><img src="ide/../images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
 <h1><a class="header" href="#Практики" id="Практики">Практики</a></h1>
 <p>Здесь перечислены описания практик и ссылки на Github / GithubClassroom</p>
 <blockquote>
