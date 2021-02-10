@@ -7,5 +7,5 @@
   - [QtCreator](./ide/qtcreator.md)
 - [Инструкция по работе с Classroom](./instruction.md)
 - [Практики](./practice.md)
-- [Домашние задания]()
-  - [Asm](./hw/asm.md)
+- [Домашние задания](./hw.md)
+  * [Asm](./hw/asm.md)
