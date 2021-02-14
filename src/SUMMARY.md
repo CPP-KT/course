@@ -8,5 +8,3 @@
 - [Инструкция по работе с Classroom](./instruction.md)
 - [Практики](./practice.md)
 - [Домашние задания](./hw.md)
-  * [Asm]()
-  * [BigInteger]()
