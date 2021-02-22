@@ -22,5 +22,3 @@
 * [Youtube](https://www.youtube.com/playlist?list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4) — записи лекций
 * [cpp-notes](https://lejabque.github.io/cpp-notes) — конспекты студентов прошлого года
 
-## Classroom с ДЗ и практиками
-* [wordcount](https://classroom.github.com/a/nd-HY2xi)
