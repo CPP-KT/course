@@ -1,6 +1,7 @@
 # План лекций
 
-## Лекция 1 <sup>[[видео 1]](https://www.youtube.com/watch?v=XA7MgOfJ45g&list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&index=1)</sup> <sup>[[видео 2]](https://www.youtube.com/watch?v=B3o7gt1o_cI&list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&index=2)</sup> [^zubkov]
+## Лекция 1 [^zubkov]
+Видео [1](https://www.youtube.com/watch?v=XA7MgOfJ45g&list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&index=1) [2](https://www.youtube.com/watch?v=B3o7gt1o_cI&list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&index=2), Презентация [pdf](lecture-1f.pdf) [odf](lecture-1f.odf)
 
 * i8086
 * регистры общего назначения, регистр IP
@@ -16,7 +17,8 @@
 * деление на константу не используя, команду div [^hackers_delight]
 * инструкции для длинной арифменики: adc, sbb
 
-## Лекция 2 <sup>[[видео 1]](https://www.youtube.com/watch?v=BBruh_iOxjY&list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&index=3)</sup> <sup>[[видео 2]](https://www.youtube.com/watch?v=i8jYRexvORg&list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&index=4)</sup> [^zubkov]
+## Лекция 2 [^zubkov]
+Видео [1](https://www.youtube.com/watch?v=BBruh_iOxjY&list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&index=3) [2](https://www.youtube.com/watch?v=i8jYRexvORg&list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&index=4), Презентация [pdf](lecture-2c.pdf) [odf](lecture-2c.odf)
 
 * регистр SP и команды для работы со стеком (push, pop)
 * команды call и ret
