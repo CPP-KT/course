@@ -94,7 +94,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="lectures.html"><strong aria-hidden="true">4.</strong> План лекций</a></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">5.</strong> Инструкция по работе с Classroom</a></li><li class="chapter-item expanded "><a href="practice.html"><strong aria-hidden="true">6.</strong> Практики</a></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">7.</strong> Домашние задания</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по работе с Classroom</a></li><li class="chapter-item expanded "><a href="practice.html"><strong aria-hidden="true">5.</strong> Практики</a></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">6.</strong> Домашние задания</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -281,74 +281,6 @@ $ sudo snap install clion --classic
 </blockquote>
 <p>После перезапуска QtCreator идем в Tools -&gt; Options -&gt; Beautifier -&gt; ClangFormat. Если у вас не стоит clang-format, его нужно поставить, в Ubuntu это <code>sudo apt install clang-format</code>. Далее в Options в <code>Use predefinde styles</code> выбираем опцию <code>File</code> вместо <code>LLVM</code></p>
 <p><img src="ide/../images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
-<h1><a class="header" href="#План-лекций" id="План-лекций">План лекций</a></h1>
-<h2><a class="header" href="#Лекция-1-sup-classfootnote-referencea-hrefzubkov1asup" id="Лекция-1-sup-classfootnote-referencea-hrefzubkov1asup">Лекция 1 <sup class="footnote-reference"><a href="#zubkov">1</a></sup></a></h2>
-<p>Видео <a href="https://www.youtube.com/watch?v=XA7MgOfJ45g&amp;list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&amp;index=1">1</a>, <a href="https://www.youtube.com/watch?v=B3o7gt1o_cI&amp;list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&amp;index=2">2</a>. Презентация <a href="lecture-1f.pdf">pdf</a>, <a href="lecture-1f.odf">odf</a>.</p>
-<ul>
-<li>i8086</li>
-<li>регистры общего назначения, регистр IP</li>
-<li>операция mov, понятие endian</li>
-<li>распространенные арифметические операции: add, sub, [i]mul, [i]div, inc, dec, neg</li>
-<li>битовые операции, сдвиги: not, and, or, xor, shl, shr, sar</li>
-<li>команды безусловных переходов</li>
-<li>регистр флагов и некоторые биты в нём (ZF, CF, OF, SF)</li>
-<li>команды условных переходов</li>
-<li>команды cmp и test</li>
-<li>i80386, 32-битные регистры</li>
-<li>операция lea</li>
-<li>деление на константу не используя, команду div <sup class="footnote-reference"><a href="#hackers_delight">2</a></sup></li>
-<li>инструкции для длинной арифменики: adc, sbb</li>
-</ul>
-<h2><a class="header" href="#Лекция-2-sup-classfootnote-referencea-hrefzubkov1asup" id="Лекция-2-sup-classfootnote-referencea-hrefzubkov1asup">Лекция 2 <sup class="footnote-reference"><a href="#zubkov">1</a></sup></a></h2>
-<p>Видео <a href="https://www.youtube.com/watch?v=BBruh_iOxjY&amp;list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&amp;index=3">1</a>, <a href="https://www.youtube.com/watch?v=i8jYRexvORg&amp;list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4&amp;index=4">2</a>. Презентация <a href="lecture-2c.pdf">pdf</a>, <a href="lecture-2c.odf">odf</a>.</p>
-<ul>
-<li>регистр SP и команды для работы со стеком (push, pop)</li>
-<li>команды call и ret</li>
-<li>передача параметров через стек, чистка стека от параметров</li>
-<li>соглашения вызова функций <sup class="footnote-reference"><a href="#agner_fog_calling_conventions">3</a></sup></li>
-<li>регистр BP, стековый фрейм <sup class="footnote-reference"><a href="#eli_bendersky_stackframe_layout">4</a></sup> <sup class="footnote-reference"><a href="#adam_langley_cfe_directives">5</a></sup></li>
-</ul>
-<h2><a class="header" href="#Лекция-3" id="Лекция-3">Лекция 3</a></h2>
-<ul>
-<li>кеш-память <sup class="footnote-reference"><a href="#ulrich_drepper_memory">6</a></sup> <sup class="footnote-reference"><a href="#tony_albrecht_pitfalls">7</a></sup> <sup class="footnote-reference"><a href="#paul_mckenney_mem_barriers">8</a></sup></li>
-<li>translation lookaside buffer</li>
-<li>спекулятивное исполнение команд <sup class="footnote-reference"><a href="#yann_collet">9</a></sup> <sup class="footnote-reference"><a href="#popcount">10</a></sup></li>
-<li>branch prediction <sup class="footnote-reference"><a href="#branch_prediction_stackoverflow">11</a></sup></li>
-<li>выравнивание</li>
-</ul>
-<div class="footnote-definition" id="zubkov"><sup class="footnote-definition-label">1</sup>
-<p>С. В. Зубков — Assembler для DOS, Windows, UNIX</p>
-</div>
-<div class="footnote-definition" id="hackers_delight"><sup class="footnote-definition-label">2</sup>
-<p>Henry S. Warren, Jr. — Hacker's Delight</p>
-</div>
-<div class="footnote-definition" id="agner_fog_calling_conventions"><sup class="footnote-definition-label">3</sup>
-<p><a href="http://www.agner.org/optimize/calling_conventions.pdf">Agner Fog — Calling conventions for different C++ compilers and operating systems</a></p>
-</div>
-<div class="footnote-definition" id="eli_bendersky_stackframe_layout"><sup class="footnote-definition-label">4</sup>
-<p><a href="http://eli.thegreenplace.net/2011/09/06/stack-frame-layout-on-x86-64">Eli Bendersky — Stack frame layout on x86-64</a></p>
-</div>
-<div class="footnote-definition" id="adam_langley_cfe_directives"><sup class="footnote-definition-label">5</sup>
-<p><a href="https://www.imperialviolet.org/2017/01/18/cfi.html">Adam Langley — CFI directives in assembly files</a></p>
-</div>
-<div class="footnote-definition" id="ulrich_drepper_memory"><sup class="footnote-definition-label">6</sup>
-<p><a href="http://people.redhat.com/drepper/cpumemory.pdf">Ulrich Drepper — What Every Programmer Should Know About Memory</a></p>
-</div>
-<div class="footnote-definition" id="tony_albrecht_pitfalls"><sup class="footnote-definition-label">7</sup>
-<p><a href="http://research.scee.net/files/presentations/gcapaustralia09/Pitfalls_of_Object_Oriented_Programming_GCAP_09.pdf">Tony Albrecht — Pitfalls of Object Oriented Programming</a></p>
-</div>
-<div class="footnote-definition" id="paul_mckenney_mem_barriers"><sup class="footnote-definition-label">8</sup>
-<p><a href="http://www.rdrop.com/users/paulmck/scalability/paper/whymb.2010.06.07c.pdf">Paul E. McKenney — Memory Barriers: A Hardware View for Software Hackers</a></p>
-</div>
-<div class="footnote-definition" id="yann_collet"><sup class="footnote-definition-label">9</sup>
-<p><a href="http://fastcompression.blogspot.ru/2014/09/counting-bytes-fast-little-trick-from.html">Yann Collet — Counting bytes fast — little trick from FSE</a></p>
-</div>
-<div class="footnote-definition" id="popcount"><sup class="footnote-definition-label">10</sup>
-<p><a href="https://stackoverflow.com/questions/25078285/replacing-a-32-bit-loop-count-variable-with-64-bit-introduces-crazy-performance">POPCOUNT false dependency bug</a></p>
-</div>
-<div class="footnote-definition" id="branch_prediction_stackoverflow"><sup class="footnote-definition-label">11</sup>
-<p><a href="https://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-processing-an-unsorted-array">Why is processing a sorted array faster than processing an unsorted array?</a></p>
-</div>
 <h1><a class="header" href="#Инструкция-по-работе-с-classroom" id="Инструкция-по-работе-с-classroom">Инструкция по работе с Classroom</a></h1>
 <p>В рамках курса вам будут предложены домашние задания и практики. В большинстве случаев сдача происходит с помощью GitHub.Classroom.</p>
 <h2><a class="header" href="#Настройка-репозитория-с-заданием" id="Настройка-репозитория-с-заданием">Настройка репозитория с заданием</a></h2>
