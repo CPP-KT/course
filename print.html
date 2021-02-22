@@ -306,12 +306,26 @@ $ sudo snap install clion --classic
 <li>соглашения вызова функций <sup class="footnote-reference"><a href="#agner_fog_calling_conventions">3</a></sup></li>
 <li>регистр BP, стековый фрейм <sup class="footnote-reference"><a href="#eli_bendersky_stackframe_layout">4</a></sup> <sup class="footnote-reference"><a href="#adam_langley_cfe_directives">5</a></sup></li>
 </ul>
+<h2><a class="header" href="#Лекция-3" id="Лекция-3">Лекция 3</a></h2>
+<ul>
+<li>кеш-память <sup class="footnote-reference"><a href="#ulrich_drepper_memory">6</a></sup> <sup class="footnote-reference"><a href="#tony_albrecht_pitfalls">7</a></sup> <sup class="footnote-reference"><a href="#paul_mckenney_mem_barriers">8</a></sup></li>
+<li>translation lookaside buffer</li>
+<li>спекулятивное исполнение команд <sup class="footnote-reference"><a href="#yann_collet">9</a></sup> <sup class="footnote-reference"><a href="#popcount">10</a></sup></li>
+<li>branch prediction <sup class="footnote-reference"><a href="#branch_prediction_stackoverflow">11</a></sup></li>
+<li>выравнивание</li>
+</ul>
 <div class="footnote-definition" id="zubkov"><sup class="footnote-definition-label">1</sup>
 <p>С. В. Зубков — Assembler для DOS, Windows, UNIX
 <sup class="footnote-reference"><a href="#hackers_delight">2</a></sup>: Henry S. Warren, Jr. — Hacker's Delight
 <sup class="footnote-reference"><a href="#agner_fog_calling_conventions">3</a></sup>: <a href="http://www.agner.org/optimize/calling_conventions.pdf">Agner Fog — Calling conventions for different C++ compilers and operating systems</a>
 <sup class="footnote-reference"><a href="#eli_bendersky_stackframe_layout">4</a></sup>: <a href="http://eli.thegreenplace.net/2011/09/06/stack-frame-layout-on-x86-64">Eli Bendersky — Stack frame layout on x86-64</a>
-<sup class="footnote-reference"><a href="#adam_langley_cfe_directives">5</a></sup>: <a href="https://www.imperialviolet.org/2017/01/18/cfi.html">Adam Langley — CFI directives in assembly files</a></p>
+<sup class="footnote-reference"><a href="#adam_langley_cfe_directives">5</a></sup>: <a href="https://www.imperialviolet.org/2017/01/18/cfi.html">Adam Langley — CFI directives in assembly files</a>
+<sup class="footnote-reference"><a href="#ulrich_drepper_memory">6</a></sup>: <a href="http://people.redhat.com/drepper/cpumemory.pdf">Ulrich Drepper — What Every Programmer Should Know About Memory</a>
+<sup class="footnote-reference"><a href="#tony_albrecht_pitfalls">7</a></sup>: <a href="http://research.scee.net/files/presentations/gcapaustralia09/Pitfalls_of_Object_Oriented_Programming_GCAP_09.pdf">Tony Albrecht — Pitfalls of Object Oriented Programming</a>
+<sup class="footnote-reference"><a href="#paul_mckenney_mem_barriers">8</a></sup>: <a href="http://www.rdrop.com/users/paulmck/scalability/paper/whymb.2010.06.07c.pdf">Paul E. McKenney — Memory Barriers: A Hardware View for Software Hackers</a>
+<sup class="footnote-reference"><a href="#yann_collet">9</a></sup>: <a href="http://fastcompression.blogspot.ru/2014/09/counting-bytes-fast-little-trick-from.html">Yann Collet — Counting bytes fast — little trick from FSE</a>
+<sup class="footnote-reference"><a href="#popcount">10</a></sup>: <a href="https://stackoverflow.com/questions/25078285/replacing-a-32-bit-loop-count-variable-with-64-bit-introduces-crazy-performance">POPCOUNT false dependency bug</a>
+<sup class="footnote-reference"><a href="#branch_prediction_stackoverflow">11</a></sup>: <a href="https://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-processing-an-unsorted-array">Why is processing a sorted array faster than processing an unsorted array?</a></p>
 </div>
 <h1><a class="header" href="#Инструкция-по-работе-с-classroom" id="Инструкция-по-работе-с-classroom">Инструкция по работе с Classroom</a></h1>
 <p>В рамках курса вам будут предложены домашние задания и практики. В большинстве случаев сдача происходит с помощью GitHub.Classroom.</p>
