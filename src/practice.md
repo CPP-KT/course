@@ -6,4 +6,7 @@
 * **Wordcount** - утилита на ассемблере для подсчёта числа слов в потоке.
   - [Базовый репозиторий](https://github.com/CPP-KT/wordcount-task)
   - [Инвайт-ссылка в Classroom](https://classroom.github.com/a/nd-HY2xi)
+* **Substr** - утилита для поиска подстроки в файле
+  - [Базовый репозиторий](https://github.com/CPP-KT/substr-task)
+  - [Инвайт-ссылка в Classroom](https://classroom.github.com/a/aOabNLgO)
 <!--- * [vector](https://github.com/CPP-KT/vector-task) --->
