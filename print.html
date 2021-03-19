@@ -293,7 +293,9 @@ $ sudo snap install clion --classic
 <ul>
 <li>После <strong>первого</strong> клона (вообще, а не на какой-то конкретной машине) нужно инициализировать ветки запуском соответствующего скрипта из корня репозитория:</li>
 </ul>
-<pre><code class="language-bash">$ ./init-repo.sh
+<pre><code class="language-bash">$ chmod +x init-repo.sh
+$ chmod +x update-repo.sh
+$ ./init-repo.sh
 </code></pre>
 <ul>
 <li>После этого вы можете коммитить в любые ветки кроме <code>feedback</code>, которая будет соответствовать <code>upstream/master</code></li>
