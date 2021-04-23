@@ -8,7 +8,7 @@
 
 * **bigint** - длинная арифметика на C++.
   - [Базовый репозиторий](https://github.com/CPP-KT/bigint-task)
-  - [Инвайт-ссылка в Classroom](http://gg.gg/invite-link)
+  - [Инвайт-ссылка в Classroom](https://classroom.github.com/a/MYHhhqxI)
 
 <!--- * [socow-vector]() --->
 <!--- * [huffman]() --->
