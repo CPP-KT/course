@@ -1,5 +1,5 @@
 # Баллы
-Если у вас есть вопросы касательно [таблицы с баллами](https://docs.google.com/spreadsheets/d/12jj_c9I0ADXCCwSTWByGx7-pwjFqnlYGnp-YIvD_Seo/edit?usp=sharing) (например, вы себя не нашли) пишите [Паше](https://t.me/hazzus).  
+Если у вас есть вопросы касательно [таблицы с баллами](https://docs.google.com/spreadsheets/d/1mmIbj4lRYsUuXXuk2cAaZRjAjQvhpY3aR3rXM73xTFw/edit#gid=0) (например, вы себя не нашли) пишите [Паше](https://t.me/hazzus).  
 
 Подробнее о балльно-рейтинговой системе:
 * Оценка это ваши баллы за практическую часть + домашние задания + экзамен
