@@ -287,20 +287,22 @@ $ sudo snap install clion --classic
 <p>После перезапуска QtCreator идем в Tools -&gt; Options -&gt; Beautifier -&gt; ClangFormat. Если у вас не стоит clang-format, его нужно поставить, в Ubuntu это <code>sudo apt install clang-format</code>. Далее в Options в <code>Use predefinde styles</code> выбираем опцию <code>File</code> вместо <code>LLVM</code></p>
 <p><img src="ide/../images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
 <h1><a class="header" href="#Инструкция-по-работе-с-classroom" id="Инструкция-по-работе-с-classroom">Инструкция по работе с Classroom</a></h1>
-<p>В рамках курса вам будут предложены домашние задания и практики. В большинстве случаев сдача происходит с помощью GitHub.Classroom.</p>
+<p>В рамках курса вам будут предложены домашние задания и практики. В большинстве случаев сдача происходит с помощью GitHub.Classroom.
+Вам необходимо настроить взаимодействие с репозиторием через SSH-ключи: https://docs.github.com/en/authentication/connecting-to-github-with-ssh</p>
 <h2><a class="header" href="#Настройка-репозитория-с-заданием" id="Настройка-репозитория-с-заданием">Настройка репозитория с заданием</a></h2>
 <ul>
 <li>К каждому заданию будет приложена инвайт-ссылка на GitHub Classroom, после перехода по ней у вас создастся приватный репозиторий со стартовым кодом, тестами и конфигурациями. Склонируйте его и выполняйте задания в нём.</li>
-<li>При каждом клоне вашего репозитория необходимо добавлять базовый (из которого был создан ваш) с помощью следующей команды: </li>
-</ul>
-<pre><code class="language-bash">$ git remote add upstream &lt;link-to-base-repo&gt;
-</code></pre>
-<ul>
 <li>После <strong>первого</strong> клона (вообще, а не на какой-то конкретной машине) нужно инициализировать ветки запуском соответствующего скрипта из корня репозитория:</li>
 </ul>
 <pre><code class="language-bash">$ chmod +x init-repo.sh
 $ ./init-repo.sh
 </code></pre>
+<ul>
+<li>При каждом <strong>следующем</strong> клоне вашего репозитория, если такие вдруг будут, необходимо добавлять базовый (из которого был создан ваш) с помощью следующей команды: </li>
+</ul>
+<pre><code class="language-bash">$ git remote add upstream &lt;link-to-base-repo&gt;
+</code></pre>
+<p>Обратите внимание, что нужно использовать ссылку для ssh вида <code>git@github.com:CPP-KT/wordcount-task.git</code></p>
 <ul>
 <li>После этого вы можете коммитить в любые ветки кроме <code>feedback</code>, которая будет соответствовать <code>upstream/master</code></li>
 </ul>
