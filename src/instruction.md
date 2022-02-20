@@ -2,7 +2,7 @@
 
 В рамках курса вам будут предложены домашние задания и практики. В большинстве случаев сдача происходит с помощью GitHub.Classroom.
 
-Вам необходимо настроить взаимодействие с репозиторием через SSH-ключи: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+Вам необходимо настроить взаимодействие с репозиторием через SSH-ключи [по инструкции от Github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
 ## Настройка репозитория с заданием
 
