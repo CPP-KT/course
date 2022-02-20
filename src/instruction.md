@@ -16,7 +16,7 @@ $ ./init-repo.sh
 ```bash
 $ git remote add upstream <link-to-base-repo>
 ```
-Обратите внимание, что нужно использовать ссылку для ssh вида `git@github.com:CPP-KT/wordcount-task.git`. 
+Обратите внимание, что нужно использовать ссылку для ssh вида `git@github.com:CPP-KT/task-repo.git`. 
 При инициализации репозитория этот шаг делает за вас `init-repo.sh`.
 * После этого вы можете коммитить в любые ветки кроме `feedback`, которая будет соответствовать `upstream/master`
 
