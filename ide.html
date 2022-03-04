@@ -162,12 +162,53 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#ide" id="ide">IDE</a></h1>
+                        <h1><a class="header" href="#ide-и-пакетный-менеджер" id="ide-и-пакетный-менеджер">IDE и пакетный менеджер</a></h1>
+<h2><a class="header" href="#ide" id="ide">IDE</a></h2>
 <p>Вы можете использовать <strong>IDE</strong> по вкусу для выполнения практик/домашних заданий.</p>
 <blockquote>
 <p>Но чтобы ваш код был в определенном стиле и при написании кода вы быстро увидели опечатки/минорные баги - вам предоставлены <strong>.clang-tidy</strong> и <strong>.clang-format</strong> файлы в репозиториях.</p>
 </blockquote>
-<p>В этом разделе описаны этапы конфигурации некоторых <strong>IDE</strong> (рекомендуется <strong>Clion</strong>).</p>
+<p>В подразделах описаны этапы конфигурации некоторых <strong>IDE</strong> (рекомендуется <strong>Clion</strong>).</p>
+<h2><a class="header" href="#Пакетный-менеджер" id="Пакетный-менеджер">Пакетный менеджер</a></h2>
+<p>Пакетный менеджер нужен для упраления зависимостями в проекте. В рамках данного курса мы будет использовать для этих целей vcpkg.</p>
+<p>vcpkg - это не только инструмент, но и репозиторий с рецептами пакетов, который нужно склонировать.</p>
+<pre><code class="language-bash">git clone https://github.com/microsoft/vcpkg 
+./vcpkg/bootstrap-vcpkg.sh
+</code></pre>
+<p>или <code>.\vcpkg\bootstrap-vcpkg.bat</code> для Windows</p>
+<p>Далее будет удобно добавить <code>./vcpkg/vcpkg</code> в <code>PATH</code>:</p>
+<pre><code class="language-bash">sudo ln -s &quot;$(pwd)/vcpkg/vcpkg&quot; /usr/bin/vcpkg
+</code></pre>
+<p>Самая главная команда vcpkg:</p>
+<pre><code class="language-bash">vcpkg help
+</code></pre>
+<p>Чтобы узнать список установленных библиотек, используйте:</p>
+<pre><code class="language-bash">vcpkg list
+</code></pre>
+<p>Для поиска конкретного пакета можно воспользоваться <code>vcpkg search</code>, например:</p>
+<pre><code class="language-bash">vcpkg search benchmark
+benchmark                1.6.0#1          A library to support the benchmarking of functions, similar to unit-tests.
+celero                   2.8.2#1          Celero is a modern cross-platform (Windows, Linux, MacOS) Microbenchmarkin...
+hayai                    2019-08-10#1     C++ benchmarking framework
+...
+</code></pre>
+<p>Поиск рецептов будет осуществляется в скачанном репозитории, так что если ваши рецепты устарели - сделайте <code>git pull</code>.</p>
+<p>Чтобы обновить пакеты помогут команды <code>vcpkg update</code> и <code>vcpkg upgrade</code>. Обновите <strong>установленные</strong> пакеты:</p>
+<pre><code class="language-bash">vcpkg upgrade --no-dry-run
+</code></pre>
+<p>Установить пакет можно при помощи команды <code>vcpkg install</code>:</p>
+<pre><code class="language-bash">vcpkg install benchmark
+</code></pre>
+<p>Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть <code>./vcpkg/ports/PACKAGE_NAME</code>. Чтобы понять в какой конфигурации --- ознакомьтесь с <code>vcpkg help triplets</code>, а также со скриптами триплетов, которые находятся в <code>./vcpkg/triplets/</code>.
+После исполнения команды, вам скорее всего подскажут как использовать этот пакет, вроде:</p>
+<pre><code class="language-CMake">find_package(benchmark CONFIG REQUIRED)
+target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_main)
+</code></pre>
+<p>Если вы повторите команду <code>vcpkg install</code>, то он напишет, что пакет установлен, и продублирует сообщение <code>find_package(...</code>. И если вы добавите этот код в ваш CMakeLists.txt, то ничего не заработает! </p>
+<p>Нужно подсказать CMake где хранятся find-package скрипты из vcpkg. Для этого используется следующий флаг при конфигурации cmake (<code>D:\src\vcpkg</code> в данном примере в качестве полного путь до <code>vcpkg</code> директории, <strong>замените на свой!</strong>): </p>
+<pre><code class="language-bash">-DCMAKE_TOOLCHAIN_FILE=D:\src\vcpkg\scripts\buildsystems\vcpkg.cmake
+</code></pre>
+<p>В дополнение к ручной остановке пакетов можно в каждом проекте создать манифест в файле <code>vcpkg.json</code>, в котором явно перечисляются все зависимости. CMake, интегрированный с vcpkg, как было показано выше, в таком случае сам установит и соберёт все необходимые зависимости. В нашем в курсе используется именно этот вариант.</p>
 
                     </main>
 
