@@ -186,6 +186,32 @@ $ sudo snap install clion --classic
 <p><img src="../images/clang-format-clion.png" alt="clang-format-clion" /></p>
 <p>Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
 <img src="../images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
+<h2><a class="header" href="#Интеграция-с-vcpkg-и-cmake-preets" id="Интеграция-с-vcpkg-и-cmake-preets">Интеграция с vcpkg и CMake preets</a></h2>
+<p>Для начала нам нужно попасть в окно конфигурации CMake. Это происходит автоматически при первом открытии проекта или же можно найти в <code>File</code>-&gt;<code>Settings</code>-&gt;<code>Build,Execution...</code>-&gt;<code>CMake</code></p>
+<p><img src="../images/cmake-configure.png" alt="cmake-configure" /></p>
+<p>Для интеграции с vcpkg вне зависимости от сборки вам нужно в <code>CMake options</code> добавить <code>-DCMAKE_TOOLCHAIN_FILE=&lt;path-to-vcpkg&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake</code></p>
+<p>Далее добавляем три основные конфигурации, каждый раз нажимая на плюсик для создания новой конфигурации:</p>
+<ul>
+<li>Debug
+<ul>
+<li><code>Build type</code>: <code>Debug</code></li>
+<li>В <code>CMake options</code> добавляем <code>--preset Debug</code></li>
+</ul>
+</li>
+<li>Release
+<ul>
+<li><code>Build type</code>: <code>Release</code></li>
+<li>В <code>CMake options</code> добавляем <code>--preset Release</code></li>
+</ul>
+</li>
+<li>SanitizedDebug
+<ul>
+<li><code>Build type</code>: <code>Debug</code></li>
+<li>В <code>CMake options</code> добавляем <code>--preset SanitizedDebug</code></li>
+</ul>
+</li>
+</ul>
+<p>Если после добавление конфигураций CMake падает с ошибкой при попытке сконфигурироваться, то нужно в каждой конфигурации указать в качестве <code>Build directory</code> папку вида <code>cmake-build-&lt;configuration-name&gt;</code></p>
 <h2><a class="header" href="#Полезные-ссылки" id="Полезные-ссылки">Полезные ссылки</a></h2>
 <ul>
 <li><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000919039-Clion-how-to-build-cmake-to-support-debug-release">Выбор конфигурации сборки</a>. Чем сборка в дебаге отличается от сборки в релизе, рассказывают <a href="https://youtu.be/LXdAN2f3KX0?list=PLd7QXkfmSY7akIHUbZ-zT9pG-G3zIGQBh">в 3 семестре на курсе операционных систем</a>.</li>
