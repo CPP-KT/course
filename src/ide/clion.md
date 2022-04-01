@@ -42,15 +42,15 @@ Path: `Settings / Preferences | Editor | Code Style - ClangFormat`
 Для интеграции с vcpkg вне зависимости от сборки вам нужно в `CMake options` добавить `-DCMAKE_TOOLCHAIN_FILE=<path-to-vcpkg>/vcpkg/scripts/buildsystems/vcpkg.cmake`
 
 Далее добавляем три основные конфигурации, каждый раз нажимая на плюсик для создания новой конфигурации:
-* Debug
-  * `Build type`: `Debug`
-  * В `CMake options` добавляем `--preset Debug`
 * Release
   * `Build type`: `Release`
   * В `CMake options` добавляем `--preset Release`
 * SanitizedDebug
   * `Build type`: `Debug`
   * В `CMake options` добавляем `--preset SanitizedDebug`
+* RelWithDebInfo
+  * `Build type`: `RelWithDebInfo`
+  * В `CMake options` добавляем `--preset RelWithDebInfo`
 
 Если после добавление конфигураций CMake падает с ошибкой при попытке сконфигурироваться, то нужно в каждой конфигурации указать в качестве `Build directory` папку вида `cmake-build-<configuration-name>`
 
