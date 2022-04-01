@@ -301,12 +301,6 @@ $ sudo snap install clion --classic
 <p>Для интеграции с vcpkg вне зависимости от сборки вам нужно в <code>CMake options</code> добавить <code>-DCMAKE_TOOLCHAIN_FILE=&lt;path-to-vcpkg&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake</code></p>
 <p>Далее добавляем три основные конфигурации, каждый раз нажимая на плюсик для создания новой конфигурации:</p>
 <ul>
-<li>Debug
-<ul>
-<li><code>Build type</code>: <code>Debug</code></li>
-<li>В <code>CMake options</code> добавляем <code>--preset Debug</code></li>
-</ul>
-</li>
 <li>Release
 <ul>
 <li><code>Build type</code>: <code>Release</code></li>
@@ -317,6 +311,12 @@ $ sudo snap install clion --classic
 <ul>
 <li><code>Build type</code>: <code>Debug</code></li>
 <li>В <code>CMake options</code> добавляем <code>--preset SanitizedDebug</code></li>
+</ul>
+</li>
+<li>RelWithDebInfo
+<ul>
+<li><code>Build type</code>: <code>RelWithDebInfo</code></li>
+<li>В <code>CMake options</code> добавляем <code>--preset RelWithDebInfo</code></li>
 </ul>
 </li>
 </ul>
