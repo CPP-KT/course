@@ -53,7 +53,8 @@ vcpkg upgrade --no-dry-run
 ```bash
 vcpkg install benchmark
 ```
-Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть `./vcpkg/ports/PACKAGE_NAME`. Чтобы понять в какой конфигурации --- ознакомьтесь с `vcpkg help triplets`, а также со скриптами триплетов, которые находятся в `./vcpkg/triplets/`.
+Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть `./vcpkg/ports/PACKAGE_NAME`. Чтобы понять в какой конфигурации --- ознакомьтесь с `vcpkg help triplets`, а также со скриптами триплетов, которые находятся в `./vcpkg/triplets/`. 
+По умолчанию на Windows используется MS тулчейн (MSVC/clang-cl), для работы с MinGW нужно явно указать параметр `--triplet=x64-mingw-dynamic` при выполнении `vcpkg install`
 После исполнения команды, вам скорее всего подскажут как использовать этот пакет, вроде:
 ```CMake
 find_package(benchmark CONFIG REQUIRED)
@@ -65,5 +66,7 @@ target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_mai
 ```bash
 -DCMAKE_TOOLCHAIN_FILE=D:\src\vcpkg\scripts\buildsystems\vcpkg.cmake
 ```
+
+Также, если вы пользуетесь Windows, нужно добавить `-DVCPKG_TARGET_TRIPLET=x64-mingw-static` для тулчейна MinGW и `-DVCPKG_TARGET_TRIPLET=x64-windows-static` для тулчейна MSVC/clang-cl
 
 В дополнение к ручной остановке пакетов можно в каждом проекте создать манифест в файле `vcpkg.json`, в котором явно перечисляются все зависимости. CMake, интегрированный с vcpkg, как было показано выше, в таком случае сам установит и соберёт все необходимые зависимости. В нашем в курсе используется именно этот вариант.
