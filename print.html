@@ -261,7 +261,8 @@ hayai                    2019-08-10#1     C++ benchmarking framework
 <p>Установить пакет можно при помощи команды <code>vcpkg install</code>:</p>
 <pre><code class="language-bash">vcpkg install benchmark
 </code></pre>
-<p>Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть <code>./vcpkg/ports/PACKAGE_NAME</code>. Чтобы понять в какой конфигурации --- ознакомьтесь с <code>vcpkg help triplets</code>, а также со скриптами триплетов, которые находятся в <code>./vcpkg/triplets/</code>.
+<p>Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть <code>./vcpkg/ports/PACKAGE_NAME</code>. Чтобы понять в какой конфигурации --- ознакомьтесь с <code>vcpkg help triplets</code>, а также со скриптами триплетов, которые находятся в <code>./vcpkg/triplets/</code>. 
+По умолчанию на Windows используется MS тулчейн (MSVC/clang-cl), для работы с MinGW нужно явно указать параметр <code>--triplet=x64-mingw-dynamic</code> при выполнении <code>vcpkg install</code>
 После исполнения команды, вам скорее всего подскажут как использовать этот пакет, вроде:</p>
 <pre><code class="language-CMake">find_package(benchmark CONFIG REQUIRED)
 target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_main)
@@ -270,6 +271,7 @@ target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_mai
 <p>Нужно подсказать CMake где хранятся find-package скрипты из vcpkg. Для этого используется следующий флаг при конфигурации cmake (<code>D:\src\vcpkg</code> в данном примере в качестве полного путь до <code>vcpkg</code> директории, <strong>замените на свой!</strong>): </p>
 <pre><code class="language-bash">-DCMAKE_TOOLCHAIN_FILE=D:\src\vcpkg\scripts\buildsystems\vcpkg.cmake
 </code></pre>
+<p>Также, если вы пользуетесь Windows, нужно добавить <code>-DVCPKG_TARGET_TRIPLET=x64-mingw-static</code> для тулчейна MinGW и <code>-DVCPKG_TARGET_TRIPLET=x64-windows-static</code> для тулчейна MSVC/clang-cl</p>
 <p>В дополнение к ручной остановке пакетов можно в каждом проекте создать манифест в файле <code>vcpkg.json</code>, в котором явно перечисляются все зависимости. CMake, интегрированный с vcpkg, как было показано выше, в таком случае сам установит и соберёт все необходимые зависимости. В нашем в курсе используется именно этот вариант.</p>
 <h1><a class="header" href="#clion" id="clion">CLion</a></h1>
 <p>Крайне рекомендуется пользоваться EAP версией, ибо имеено в ней все свежие фиксы и фичи.</p>
