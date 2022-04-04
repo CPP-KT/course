@@ -190,6 +190,8 @@ $ sudo snap install clion --classic
 <p>Для начала нам нужно попасть в окно конфигурации CMake. Это происходит автоматически при первом открытии проекта или же можно найти в <code>File</code>-&gt;<code>Settings</code>-&gt;<code>Build,Execution...</code>-&gt;<code>CMake</code></p>
 <p><img src="../images/cmake-configure.png" alt="cmake-configure" /></p>
 <p>Для интеграции с vcpkg вне зависимости от сборки вам нужно в <code>CMake options</code> добавить <code>-DCMAKE_TOOLCHAIN_FILE=&lt;path-to-vcpkg&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake</code></p>
+<p>Также, если вы пользуетесь Windows, нужно добавить <code>-DVCPKG_TARGET_TRIPLET=x64-mingw-static</code> для тулчейна MinGW и <code>-DVCPKG_TARGET_TRIPLET=x64-windows-static</code> для тулчейна MSVC/clang-cl.
+Дело в том, что по умолчанию vcpkg на Windows использует MS тулчейн и установленные с ним библиотеки не будут линковаться при сборке с тулчейном MinGW.</p>
 <p>Далее добавляем три основные конфигурации, каждый раз нажимая на плюсик для создания новой конфигурации:</p>
 <ul>
 <li>Release
