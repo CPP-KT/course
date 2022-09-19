@@ -5,11 +5,7 @@
 
 Преподаватели практики и контакты:
 * Лев Довжик [@Dogzik](https://t.me/Dogzik)
-* Нурсан Валеев [@Tindarid](https://t.me/Tindarid)
-* Павел Безбородов [@hazzus](https://t.me/hazzus)
-* Захар Коваль [@StarOrpheus](https://t.me/StarOrpheus)
 * Денис Воркожоков [@lejabq](https://t.me/lejabq)
-* Наталья Лемешкова [@natallem](https://t.me/natallem)
 
 ## Организационные вопросы
 * __Discord & Telegram Chat__ —  можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы 
