@@ -4,15 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Инструкция по сдаче заданий - C++ Course</title>
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -26,9 +21,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -36,22 +29,19 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
         <!-- MathJax -->
-        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -67,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -79,7 +69,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -92,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html" class="active"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html" class="active"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -100,8 +90,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -115,13 +104,11 @@
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">C++ Course</h1>
@@ -130,18 +117,16 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
                         <a href="https://github.com/CPP-KT/course" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -149,10 +134,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -162,10 +146,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#Инструкция-по-сдаче-заданий" id="Инструкция-по-сдаче-заданий">Инструкция по сдаче заданий</a></h1>
+                        <h1 id="Инструкция-по-сдаче-заданий"><a class="header" href="#Инструкция-по-сдаче-заданий">Инструкция по сдаче заданий</a></h1>
 <p>В рамках курса вам будут предложены домашние задания и практики. В большинстве случаев сдача происходит с помощью GitHub.Classroom.</p>
 <p>Вам необходимо настроить взаимодействие с репозиторием через SSH-ключи <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">по инструкции от Github</a></p>
-<h2><a class="header" href="#Настройка-репозитория-с-заданием" id="Настройка-репозитория-с-заданием">Настройка репозитория с заданием</a></h2>
+<h2 id="Настройка-репозитория-с-заданием"><a class="header" href="#Настройка-репозитория-с-заданием">Настройка репозитория с заданием</a></h2>
 <ul>
 <li>К каждому заданию будет приложена инвайт-ссылка на GitHub Classroom, после перехода по ней у вас создастся приватный репозиторий со стартовым кодом, тестами и конфигурациями. Склонируйте его и выполняйте задания в нём.</li>
 <li>После <strong>первого</strong> клона (вообще, а не на какой-то конкретной машине) нужно инициализировать ветки запуском соответствующего скрипта из корня репозитория:
@@ -178,13 +162,13 @@
 Обратите внимание, что нужно использовать ссылку для ssh вида <code>git@github.com:CPP-KT/task-repo.git</code>, а не https версию. При инициализации репозитория этот шаг делает за вас <code>init-repo.sh</code>.</li>
 <li>После этого вы можете коммитить в любые ветки кроме <code>feedback</code>, которая будет соответствовать <code>upstream/master</code></li>
 </ul>
-<h2><a class="header" href="#Подтягивание-новых-тестов-и-других-изменений" id="Подтягивание-новых-тестов-и-других-изменений">Подтягивание новых тестов и других изменений</a></h2>
+<h2 id="Подтягивание-новых-тестов-и-других-изменений"><a class="header" href="#Подтягивание-новых-тестов-и-других-изменений">Подтягивание новых тестов и других изменений</a></h2>
 <p>Иногда нам приходится править какие-то проблемы в конфигурациях или добавлять новые тесты. Чтобы обновлять репозитории и не ломать PR, пользуйтесь специальным скриптом. </p>
 <p><strong>ВНИМАНИЕ:</strong> перед его работой вам необходимо либо закоммитить последние изменения, либо сохранить куда-то незакомиченные изменения, например, с помощью <a href="https://git-scm.com/docs/git-stash">git-stash</a>. </p>
 <p>Чтобы подтянуть сами изменения, достаточно выполнить следующую команду из корня репозитория:</p>
 <pre><code class="language-bash">./update-repo.sh
 </code></pre>
-<h2><a class="header" href="#Сдача" id="Сдача">Сдача</a></h2>
+<h2 id="Сдача"><a class="header" href="#Сдача">Сдача</a></h2>
 <p>Для сдачи решения необходимо сделать следующее:</p>
 <ul>
 <li>Сделайте коммит с вашим решением. Проследите, чтобы в коммит попали только файлы с решением (при необходимости можете дополнять <a href="https://git-scm.com/docs/gitignore">.gitignore</a>), а файлы с тестами <strong>не изменились</strong>.</li>
@@ -196,7 +180,7 @@
 <li>Прислать с помощью формы заявку на проверку с ссылкой на этот PR. В случае первой сдачи выбрать режим <code>сдача</code>, иначе - <code>правки</code></li>
 <li>Дождаться проверки, исправить замечания, если они есть, повторить процесс.</li>
 </ul>
-<h2><a class="header" href="#Процесс-проверки" id="Процесс-проверки">Процесс проверки</a></h2>
+<h2 id="Процесс-проверки"><a class="header" href="#Процесс-проверки">Процесс проверки</a></h2>
 <ul>
 <li>В процессе проверки преподаватель будет оставлять комментарии в вашем пулл-реквесте. Комментарии - это замечания, которые нужно исправлять.</li>
 <li>Некоторые комментарии могут быть помечены <code>[note]</code>, их исправление необязательно - чаще всего это предложения альтернативных решений, иногда выходящих за рамки курса.</li>
@@ -211,13 +195,10 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="ide/qtcreator.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -225,45 +206,32 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="ide/qtcreator.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
     </body>
 </html>

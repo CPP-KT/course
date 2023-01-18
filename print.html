@@ -4,17 +4,11 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>C++ Course</title>
-        
         <meta name="robots" content="noindex" />
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -28,9 +22,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -38,22 +30,19 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
         <!-- MathJax -->
-        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -69,7 +58,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -81,7 +70,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -94,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -102,8 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -117,13 +105,11 @@
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">C++ Course</h1>
@@ -132,18 +118,16 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
                         <a href="https://github.com/CPP-KT/course" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
+
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -151,10 +135,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -164,7 +147,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#О-курсе" id="О-курсе">О курсе</a></h1>
+                        <h1 id="О-курсе"><a class="header" href="#О-курсе">О курсе</a></h1>
 <p>Данный курс читается студентам кафедры КТ в университете ИТМО.</p>
 <p>Лектор —  <strong>Иван Сорокин</strong> <a href="https://t.me/vanyacpp">@vanyacpp</a></p>
 <p>Преподаватели практики и контакты:</p>
@@ -172,14 +155,14 @@
 <li>Лев Довжик <a href="https://t.me/Dogzik">@Dogzik</a></li>
 <li>Денис Воркожоков <a href="https://t.me/lejabq">@lejabq</a></li>
 </ul>
-<h2><a class="header" href="#Организационные-вопросы" id="Организационные-вопросы">Организационные вопросы</a></h2>
+<h2 id="Организационные-вопросы"><a class="header" href="#Организационные-вопросы">Организационные вопросы</a></h2>
 <ul>
 <li><strong>Discord &amp; Telegram Chat</strong> —  можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы </li>
 <li><a href="https://www.twitch.tv/sorokin_ivan">Twitch</a> — стримы лекций</li>
 <li><a href="https://www.youtube.com/playlist?list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4">Youtube</a> — записи лекций прошлого года</li>
 <li><a href="https://cpp-kt.github.io/cpp-notes/">cpp-notes</a> — конспекты студентов прошлого года. Приветствуются правки и дополнения</li>
 </ul>
-<h1><a class="header" href="#Баллы" id="Баллы">Баллы</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="Баллы"><a class="header" href="#Баллы">Баллы</a></h1>
 <p>Подробнее о балльно-рейтинговой системе:</p>
 <ul>
 <li>Оценка это ваши баллы за практическую часть + домашние задания + экзамен</li>
@@ -209,25 +192,26 @@ int grade = (exam &gt; 0) ? score : std::min(score, 59);
 </li>
 <li><strong>Оценки за ДЗ</strong>. Для простоты переведены в символьную систему</li>
 </ul>
-<table><thead><tr><th align="center">Symbol</th><th align="left">Description</th><th align="center">Score</th></tr></thead><tbody>
-<tr><td align="center">+</td><td align="left">Задание выполнено</td><td align="center">1</td></tr>
-<tr><td align="center">+-</td><td align="left">Есть недочеты</td><td align="center">0.8</td></tr>
-<tr><td align="center">-+</td><td align="left">Много недочетов</td><td align="center">0.6</td></tr>
-<tr><td align="center">-</td><td align="left">Плохо</td><td align="center">0</td></tr>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Symbol</th><th style="text-align: left">Description</th><th style="text-align: center">Score</th></tr></thead><tbody>
+<tr><td style="text-align: center">+</td><td style="text-align: left">Задание выполнено</td><td style="text-align: center">1</td></tr>
+<tr><td style="text-align: center">+-</td><td style="text-align: left">Есть недочеты</td><td style="text-align: center">0.8</td></tr>
+<tr><td style="text-align: center">-+</td><td style="text-align: left">Много недочетов</td><td style="text-align: center">0.6</td></tr>
+<tr><td style="text-align: center">-</td><td style="text-align: left">Плохо</td><td style="text-align: center">0</td></tr>
 </tbody></table>
+</div>
 <ul>
 <li>Штрафы <strong>распространяются</strong> на любые посылки после дедлайна, даже правки. Штрафа на количество посылок нет.</li>
 <li>Сдать ДЗ с первого раза скорее всего не получится и это нормально. Мы все тут ещё учимся.</li>
 <li>Проверка занимает достаточно ненулевое время. Тот факт, что вы сдали до дедлайна, не означает, что вы успеете и исправить до него. Чаще всего чем ближе дедлайн, тем больше время проверки в силу увеличивающейся очереди посылок. Рекомендуется сдавать как можно раньше, чтобы получить больше шансов на проверки правок до дедлайна</li>
 </ul>
-<h1><a class="header" href="#ide-и-пакетный-менеджер" id="ide-и-пакетный-менеджер">IDE и пакетный менеджер</a></h1>
-<h2><a class="header" href="#ide" id="ide">IDE</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ide-и-пакетный-менеджер"><a class="header" href="#ide-и-пакетный-менеджер">IDE и пакетный менеджер</a></h1>
+<h2 id="ide"><a class="header" href="#ide">IDE</a></h2>
 <p>Вы можете использовать <strong>IDE</strong> по вкусу для выполнения практик/домашних заданий.</p>
 <blockquote>
 <p>Но чтобы ваш код был в определенном стиле и при написании кода вы быстро увидели опечатки/минорные баги - вам предоставлены <strong>.clang-tidy</strong> и <strong>.clang-format</strong> файлы в репозиториях.</p>
 </blockquote>
 <p>В подразделах описаны этапы конфигурации некоторых <strong>IDE</strong> (рекомендуется <strong>Clion</strong>).</p>
-<h2><a class="header" href="#Пакетный-менеджер" id="Пакетный-менеджер">Пакетный менеджер</a></h2>
+<h2 id="Пакетный-менеджер"><a class="header" href="#Пакетный-менеджер">Пакетный менеджер</a></h2>
 <p>Пакетный менеджер нужен для упраления зависимостями в проекте. В рамках данного курса мы будет использовать для этих целей vcpkg.</p>
 <p>vcpkg - это не только инструмент, но и репозиторий с рецептами пакетов, который нужно склонировать.</p>
 <pre><code class="language-bash">git clone https://github.com/microsoft/vcpkg 
@@ -269,22 +253,22 @@ target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_mai
 </code></pre>
 <p>Также, если вы пользуетесь Windows, нужно добавить <code>-DVCPKG_TARGET_TRIPLET=x64-mingw-static</code> для тулчейна MinGW и <code>-DVCPKG_TARGET_TRIPLET=x64-windows-static</code> для тулчейна MSVC/clang-cl</p>
 <p>В дополнение к ручной остановке пакетов можно в каждом проекте создать манифест в файле <code>vcpkg.json</code>, в котором явно перечисляются все зависимости. CMake, интегрированный с vcpkg, как было показано выше, в таком случае сам установит и соберёт все необходимые зависимости. В нашем в курсе используется именно этот вариант.</p>
-<h1><a class="header" href="#clion" id="clion">CLion</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="clion"><a class="header" href="#clion">CLion</a></h1>
 <p>Крайне рекомендуется пользоваться EAP версией, ибо имеено в ней все свежие фиксы и фичи.</p>
-<h2><a class="header" href="#a-hrefhttpswwwjetbrainscomhelpclioninstallation-guidehtmlУстановкаa" id="a-hrefhttpswwwjetbrainscomhelpclioninstallation-guidehtmlУстановкаa"><a href="https://www.jetbrains.com/help/clion/installation-guide.html">Установка</a></a></h2>
+<h2 id="Установка"><a class="header" href="#Установка"><a href="https://www.jetbrains.com/help/clion/installation-guide.html">Установка</a></a></h2>
 <p>На официальном сайте (ссылка в header-e - кликабельна) можно найти информацию об установке через <em>Toolbox</em> (если вы используете другие IDE от Jetbrains) или об установке на <strong>Windows</strong>. </p>
 <p>На <strong>Ubuntu</strong> рекомендуется следующий процесс установки (чтобы можно было обновлять среду разработки через пакетный менеджер):</p>
 <pre><code class="language-console">$ sudo apt install snap
 $ sudo snap install clion --classic
 </code></pre>
-<h2><a class="header" href="#a-hrefhttpswwwjetbrainscomhelpclionclang-tidy-checks-supporthtmlclang-tidya" id="a-hrefhttpswwwjetbrainscomhelpclionclang-tidy-checks-supporthtmlclang-tidya"><a href="https://www.jetbrains.com/help/clion/clang-tidy-checks-support.html">clang-tidy</a></a></h2>
+<h2 id="clang-tidy"><a class="header" href="#clang-tidy"><a href="https://www.jetbrains.com/help/clion/clang-tidy-checks-support.html">clang-tidy</a></a></h2>
 <p><strong>Clion</strong> имеет встроенный <em>clang-tidy</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
 <blockquote>
 <p>Нужно убедиться, что вы поставили галочку на <code>Prefer .clang-tidy files over IDE settings</code> чтобы использовать <strong>.clang-tidy</strong> курса.</p>
 </blockquote>
 <p>Path: <code>Settings / Preferences | Editor | Inspections - C/C++, General, Clang-Tidy</code></p>
 <p><img src="ide/../images/clang-tidy-clion.png" alt="clang-tidy-clion" /></p>
-<h2><a class="header" href="#a-hrefhttpswwwjetbrainscomhelpclionclangformat-as-alternative-formatterhtmlclang-formata" id="a-hrefhttpswwwjetbrainscomhelpclionclangformat-as-alternative-formatterhtmlclang-formata"><a href="https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html">clang-format</a></a></h2>
+<h2 id="clang-format"><a class="header" href="#clang-format"><a href="https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html">clang-format</a></a></h2>
 <p><strong>Clion</strong> имеет встроенный (альтернативный) <em>clang-format</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
 <blockquote>
 <p>Нужно убедиться, что вы поставили галочку на <code>Enable ClangFormat (only for C/C++/Objective-C</code> чтобы использовать <strong>.clang-format</strong> курса.</p>
@@ -293,7 +277,7 @@ $ sudo snap install clion --classic
 <p><img src="ide/../images/clang-format-clion.png" alt="clang-format-clion" /></p>
 <p>Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
 <img src="ide/../images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
-<h2><a class="header" href="#Интеграция-с-vcpkg-и-cmake-preets" id="Интеграция-с-vcpkg-и-cmake-preets">Интеграция с vcpkg и CMake preets</a></h2>
+<h2 id="Интеграция-с-vcpkg-и-cmake-preets"><a class="header" href="#Интеграция-с-vcpkg-и-cmake-preets">Интеграция с vcpkg и CMake preets</a></h2>
 <p>Для начала нам нужно попасть в окно конфигурации CMake. Это происходит автоматически при первом открытии проекта или же можно найти в <code>File</code>-&gt;<code>Settings</code>-&gt;<code>Build,Execution...</code>-&gt;<code>CMake</code></p>
 <p><img src="ide/../images/cmake-configure.png" alt="cmake-configure" /></p>
 <p>Для интеграции с vcpkg вне зависимости от сборки вам нужно в <code>CMake options</code> добавить <code>-DCMAKE_TOOLCHAIN_FILE=&lt;path-to-vcpkg&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake</code></p>
@@ -321,18 +305,18 @@ $ sudo snap install clion --classic
 </li>
 </ul>
 <p>Если после добавление конфигураций CMake падает с ошибкой при попытке сконфигурироваться, то нужно в каждой конфигурации указать в качестве <code>Build directory</code> папку вида <code>cmake-build-&lt;configuration-name&gt;</code></p>
-<h2><a class="header" href="#Полезные-ссылки" id="Полезные-ссылки">Полезные ссылки</a></h2>
+<h2 id="Полезные-ссылки"><a class="header" href="#Полезные-ссылки">Полезные ссылки</a></h2>
 <ul>
 <li><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000919039-Clion-how-to-build-cmake-to-support-debug-release">Выбор конфигурации сборки</a>. Чем сборка в дебаге отличается от сборки в релизе, рассказывают <a href="https://youtu.be/LXdAN2f3KX0?list=PLd7QXkfmSY7akIHUbZ-zT9pG-G3zIGQBh">в 3 семестре на курсе операционных систем</a>.</li>
 <li><a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind memcheck</a>: проверки утечек памяти и т.д. </li>
 </ul>
-<h1><a class="header" href="#qtcreator" id="qtcreator">QtCreator</a></h1>
-<h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-getting-startedhtmlУстановкаa" id="a-hrefhttpsdocqtioqtcreatorcreator-getting-startedhtmlУстановкаa"><a href="https://doc.qt.io/qtcreator/creator-getting-started.html">Установка</a></a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="qtcreator"><a class="header" href="#qtcreator">QtCreator</a></h1>
+<h2 id="Установка-1"><a class="header" href="#Установка-1"><a href="https://doc.qt.io/qtcreator/creator-getting-started.html">Установка</a></a></h2>
 <p>Есть мануал на официальном сайте (ссылка в header-e - кликабельна). <a href="https://www.qt.io/offline-installers">Здесь</a> можно найти offline установщики Qt (в который собственно и входит Creator) для Windows и Linux/MacOS. </p>
 <p>На <strong>Ubuntu</strong> рекомендуется следующий процесс установки (чтобы можно было обновлять среду разработки через пакетный менеджер):</p>
 <pre><code class="language-console">$ sudo apt install qtcreator
 </code></pre>
-<h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-clang-toolshtmlclang-tidya" id="a-hrefhttpsdocqtioqtcreatorcreator-clang-toolshtmlclang-tidya"><a href="https://doc.qt.io/qtcreator/creator-clang-tools.html">clang-tidy</a></a></h2>
+<h2 id="clang-tidy-1"><a class="header" href="#clang-tidy-1"><a href="https://doc.qt.io/qtcreator/creator-clang-tools.html">clang-tidy</a></a></h2>
 <p><strong>QtCreator</strong> имеет встроенный <em>clang-tidy</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
 <blockquote>
 <p>Чтобы использовать <strong>.clang-tidy</strong> курса, к сожалению, нужно будет копипастнуть наш файлик в Edit checks as string (смотрите конец инструкции в header - e)</p>
@@ -341,17 +325,17 @@ $ sudo snap install clion --classic
 <p><img src="ide/../images/clang-tidy-qtcreator.png" alt="clang-tidy-qtcreator" /></p>
 <p>Там нужно будет создать копию и нажать Edit checks as string, куда вставить содержимое нашего файлика.</p>
 <p><img src="ide/../images/clang-tidy-qtcreator-2.png" alt="clang-tidy-qtcreator-2" /></p>
-<h2><a class="header" href="#a-hrefhttpsdocqtioqtcreatorcreator-beautifierhtmlclang-formata" id="a-hrefhttpsdocqtioqtcreatorcreator-beautifierhtmlclang-formata"><a href="https://doc.qt.io/qtcreator/creator-beautifier.html">clang-format</a></a></h2>
+<h2 id="clang-format-1"><a class="header" href="#clang-format-1"><a href="https://doc.qt.io/qtcreator/creator-beautifier.html">clang-format</a></a></h2>
 <p>Для установки автоматического форматирования кода в <strong>QtCreator</strong> нужен плагин Beautifier. О том как его установить можно почитать по ссылке.</p>
 <blockquote>
 <p>Рекомендуем поставить галочку на  <code>Enable auto format on file save</code></p>
 </blockquote>
 <p>После перезапуска QtCreator идем в Tools -&gt; Options -&gt; Beautifier -&gt; ClangFormat. Если у вас не стоит clang-format, его нужно поставить, в Ubuntu это <code>sudo apt install clang-format</code>. Далее в Options в <code>Use predefinde styles</code> выбираем опцию <code>File</code> вместо <code>LLVM</code></p>
 <p><img src="ide/../images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
-<h1><a class="header" href="#Инструкция-по-сдаче-заданий" id="Инструкция-по-сдаче-заданий">Инструкция по сдаче заданий</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="Инструкция-по-сдаче-заданий"><a class="header" href="#Инструкция-по-сдаче-заданий">Инструкция по сдаче заданий</a></h1>
 <p>В рамках курса вам будут предложены домашние задания и практики. В большинстве случаев сдача происходит с помощью GitHub.Classroom.</p>
 <p>Вам необходимо настроить взаимодействие с репозиторием через SSH-ключи <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">по инструкции от Github</a></p>
-<h2><a class="header" href="#Настройка-репозитория-с-заданием" id="Настройка-репозитория-с-заданием">Настройка репозитория с заданием</a></h2>
+<h2 id="Настройка-репозитория-с-заданием"><a class="header" href="#Настройка-репозитория-с-заданием">Настройка репозитория с заданием</a></h2>
 <ul>
 <li>К каждому заданию будет приложена инвайт-ссылка на GitHub Classroom, после перехода по ней у вас создастся приватный репозиторий со стартовым кодом, тестами и конфигурациями. Склонируйте его и выполняйте задания в нём.</li>
 <li>После <strong>первого</strong> клона (вообще, а не на какой-то конкретной машине) нужно инициализировать ветки запуском соответствующего скрипта из корня репозитория:
@@ -364,13 +348,13 @@ $ sudo snap install clion --classic
 Обратите внимание, что нужно использовать ссылку для ssh вида <code>git@github.com:CPP-KT/task-repo.git</code>, а не https версию. При инициализации репозитория этот шаг делает за вас <code>init-repo.sh</code>.</li>
 <li>После этого вы можете коммитить в любые ветки кроме <code>feedback</code>, которая будет соответствовать <code>upstream/master</code></li>
 </ul>
-<h2><a class="header" href="#Подтягивание-новых-тестов-и-других-изменений" id="Подтягивание-новых-тестов-и-других-изменений">Подтягивание новых тестов и других изменений</a></h2>
+<h2 id="Подтягивание-новых-тестов-и-других-изменений"><a class="header" href="#Подтягивание-новых-тестов-и-других-изменений">Подтягивание новых тестов и других изменений</a></h2>
 <p>Иногда нам приходится править какие-то проблемы в конфигурациях или добавлять новые тесты. Чтобы обновлять репозитории и не ломать PR, пользуйтесь специальным скриптом. </p>
 <p><strong>ВНИМАНИЕ:</strong> перед его работой вам необходимо либо закоммитить последние изменения, либо сохранить куда-то незакомиченные изменения, например, с помощью <a href="https://git-scm.com/docs/git-stash">git-stash</a>. </p>
 <p>Чтобы подтянуть сами изменения, достаточно выполнить следующую команду из корня репозитория:</p>
 <pre><code class="language-bash">./update-repo.sh
 </code></pre>
-<h2><a class="header" href="#Сдача" id="Сдача">Сдача</a></h2>
+<h2 id="Сдача"><a class="header" href="#Сдача">Сдача</a></h2>
 <p>Для сдачи решения необходимо сделать следующее:</p>
 <ul>
 <li>Сделайте коммит с вашим решением. Проследите, чтобы в коммит попали только файлы с решением (при необходимости можете дополнять <a href="https://git-scm.com/docs/gitignore">.gitignore</a>), а файлы с тестами <strong>не изменились</strong>.</li>
@@ -382,7 +366,7 @@ $ sudo snap install clion --classic
 <li>Прислать с помощью формы заявку на проверку с ссылкой на этот PR. В случае первой сдачи выбрать режим <code>сдача</code>, иначе - <code>правки</code></li>
 <li>Дождаться проверки, исправить замечания, если они есть, повторить процесс.</li>
 </ul>
-<h2><a class="header" href="#Процесс-проверки" id="Процесс-проверки">Процесс проверки</a></h2>
+<h2 id="Процесс-проверки"><a class="header" href="#Процесс-проверки">Процесс проверки</a></h2>
 <ul>
 <li>В процессе проверки преподаватель будет оставлять комментарии в вашем пулл-реквесте. Комментарии - это замечания, которые нужно исправлять.</li>
 <li>Некоторые комментарии могут быть помечены <code>[note]</code>, их исправление необязательно - чаще всего это предложения альтернативных решений, иногда выходящих за рамки курса.</li>
@@ -397,9 +381,7 @@ $ sudo snap install clion --classic
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
 
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -407,51 +389,36 @@ $ sudo snap install clion --classic
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
 
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
-        
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             MathJax.Hub.Register.StartupHook('End', function() {
                 window.setTimeout(window.print, 100);
             });
         });
         </script>
-        
-        
 
     </body>
 </html>
