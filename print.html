@@ -35,6 +35,7 @@
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -83,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.1.</strong> CLion</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.2.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> Инструкции</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.2.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.3.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -253,6 +254,37 @@ target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_mai
 </code></pre>
 <p>Также, если вы пользуетесь Windows, нужно добавить <code>-DVCPKG_TARGET_TRIPLET=x64-mingw-static</code> для тулчейна MinGW и <code>-DVCPKG_TARGET_TRIPLET=x64-windows-static</code> для тулчейна MSVC/clang-cl</p>
 <p>В дополнение к ручной остановке пакетов можно в каждом проекте создать манифест в файле <code>vcpkg.json</code>, в котором явно перечисляются все зависимости. CMake, интегрированный с vcpkg, как было показано выше, в таком случае сам установит и соберёт все необходимые зависимости. В нашем в курсе используется именно этот вариант.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="Локальное-окружение-на-windows-wsl-для-домашних-заданий-и-практик"><a class="header" href="#Локальное-окружение-на-windows-wsl-для-домашних-заданий-и-практик">Локальное окружение на Windows (WSL) для домашних заданий и практик</a></h1>
+<p>Данный гайд предназначен для людей с Windows, которые хотят пользоваться преимуществами Linux (например, edb-debugger).</p>
+<h2 id="Требования-к-windows"><a class="header" href="#Требования-к-windows">Требования к Windows</a></h2>
+<p>Использовать данные фичи можно только на <strong>Windows 10 Build 19044+</strong> или <strong>Windows 11</strong>.
+Если у вас <strong>версия Windows меньше 10</strong>, то к сожалению данный способ для вас <strong>недоступен</strong>.
+В случае если у вас <strong>Windows 10</strong>, рекомендуется <strong>обновить её до последней версии</strong>.</p>
+<p><strong>Также необходимо иметь драйвера последней версии.</strong></p>
+<h2 id="Установка-wsl-и-ubuntu"><a class="header" href="#Установка-wsl-и-ubuntu">Установка WSL и Ubuntu</a></h2>
+<p>Для начала откроем командную строку и введем туда команду:</p>
+<pre><code class="language-bash">wsl --install
+</code></pre>
+<p>После установки нужно ввести <code>wsl --update</code> и <code>wsl --set-default-version 2</code>.</p>
+<p>Сразу после рекомендуется <strong>перезагрузить</strong> компьютер.</p>
+<p>После этого вы можете найти в поисковой строке Ubuntu и запустить её. Понадобится некоторое время на предварительную инициализацию.</p>
+<h2 id="Первый-вход-в-ubuntu-обновление-и-установка-нужных-утилит"><a class="header" href="#Первый-вход-в-ubuntu-обновление-и-установка-нужных-утилит">Первый вход в Ubuntu, обновление и установка нужных утилит</a></h2>
+<p>При первой загрузке Ubuntu вам предложат придумать себе логин и пароль.
+<strong>Пароль надо запомнить</strong>, так как он понадобится для работы в привилегированном режиме.</p>
+<p>Далее обновим систему и пакеты при помощи команд:</p>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade
+</code></pre>
+<p>Тут у нас попросят <em>sudo password</em>. Это и есть тот пароль, который вы вводили при первой загрузке.
+Если понадобится установить какой-то пакет (например, вы любите sublime text), то можно это сделать при помощи команды вида <code>sudo apt install XXX</code>, где <strong>XXX</strong> - имя нужного вам пакета.</p>
+<p>Для практика по ассемблеру, вам понадобятся <code>nasm</code> и дебаггер <code>edb</code>, установите их при помощи следующей команды:</p>
+<pre><code class="language-bash">sudo apt install nasm binutils edb-debugger
+</code></pre>
+<p>Для проверки работоспособности напишите <code>edb</code> в консоль, после чего он должен открыться в отдельном окне.</p>
+<h3 id="Полезные-ссылки"><a class="header" href="#Полезные-ссылки">Полезные ссылки</a></h3>
+<ul>
+<li><a href="https://learn.microsoft.com/ru-ru/windows/wsl/tutorials/gui-apps">Запуск приложений с GUI в WSL</a></li>
+<li><a href="https://github.com/eteran/edb-debugger">Edb debugger Github</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="clion"><a class="header" href="#clion">CLion</a></h1>
 <p>Крайне рекомендуется пользоваться EAP версией, ибо имеено в ней все свежие фиксы и фичи.</p>
 <h2 id="Установка"><a class="header" href="#Установка"><a href="https://www.jetbrains.com/help/clion/installation-guide.html">Установка</a></a></h2>
@@ -305,7 +337,7 @@ $ sudo snap install clion --classic
 </li>
 </ul>
 <p>Если после добавление конфигураций CMake падает с ошибкой при попытке сконфигурироваться, то нужно в каждой конфигурации указать в качестве <code>Build directory</code> папку вида <code>cmake-build-&lt;configuration-name&gt;</code></p>
-<h2 id="Полезные-ссылки"><a class="header" href="#Полезные-ссылки">Полезные ссылки</a></h2>
+<h2 id="Полезные-ссылки-1"><a class="header" href="#Полезные-ссылки-1">Полезные ссылки</a></h2>
 <ul>
 <li><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000919039-Clion-how-to-build-cmake-to-support-debug-release">Выбор конфигурации сборки</a>. Чем сборка в дебаге отличается от сборки в релизе, рассказывают <a href="https://youtu.be/LXdAN2f3KX0?list=PLd7QXkfmSY7akIHUbZ-zT9pG-G3zIGQBh">в 3 семестре на курсе операционных систем</a>.</li>
 <li><a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind memcheck</a>: проверки утечек памяти и т.д. </li>
@@ -420,5 +452,6 @@ $ sudo snap install clion --classic
         });
         </script>
 
+    </div>
     </body>
 </html>
