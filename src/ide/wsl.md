@@ -49,3 +49,4 @@ sudo apt install nasm binutils edb-debugger
 
 - [Запуск приложений с GUI в WSL](https://learn.microsoft.com/ru-ru/windows/wsl/tutorials/gui-apps)
 - [Edb debugger Github](https://github.com/eteran/edb-debugger)
+- [Интеграция WSL в CLion](https://www.jetbrains.com/help/clion/how-to-use-wsl-development-environment-in-product.html)
