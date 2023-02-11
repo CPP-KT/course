@@ -3,7 +3,8 @@
 
 - [About & Links](./course.md)
 - [Баллы](./points.md)
-- [IDE](./ide.md)
-  - [CLion](./ide/clion.md)
+- [Инструкции](./ide.md)
+  - [WSL](./ide/wsl.md)
+  - [CLion (рекомендуемый)](./ide/clion.md)
   - [QtCreator](./ide/qtcreator.md)
 - [Инструкция по сдаче заданий](./instruction.md)
