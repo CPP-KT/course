@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> Настройка окружения</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.2.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.3.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> Настройка окружения</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="ide/asm_mac.html"><strong aria-hidden="true">3.2.</strong> Emulate x86_64 on mac</a></li><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.3.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.4.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -286,6 +286,27 @@ target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_mai
 <li><a href="https://github.com/eteran/edb-debugger">Edb debugger Github</a></li>
 <li><a href="https://www.jetbrains.com/help/clion/how-to-use-wsl-development-environment-in-product.html">Интеграция WSL в CLion</a></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="Установка-и-настройка-окружения-на-mac-для-практик-и-домашних-заданий-на-ассемблере-x86_64"><a class="header" href="#Установка-и-настройка-окружения-на-mac-для-практик-и-домашних-заданий-на-ассемблере-x86_64">Установка и настройка окружения на Mac для практик и домашних заданий на ассемблере x86_64</a></h1>
+<p>План действий эмуляции x86_64 и запуска edb-debugger и ассемблера.</p>
+<h2 id="Установка-utm-и-эмуляция-x86_64"><a class="header" href="#Установка-utm-и-эмуляция-x86_64">Установка UTM и эмуляция x86_64</a></h2>
+<p>Необходимо скачать и установить <a href="https://mac.getutm.app">UTM</a>, а так же образ <a href="https://ubuntu.com/download/desktop">ubuntu</a>, в целом можно и другой образ.</p>
+<p>Далее добавляем виртуальную машину в UTM, если у вас apple silicon, т.e. на архитектуре ARM, выбираем emulate. После следуем по всем шагам установки и настраиваем под себя.
+Так же для более плавной работы в настройках виртуальной машины можно увеличить количество ядер и прожать опцию Force multicore.</p>
+<h2 id="Настройка-ubuntu-и-установка-утилит"><a class="header" href="#Настройка-ubuntu-и-установка-утилит">Настройка ubuntu и установка утилит</a></h2>
+<p>Обновляем систему и пакеты</p>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade
+</code></pre>
+<p>Для практики по ассемблеру, вам понадобятся <code>nasm</code> и дебаггер <code>edb</code>, установите их при помощи следующей команды:</p>
+<pre><code class="language-bash">sudo apt install nasm binutils edb-debugger
+</code></pre>
+<p>Для проверки работоспособности напишите <code>edb</code> в консоль, после чего он должен открыться в отдельном окне.</p>
+<p>Если у вас вылез данный warning:</p>
+<pre><code class="language-bash">Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+</code></pre>
+<p>Может помочь прописать:</p>
+<pre><code class="language-bash">export QT_QPA_PLATFORM=wayland
+sudo apt install qtwayland5
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="clion"><a class="header" href="#clion">CLion</a></h1>
 <p>Крайне рекомендуется пользоваться EAP версией, ибо имеено в ней все свежие фиксы и фичи.</p>
 <h2 id="Установка"><a class="header" href="#Установка"><a href="https://www.jetbrains.com/help/clion/installation-guide.html">Установка</a></a></h2>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CLion (рекомендуемый) - C++ Course</title>
+        <title>Emulate x86_64 on mac - C++ Course</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="../points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">3.</strong> Настройка окружения</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="../ide/asm_mac.html"><strong aria-hidden="true">3.2.</strong> Emulate x86_64 on mac</a></li><li class="chapter-item expanded "><a href="../ide/clion.html" class="active"><strong aria-hidden="true">3.3.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="../ide/qtcreator.html"><strong aria-hidden="true">3.4.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="../instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="../points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">3.</strong> Настройка окружения</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="../ide/asm_mac.html" class="active"><strong aria-hidden="true">3.2.</strong> Emulate x86_64 on mac</a></li><li class="chapter-item expanded "><a href="../ide/clion.html"><strong aria-hidden="true">3.3.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="../ide/qtcreator.html"><strong aria-hidden="true">3.4.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="../instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -147,73 +147,37 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="clion"><a class="header" href="#clion">CLion</a></h1>
-<p>Крайне рекомендуется пользоваться EAP версией, ибо имеено в ней все свежие фиксы и фичи.</p>
-<h2 id="Установка"><a class="header" href="#Установка"><a href="https://www.jetbrains.com/help/clion/installation-guide.html">Установка</a></a></h2>
-<p>На официальном сайте (ссылка в header-e - кликабельна) можно найти информацию об установке через <em>Toolbox</em> (если вы используете другие IDE от Jetbrains) или об установке на <strong>Windows</strong>. </p>
-<p>На <strong>Ubuntu</strong> рекомендуется следующий процесс установки (чтобы можно было обновлять среду разработки через пакетный менеджер):</p>
-<pre><code class="language-console">$ sudo apt install snap
-$ sudo snap install clion --classic
+                        <h1 id="Установка-и-настройка-окружения-на-mac-для-практик-и-домашних-заданий-на-ассемблере-x86_64"><a class="header" href="#Установка-и-настройка-окружения-на-mac-для-практик-и-домашних-заданий-на-ассемблере-x86_64">Установка и настройка окружения на Mac для практик и домашних заданий на ассемблере x86_64</a></h1>
+<p>План действий эмуляции x86_64 и запуска edb-debugger и ассемблера.</p>
+<h2 id="Установка-utm-и-эмуляция-x86_64"><a class="header" href="#Установка-utm-и-эмуляция-x86_64">Установка UTM и эмуляция x86_64</a></h2>
+<p>Необходимо скачать и установить <a href="https://mac.getutm.app">UTM</a>, а так же образ <a href="https://ubuntu.com/download/desktop">ubuntu</a>, в целом можно и другой образ.</p>
+<p>Далее добавляем виртуальную машину в UTM, если у вас apple silicon, т.e. на архитектуре ARM, выбираем emulate. После следуем по всем шагам установки и настраиваем под себя.
+Так же для более плавной работы в настройках виртуальной машины можно увеличить количество ядер и прожать опцию Force multicore.</p>
+<h2 id="Настройка-ubuntu-и-установка-утилит"><a class="header" href="#Настройка-ubuntu-и-установка-утилит">Настройка ubuntu и установка утилит</a></h2>
+<p>Обновляем систему и пакеты</p>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade
 </code></pre>
-<h2 id="clang-tidy"><a class="header" href="#clang-tidy"><a href="https://www.jetbrains.com/help/clion/clang-tidy-checks-support.html">clang-tidy</a></a></h2>
-<p><strong>Clion</strong> имеет встроенный <em>clang-tidy</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
-<blockquote>
-<p>Нужно убедиться, что вы поставили галочку на <code>Prefer .clang-tidy files over IDE settings</code> чтобы использовать <strong>.clang-tidy</strong> курса.</p>
-</blockquote>
-<p>Path: <code>Settings / Preferences | Editor | Inspections - C/C++, General, Clang-Tidy</code></p>
-<p><img src="../images/clang-tidy-clion.png" alt="clang-tidy-clion" /></p>
-<h2 id="clang-format"><a class="header" href="#clang-format"><a href="https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html">clang-format</a></a></h2>
-<p><strong>Clion</strong> имеет встроенный (альтернативный) <em>clang-format</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
-<blockquote>
-<p>Нужно убедиться, что вы поставили галочку на <code>Enable ClangFormat (only for C/C++/Objective-C</code> чтобы использовать <strong>.clang-format</strong> курса.</p>
-</blockquote>
-<p>Path: <code>Settings / Preferences | Editor | Code Style - ClangFormat</code></p>
-<p><img src="../images/clang-format-clion.png" alt="clang-format-clion" /></p>
-<p>Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
-<img src="../images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
-<h2 id="Интеграция-с-vcpkg-и-cmake-preets"><a class="header" href="#Интеграция-с-vcpkg-и-cmake-preets">Интеграция с vcpkg и CMake preets</a></h2>
-<p>Для начала нам нужно попасть в окно конфигурации CMake. Это происходит автоматически при первом открытии проекта или же можно найти в <code>File</code>-&gt;<code>Settings</code>-&gt;<code>Build,Execution...</code>-&gt;<code>CMake</code></p>
-<p><img src="../images/cmake-configure.png" alt="cmake-configure" /></p>
-<p>Для интеграции с vcpkg вне зависимости от сборки вам нужно в <code>CMake options</code> добавить <code>-DCMAKE_TOOLCHAIN_FILE=&lt;path-to-vcpkg&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake</code></p>
-<p>Также, если вы пользуетесь Windows, нужно добавить <code>-DVCPKG_TARGET_TRIPLET=x64-mingw-static</code> для тулчейна MinGW и <code>-DVCPKG_TARGET_TRIPLET=x64-windows-static</code> для тулчейна MSVC/clang-cl.
-Дело в том, что по умолчанию vcpkg на Windows использует MS тулчейн и установленные с ним библиотеки не будут линковаться при сборке с тулчейном MinGW.</p>
-<p>Далее добавляем три основные конфигурации, каждый раз нажимая на плюсик для создания новой конфигурации:</p>
-<ul>
-<li>Release
-<ul>
-<li><code>Build type</code>: <code>Release</code></li>
-<li>В <code>CMake options</code> добавляем <code>--preset Release</code></li>
-</ul>
-</li>
-<li>SanitizedDebug
-<ul>
-<li><code>Build type</code>: <code>Debug</code></li>
-<li>В <code>CMake options</code> добавляем <code>--preset SanitizedDebug</code></li>
-</ul>
-</li>
-<li>RelWithDebInfo
-<ul>
-<li><code>Build type</code>: <code>RelWithDebInfo</code></li>
-<li>В <code>CMake options</code> добавляем <code>--preset RelWithDebInfo</code></li>
-</ul>
-</li>
-</ul>
-<p>Если после добавление конфигураций CMake падает с ошибкой при попытке сконфигурироваться, то нужно в каждой конфигурации указать в качестве <code>Build directory</code> папку вида <code>cmake-build-&lt;configuration-name&gt;</code></p>
-<h2 id="Полезные-ссылки"><a class="header" href="#Полезные-ссылки">Полезные ссылки</a></h2>
-<ul>
-<li><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000919039-Clion-how-to-build-cmake-to-support-debug-release">Выбор конфигурации сборки</a>. Чем сборка в дебаге отличается от сборки в релизе, рассказывают <a href="https://youtu.be/LXdAN2f3KX0?list=PLd7QXkfmSY7akIHUbZ-zT9pG-G3zIGQBh">в 3 семестре на курсе операционных систем</a>.</li>
-<li><a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind memcheck</a>: проверки утечек памяти и т.д. </li>
-</ul>
+<p>Для практики по ассемблеру, вам понадобятся <code>nasm</code> и дебаггер <code>edb</code>, установите их при помощи следующей команды:</p>
+<pre><code class="language-bash">sudo apt install nasm binutils edb-debugger
+</code></pre>
+<p>Для проверки работоспособности напишите <code>edb</code> в консоль, после чего он должен открыться в отдельном окне.</p>
+<p>Если у вас вылез данный warning:</p>
+<pre><code class="language-bash">Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+</code></pre>
+<p>Может помочь прописать:</p>
+<pre><code class="language-bash">export QT_QPA_PLATFORM=wayland
+sudo apt install qtwayland5
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../ide/asm_mac.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../ide/wsl.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../ide/qtcreator.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../ide/clion.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -223,11 +187,11 @@ $ sudo snap install clion --classic
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../ide/asm_mac.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../ide/wsl.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../ide/qtcreator.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../ide/clion.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
