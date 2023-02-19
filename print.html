@@ -388,7 +388,7 @@ $ sudo snap install clion --classic
 <p><img src="ide/../images/clang-format-qtcreator.png" alt="clang-format-qtcreator" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Инструкция-по-сдаче-заданий"><a class="header" href="#Инструкция-по-сдаче-заданий">Инструкция по сдаче заданий</a></h1>
 <p>В рамках курса вам будут предложены домашние задания и практики. В большинстве случаев сдача происходит с помощью GitHub.Classroom.</p>
-<p>Вам необходимо настроить взаимодействие с репозиторием через SSH-ключи <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">по инструкции от Github</a></p>
+<p>Вам необходимо настроить взаимодействие с репозиторием через SSH-ключи <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">по инструкции от Github</a>. В дальнейшем <strong>ВСЕ</strong> ссылки на репозитории, в частности для клонирования, должны быть в формате ssh. В противном случае у вас сломается настройка репозитория.</p>
 <h2 id="Настройка-репозитория-с-заданием"><a class="header" href="#Настройка-репозитория-с-заданием">Настройка репозитория с заданием</a></h2>
 <ul>
 <li>К каждому заданию будет приложена инвайт-ссылка на GitHub Classroom, после перехода по ней у вас создастся приватный репозиторий со стартовым кодом, тестами и конфигурациями. Склонируйте его и выполняйте задания в нём.</li>
@@ -399,7 +399,7 @@ $ sudo snap install clion --classic
 <li>При каждом <strong>следующем</strong> клоне вашего репозитория, если такие вдруг будут, необходимо добавлять базовый (из которого был создан ваш) в качестве upstream с помощью следующей команды: 
 <pre><code class="language-bash">git remote add upstream &lt;link-to-base-repo&gt;
 </code></pre>
-Обратите внимание, что нужно использовать ссылку для ssh вида <code>git@github.com:CPP-KT/task-repo.git</code>, а не https версию. При инициализации репозитория этот шаг делает за вас <code>init-repo.sh</code>.</li>
+При инициализации репозитория этот шаг делает за вас <code>init-repo.sh</code>.</li>
 <li>После этого вы можете коммитить в любые ветки кроме <code>feedback</code>, которая будет соответствовать <code>upstream/master</code></li>
 </ul>
 <h2 id="Подтягивание-новых-тестов-и-других-изменений"><a class="header" href="#Подтягивание-новых-тестов-и-других-изменений">Подтягивание новых тестов и других изменений</a></h2>
