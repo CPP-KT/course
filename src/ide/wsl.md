@@ -40,7 +40,7 @@ sudo apt update && sudo apt upgrade
 
 Для практики по ассемблеру, вам понадобятся `nasm` и дебаггер `edb`, установите их при помощи следующей команды:
 ```bash
-sudo apt install nasm binutils edb-debugger
+sudo apt install nasm binutils edb-debugger xterm
 ```
 
 Для проверки работоспособности напишите `edb` в консоль, после чего он должен открыться в отдельном окне.
