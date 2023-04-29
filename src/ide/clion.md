@@ -41,7 +41,7 @@ Path: `Settings / Preferences | Editor | Code Style - ClangFormat`
 
 Для интеграции с vcpkg вне зависимости от сборки вам нужно в `CMake options` добавить `-DCMAKE_TOOLCHAIN_FILE=<path-to-vcpkg>/vcpkg/scripts/buildsystems/vcpkg.cmake`
 
-Также, если вы пользуетесь Windows, нужно добавить `-DVCPKG_TARGET_TRIPLET=x64-mingw-static` для тулчейна MinGW и `-DVCPKG_TARGET_TRIPLET=x64-windows-static` для тулчейна MSVC/clang-cl.
+Также, если вы пользуетесь Windows нативно (т.е. не WSL), нужно добавить `-DVCPKG_TARGET_TRIPLET=x64-mingw-static` для тулчейна MinGW и `-DVCPKG_TARGET_TRIPLET=x64-windows-static` для тулчейна MSVC/clang-cl.
 Дело в том, что по умолчанию vcpkg на Windows использует MS тулчейн и установленные с ним библиотеки не будут линковаться при сборке с тулчейном MinGW.
 
 Далее добавляем три основные конфигурации, каждый раз нажимая на плюсик для создания новой конфигурации:
