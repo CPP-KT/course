@@ -67,6 +67,6 @@ target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_mai
 -DCMAKE_TOOLCHAIN_FILE=D:\src\vcpkg\scripts\buildsystems\vcpkg.cmake
 ```
 
-Также, если вы пользуетесь Windows, нужно добавить `-DVCPKG_TARGET_TRIPLET=x64-mingw-static` для тулчейна MinGW и `-DVCPKG_TARGET_TRIPLET=x64-windows-static` для тулчейна MSVC/clang-cl
+Также, если вы пользуетесь Windows нативно (т.е. не WSL), нужно добавить `-DVCPKG_TARGET_TRIPLET=x64-mingw-static` для тулчейна MinGW и `-DVCPKG_TARGET_TRIPLET=x64-windows-static` для тулчейна MSVC/clang-cl
 
 В дополнение к ручной остановке пакетов можно в каждом проекте создать манифест в файле `vcpkg.json`, в котором явно перечисляются все зависимости. CMake, интегрированный с vcpkg, как было показано выше, в таком случае сам установит и соберёт все необходимые зависимости. В нашем в курсе используется именно этот вариант.
