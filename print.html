@@ -91,11 +91,33 @@
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -157,10 +179,15 @@
 <ul>
 <li>Лев Довжик <a href="https://t.me/Dogzik">@Dogzik</a></li>
 <li>Денис Воркожоков <a href="https://t.me/lejabq">@lejabq</a></li>
+<li>Артём Котóн <a href="https://t.me/dedlocc">@dedlocc</a></li>
+<li>Егор Макаревич <a href="https://t.me/Flarembo">@Flarembo</a></li>
+<li>Кирилл Санников <a href="https://t.me/KirillSanik">@KirillSanik</a></li>
+<li>Тимофей Иванов <a href="https://t.me/PurrVessel">@PurrVessel</a></li>
+<li>Павел Безбородов <a href="https://t.me/hazzus">@hazzus</a></li>
 </ul>
 <h2 id="Организационные-вопросы"><a class="header" href="#Организационные-вопросы">Организационные вопросы</a></h2>
 <ul>
-<li><strong>Discord &amp; Telegram Chat</strong> —  можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы </li>
+<li><strong>Discord &amp; Telegram Chat</strong> — можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы </li>
 <li><a href="https://www.twitch.tv/sorokin_ivan">Twitch</a> — стримы лекций</li>
 <li><a href="https://www.youtube.com/playlist?list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4">Youtube</a> — записи лекций прошлого года</li>
 <li><a href="https://cpp-kt.github.io/cpp-notes/">cpp-notes</a> — конспекты студентов прошлого года. Приветствуются правки и дополнения</li>
