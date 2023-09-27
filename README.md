@@ -1,1 +1,1 @@
-# C++ Coursezzz
+# C++ Course
