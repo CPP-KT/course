@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js ayu">
+<html lang="en" class="ayu" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>C++ Course</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -34,7 +34,7 @@
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -64,24 +64,29 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('ayu')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
@@ -119,9 +124,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -195,7 +200,7 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Баллы"><a class="header" href="#Баллы">Баллы</a></h1>
 <p>Подробнее о балльно-рейтинговой системе:</p>
 <ul>
-<li>Оценка -- это ваши суммарные баллы за практические, домашние задания и экзамен (а также -- бонусы).</li>
+<li>Оценка — это ваши суммарные баллы за практические, домашние задания и экзамен (а также — бонусы).</li>
 <li>Без успешной сдачи экзамена вы не можете получить положительную оценку (то есть, выше FX), иначе говоря:</li>
 </ul>
 <pre><code class="language-c++">int score = practice + hw + exam;
@@ -206,9 +211,9 @@ int grade = (exam &gt; 0) ? score : std::min(score, 59);
 <li>При необходимости система может меняться в течение семестра в любую из сторон.</li>
 <li><strong>Разбалловка</strong>
 <ul>
-<li><strong>Практика</strong> - 20 баллов. Несколько небольших заданий, о которых вам расскажут преподаватели на отдельной паре, напишут какую-то часть кода, ответят на вопросы. Выполняются обычно за 2-5 дней, отправка <em>любых</em> посылок по практикам после дедлайна невозможна.</li>
-<li><strong>Домашние задания</strong> - 66 баллов. Задания, которые будут выдавать в течение семестра. Для каждой будет отдельный дедлайн, за просрочку которого будет штраф на количество баллов за задачу.</li>
-<li><strong>Экзамен</strong> - 20 баллов. Состоит из практической и теоретической частей, каждая стоит по 10 баллов. В практической вы за несколько часов пишете задание, которое оценит преподаватель, а в теоретическом -- отвечаете на вопросы по курсу. Чтобы получить положительную оценку за курс, нужно сдать каждую из частей экзамена. Минимально можно получить 8 баллов за практическую и 5 баллов за теоретическую часть.</li>
+<li><strong>Практика</strong> — 20 баллов. Несколько небольших заданий, о которых вам расскажут преподаватели на отдельной паре, напишут какую-то часть кода, ответят на вопросы. Выполняются обычно за 2-5 дней, отправка <em>любых</em> посылок по практикам после дедлайна невозможна.</li>
+<li><strong>Домашние задания</strong> — 66 баллов. Задания, которые будут выдавать в течение семестра. Для каждой будет отдельный дедлайн, за просрочку которого будет штраф на количество баллов за задачу.</li>
+<li><strong>Экзамен</strong> — 20 баллов. Состоит из практической и теоретической частей, каждая стоит по 10 баллов. В практической вы за несколько часов пишете задание, которое оценит преподаватель, а в теоретическом — отвечаете на вопросы по курсу. Чтобы получить положительную оценку за курс, нужно сдать каждую из частей экзамена. Минимально можно получить 8 баллов за практическую и 5 баллов за теоретическую часть.</li>
 <li><strong>Итого 106 баллов</strong>, оценки по баллам такие же как в системе БаРС.</li>
 </ul>
 </li>
@@ -244,17 +249,16 @@ int grade = (exam &gt; 0) ? score : std::min(score, 59);
 <p>Оценку <code>/</code> можно получить, например, за проблемы оформления или непройденные тесты.</p>
 </li>
 <li>
-<p><strong>Пример</strong>. Пусть дано задание <em>&quot;hello-world&quot;</em>, которое оценивается при полном выполнении в 17.6 баллов. В таблице ниже приведено действие формулы для рассчета баллов в зависимости от переменных. Пусть дедлайн сдачи -- 30 апреля, 23:59. Тогда: </p>
+<p><strong>Пример</strong>. Пусть дано домашнее задание, которое оценивается при полном выполнении в 10 баллов. В таблице ниже отражено поведение формулы для рассчёта баллов в зависимости от переменных. Пусть дедлайн сдачи — 1 марта, 23:59. Тогда: </p>
 </li>
 </ul>
-<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Symbol</th><th style="text-align: left">Timestamp</th><th style="text-align: center">Situation</th><th style="text-align: center">Score</th></tr></thead><tbody>
-<tr><td style="text-align: center">+</td><td style="text-align: left">31.04, 23:59</td><td style="text-align: center">Дедлайн соблюдён, недочётов нет</td><td style="text-align: center">17.600</td></tr>
-<tr><td style="text-align: center">+-</td><td style="text-align: left">31.04, 23:59</td><td style="text-align: center">Дедлайн соблюдён, но нужны правки</td><td style="text-align: center">14.080</td></tr>
-<tr><td style="text-align: center">-+</td><td style="text-align: left">31.04, 23:59</td><td style="text-align: center">Дедлайн соблюдён, но нужно много правок</td><td style="text-align: center">10.560</td></tr>
-<tr><td style="text-align: center">+</td><td style="text-align: left">01.05, 00:00</td><td style="text-align: center">Дедлайн просрочен на 1 день</td><td style="text-align: center">15.775</td></tr>
-<tr><td style="text-align: center">+</td><td style="text-align: left">03.05, 00:00</td><td style="text-align: center">Дедлайн просрочен на 3 дня</td><td style="text-align: center">15.775</td></tr>
-<tr><td style="text-align: center">+</td><td style="text-align: left">04.05, 00:00</td><td style="text-align: center">Дедлайн просрочен на 4 дня</td><td style="text-align: center">14.701</td></tr>
-<tr><td style="text-align: center">+</td><td style="text-align: left">01.09, 00:00</td><td style="text-align: center">Дедлайн просрочен на 124 дня</td><td style="text-align: center">11.008</td></tr>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Timestamp \ Symbol</th><th style="text-align: center">+</th><th style="text-align: center">+-</th><th style="text-align: center">-+</th><th style="text-align: center">-</th></tr></thead><tbody>
+<tr><td style="text-align: right"><strong>1 марта, 23:59</strong></td><td style="text-align: center">10</td><td style="text-align: center">8</td><td style="text-align: center">6</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>2 марта, 00:00</strong></td><td style="text-align: center">8.96</td><td style="text-align: center">7.17</td><td style="text-align: center">5.38</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>4 марта, 23:59</strong></td><td style="text-align: center">8.96</td><td style="text-align: center">7.17</td><td style="text-align: center">5.38</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>5 марта, 00:00</strong></td><td style="text-align: center">8.35</td><td style="text-align: center">6.68</td><td style="text-align: center">5.01</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>20 апреля, 12:00</strong></td><td style="text-align: center">6.58</td><td style="text-align: center">5.26</td><td style="text-align: center">3.95</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>1 сентября, 12:00</strong></td><td style="text-align: center">6.18</td><td style="text-align: center">5.07</td><td style="text-align: center">3.71</td><td style="text-align: center">0</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="ide-и-пакетный-менеджер"><a class="header" href="#ide-и-пакетный-менеджер">IDE и пакетный менеджер</a></h1>
 <h2 id="ide"><a class="header" href="#ide">IDE</a></h2>
