@@ -93,7 +93,9 @@
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> Настройка окружения</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="ide/asm_mac.html"><strong aria-hidden="true">3.2.</strong> Emulate x86_64 on mac</a></li><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.3.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.4.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -179,49 +181,67 @@
                     <main>
                         <h1 id="О-курсе"><a class="header" href="#О-курсе">О курсе</a></h1>
 <p>Данный курс читается студентам кафедры КТ в университете ИТМО.</p>
-<p>Лектор —  <strong>Иван Сорокин</strong> <a href="https://t.me/vanyacpp">@vanyacpp</a></p>
+<p>Лектор — <strong>Иван Сорокин</strong> <a href="https://t.me/vanyacpp">@vanyacpp</a></p>
 <p>Преподаватели практики и контакты:</p>
 <ul>
 <li>Лев Довжик <a href="https://t.me/Dogzik">@Dogzik</a></li>
-<li>Денис Воркожоков <a href="https://t.me/lejabq">@lejabq</a></li>
 <li>Артём Котóн <a href="https://t.me/dedlocc">@dedlocc</a></li>
 <li>Егор Макаревич <a href="https://t.me/Flarembo">@Flarembo</a></li>
 <li>Кирилл Санников <a href="https://t.me/KirillSanik">@KirillSanik</a></li>
 <li>Тимофей Иванов <a href="https://t.me/PurrVessel">@PurrVessel</a></li>
-<li>Павел Безбородов <a href="https://t.me/hazzus">@hazzus</a></li>
+<li>Иван Медведев <a href="https://t.me/spcc02">@spcc02</a></li>
 </ul>
 <h2 id="Организационные-вопросы"><a class="header" href="#Организационные-вопросы">Организационные вопросы</a></h2>
 <ul>
-<li><strong>Discord &amp; Telegram Chat</strong> — можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы </li>
+<li><strong>Discord &amp; Telegram Chat</strong> — можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы</li>
 <li><a href="https://www.twitch.tv/sorokin_ivan">Twitch</a> — стримы лекций</li>
-<li><a href="https://www.youtube.com/playlist?list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4">Youtube</a> — записи лекций прошлого года</li>
+<li><a href="https://www.youtube.com/channel/UCmSlUseJEVQifMaH7PqlRoA">YouTube</a> — записи лекций</li>
 <li><a href="https://cpp-kt.github.io/cpp-notes/">cpp-notes</a> — конспекты студентов прошлого года. Приветствуются правки и дополнения</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Баллы"><a class="header" href="#Баллы">Баллы</a></h1>
 <p>Подробнее о балльно-рейтинговой системе:</p>
 <ul>
-<li>Оценка — это ваши суммарные баллы за практические, домашние задания и экзамен (а также — бонусы).</li>
+<li>Оценка состоит из ваших баллов за практические, домашние задания и экзамен (+ бонусы).</li>
 <li>Без успешной сдачи экзамена вы не можете получить положительную оценку (то есть, выше FX), иначе говоря:</li>
 </ul>
-<pre><code class="language-c++">int score = practice + hw + exam;
-int grade = (exam &gt; 0) ? score : std::min(score, 59);
-// grade -&gt; de.ifmo
+<pre><code class="language-c++">auto score = combine(practice, hw) + exam + bonus;
+auto bars = (exam &gt; 0) ? score : std::min(score, 59);
+// grade -&gt; bars.itmo.ru
 </code></pre>
 <ul>
 <li>При необходимости система может меняться в течение семестра в любую из сторон.</li>
-<li><strong>Разбалловка</strong>
+<li><strong>Разбалловка</strong>:
 <ul>
-<li><strong>Практика</strong> — 20 баллов. Несколько небольших заданий, о которых вам расскажут преподаватели на отдельной паре, напишут какую-то часть кода, ответят на вопросы. Выполняются обычно за 2-5 дней, отправка <em>любых</em> посылок по практикам после дедлайна невозможна.</li>
-<li><strong>Домашние задания</strong> — 66 баллов. Задания, которые будут выдавать в течение семестра. Для каждой будет отдельный дедлайн, за просрочку которого будет штраф на количество баллов за задачу.</li>
-<li><strong>Экзамен</strong> — 20 баллов. Состоит из практической и теоретической частей, каждая стоит по 10 баллов. В практической вы за несколько часов пишете задание, которое оценит преподаватель, а в теоретическом — отвечаете на вопросы по курсу. Чтобы получить положительную оценку за курс, нужно сдать каждую из частей экзамена. Минимально можно получить 8 баллов за практическую и 5 баллов за теоретическую часть.</li>
-<li><strong>Итого 106 баллов</strong>, оценки по баллам такие же как в системе БаРС.</li>
+<li><strong>Практика</strong> и <strong>Домашние задания</strong> — суммарно 86 баллов.
+<ul>
+<li><strong>Практические задания</strong> — Несколько небольших заданий, о которых вам расскажут преподаватели на отдельной паре, напишут какую-то часть кода, ответят на вопросы. Выполняются обычно за 3-7 дней, отправка <em>любых</em> посылок по практикам после дедлайна невозможна (исключение: доп. сессия).</li>
+<li><strong>Домашние задания</strong> — Задания, которые будут выдавать в течение семестра для полностью самостоятельного выполнения. Для каждой будет отдельный дедлайн, за просрочку которого будет штраф на количество баллов за задачу (подробнее о штрафах ниже).</li>
+<li>Первичные баллы за практику и ДЗ преобразуются в баллы по БаРС по следующей формуле: \[ S = \sqrt{\left(\frac{P}{M_P}\right)\cdot\left(\frac{H}{M_H}\right)^2} \cdot 86 \]
+<ul>
+<li>\( P \) — набранный первичный балл за все практики</li>
+<li>\( M_P \) — максимальный первичный балл за все практики</li>
+<li>\( H \) — набранный первичный балл за все ДЗ</li>
+<li>\( M_H \) — максимальный первичный балл за все ДЗ</li>
 </ul>
 </li>
-<li><strong>Баллы за ДЗ</strong> считаются по формуле \[ R = S \cdot B \cdot \left(0.65 + \frac{0.35}{C} \right)\]
+<li>Таким образом, чтобы получить ненулевой балл за практику и ДЗ, нужно решать и то, и другое.</li>
+</ul>
+</li>
+<li><strong>Экзамен</strong> — 20 баллов. Состоит из практической и теоретической частей, каждая стоит по 10 баллов.
+<ul>
+<li>В <strong>практической части</strong> вам даётся задание, по сложности сопоставимое с типичной практикой, но для самостоятельного выполнения в течение нескольких часов. Задание оценит преподаватель.</li>
+<li>В <strong>теоретической части</strong> экзамена вы отвечаете на вопросы по курсу.</li>
+<li>Чтобы получить положительную оценку за курс, нужно успешно сдать каждую из частей экзамена.</li>
+</ul>
+</li>
+<li><strong>Итого 106 баллов</strong>. В оценку переводятся в соответствии с БаРС.</li>
+</ul>
+</li>
+<li><strong>Баллы за ДЗ</strong> считаются по формуле: \[ h = G \cdot M_h \cdot \left(0.6 + \frac{0.4}{C} \right)\]
 \[ C = 1 + 0.35 \cdot \left\lceil \frac{d}{3} \right\rceil \]
 <ul>
-<li>\( B \) — максимальный балл за задачу </li>
-<li>\( S \) — ваша оценка за задачу</li>
+<li>\( M_h \) — максимальный балл за задачу</li>
+<li>\( G \) — ваша оценка за задачу</li>
 <li>\( d \) — кол-во дней прошедших после дедлайна до вашей посылки</li>
 </ul>
 </li>
@@ -236,29 +256,19 @@ int grade = (exam &gt; 0) ? score : std::min(score, 59);
 </tbody></table>
 </div>
 <ul>
-<li>
-<p>Штрафы <strong>распространяются</strong> на любые посылки после дедлайна, даже правки. Штрафа на количество посылок нет.</p>
-</li>
-<li>
-<p>Сдать ДЗ с первого раза скорее всего не получится, и это нормально. Мы все тут ещё учимся.</p>
-</li>
-<li>
-<p>Проверка занимает достаточно ненулевое время. Тот факт, что вы сдали до дедлайна, не означает, что вы успеете и исправить до него. Чаще всего чем ближе дедлайн, тем больше время проверки в силу увеличивающейся очереди посылок. Рекомендуется сдавать как можно раньше, чтобы получить больше шансов на проверки правок до дедлайна.</p>
-</li>
-<li>
-<p>Оценку <code>/</code> можно получить, например, за проблемы оформления или непройденные тесты.</p>
-</li>
-<li>
-<p><strong>Пример</strong>. Пусть дано домашнее задание, которое оценивается при полном выполнении в 10 баллов. В таблице ниже отражено поведение формулы для рассчёта баллов в зависимости от переменных. Пусть дедлайн сдачи — 1 марта, 23:59. Тогда: </p>
-</li>
+<li>Штрафы <strong>распространяются</strong> на любые посылки после дедлайна, даже правки. Штрафа на количество посылок нет.</li>
+<li>Сдать ДЗ с первого раза скорее всего не получится, и это нормально. Мы все тут ещё учимся.</li>
+<li>Проверка занимает достаточно ненулевое время. Тот факт, что вы сдали до дедлайна, не означает, что вы успеете и исправить до него. Чаще всего чем ближе дедлайн, тем больше время проверки в силу увеличивающейся очереди посылок. Рекомендуется сдавать как можно раньше, чтобы получить больше шансов на проверки правок до дедлайна.</li>
+<li>Оценку <code>/</code> можно получить, например, за проблемы оформления или непройденные тесты.</li>
 </ul>
+<p><strong>Пример</strong>. Пусть дано домашнее задание, которое оценивается при полном выполнении в 10 баллов. В таблице ниже отражено поведение формулы для рассчёта баллов в зависимости от переменных. Пусть дедлайн сдачи — 1 марта, 23:59. Тогда:</p>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: right">Timestamp \ Symbol</th><th style="text-align: center">+</th><th style="text-align: center">+-</th><th style="text-align: center">-+</th><th style="text-align: center">-</th></tr></thead><tbody>
 <tr><td style="text-align: right"><strong>1 марта, 23:59</strong></td><td style="text-align: center">10</td><td style="text-align: center">8</td><td style="text-align: center">6</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>2 марта, 00:00</strong></td><td style="text-align: center">9.09</td><td style="text-align: center">7.27</td><td style="text-align: center">5.46</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>4 марта, 23:59</strong></td><td style="text-align: center">9.09</td><td style="text-align: center">7.27</td><td style="text-align: center">5.46</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>5 марта, 00:00</strong></td><td style="text-align: center">8.56</td><td style="text-align: center">6.85</td><td style="text-align: center">5.14</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>30 апреля, 12:00</strong></td><td style="text-align: center">6.94</td><td style="text-align: center">5.56</td><td style="text-align: center">4.16</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>1 сентября, 12:00</strong></td><td style="text-align: center">6.66</td><td style="text-align: center">5.36</td><td style="text-align: center">3.99</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>2 марта, 00:00</strong></td><td style="text-align: center">8.96</td><td style="text-align: center">7.17</td><td style="text-align: center">5.38</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>4 марта, 23:59</strong></td><td style="text-align: center">8.96</td><td style="text-align: center">7.17</td><td style="text-align: center">5.38</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>5 марта, 00:00</strong></td><td style="text-align: center">8.35</td><td style="text-align: center">6.68</td><td style="text-align: center">5.01</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>20 апреля, 12:00</strong></td><td style="text-align: center">6.58</td><td style="text-align: center">5.26</td><td style="text-align: center">3.95</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>1 сентября, 12:00</strong></td><td style="text-align: center">6.18</td><td style="text-align: center">5.07</td><td style="text-align: center">3.71</td><td style="text-align: center">0</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="ide-и-пакетный-менеджер"><a class="header" href="#ide-и-пакетный-менеджер">IDE и пакетный менеджер</a></h1>
 <h2 id="ide"><a class="header" href="#ide">IDE</a></h2>
@@ -270,7 +280,7 @@ int grade = (exam &gt; 0) ? score : std::min(score, 59);
 <h2 id="Пакетный-менеджер"><a class="header" href="#Пакетный-менеджер">Пакетный менеджер</a></h2>
 <p>Пакетный менеджер нужен для упраления зависимостями в проекте. В рамках данного курса мы будет использовать для этих целей vcpkg.</p>
 <p>vcpkg - это не только инструмент, но и репозиторий с рецептами пакетов, который нужно склонировать.</p>
-<pre><code class="language-bash">git clone https://github.com/microsoft/vcpkg 
+<pre><code class="language-bash">git clone https://github.com/microsoft/vcpkg
 ./vcpkg/bootstrap-vcpkg.sh
 </code></pre>
 <p>или <code>.\vcpkg\bootstrap-vcpkg.bat</code> для Windows</p>
@@ -297,14 +307,14 @@ hayai                    2019-08-10#1     C++ benchmarking framework
 <p>Установить пакет можно при помощи команды <code>vcpkg install</code>:</p>
 <pre><code class="language-bash">vcpkg install benchmark
 </code></pre>
-<p>Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть <code>./vcpkg/ports/PACKAGE_NAME</code>. Чтобы понять в какой конфигурации --- ознакомьтесь с <code>vcpkg help triplets</code>, а также со скриптами триплетов, которые находятся в <code>./vcpkg/triplets/</code>. 
+<p>Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть <code>./vcpkg/ports/PACKAGE_NAME</code>. Чтобы понять в какой конфигурации — ознакомьтесь с <code>vcpkg help triplets</code>, а также со скриптами триплетов, которые находятся в <code>./vcpkg/triplets/</code>.
 По умолчанию на Windows используется MS тулчейн (MSVC/clang-cl), для работы с MinGW нужно явно указать параметр <code>--triplet=x64-mingw-dynamic</code> при выполнении <code>vcpkg install</code>
 После исполнения команды, вам скорее всего подскажут как использовать этот пакет, вроде:</p>
 <pre><code class="language-CMake">find_package(benchmark CONFIG REQUIRED)
 target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_main)
 </code></pre>
-<p>Если вы повторите команду <code>vcpkg install</code>, то он напишет, что пакет установлен, и продублирует сообщение <code>find_package(...</code>. И если вы добавите этот код в ваш CMakeLists.txt, то ничего не заработает! </p>
-<p>Нужно подсказать CMake где хранятся find-package скрипты из vcpkg. Для этого используется следующий флаг при конфигурации cmake (<code>D:\src\vcpkg</code> в данном примере в качестве полного путь до <code>vcpkg</code> директории, <strong>замените на свой!</strong>): </p>
+<p>Если вы повторите команду <code>vcpkg install</code>, то он напишет, что пакет установлен, и продублирует сообщение <code>find_package(...</code>. И если вы добавите этот код в ваш CMakeLists.txt, то ничего не заработает!</p>
+<p>Нужно подсказать CMake где хранятся find-package скрипты из vcpkg. Для этого используется следующий флаг при конфигурации cmake (<code>D:\src\vcpkg</code> в данном примере в качестве полного путь до <code>vcpkg</code> директории, <strong>замените на свой!</strong>):</p>
 <pre><code class="language-bash">-DCMAKE_TOOLCHAIN_FILE=D:\src\vcpkg\scripts\buildsystems\vcpkg.cmake
 </code></pre>
 <p>Также, если вы пользуетесь Windows нативно (т.е. не WSL), нужно добавить <code>-DVCPKG_TARGET_TRIPLET=x64-mingw-static</code> для тулчейна MinGW и <code>-DVCPKG_TARGET_TRIPLET=x64-windows-static</code> для тулчейна MSVC/clang-cl</p>
@@ -451,7 +461,7 @@ $ sudo snap install clion --classic
 <pre><code class="language-bash">./init-repo.sh
 </code></pre>
 </li>
-<li>При каждом <strong>следующем</strong> клоне вашего репозитория, если такие вдруг будут, необходимо добавлять базовый (из которого был создан ваш) в качестве upstream с помощью следующей команды: 
+<li>При каждом <strong>следующем</strong> клоне вашего репозитория, если такие вдруг будут, необходимо добавлять базовый (из которого был создан ваш) в качестве upstream с помощью следующей команды:
 <pre><code class="language-bash">git remote add upstream &lt;link-to-base-repo&gt;
 </code></pre>
 где <code>&lt;link-to-base-repo&gt;</code> — ссылка не на ваш репозиторий, а на исходный репозиторий задания, из которого ваш был сгенерирован (обычно его имя заканчивается на <code>-task</code>).
@@ -459,8 +469,8 @@ $ sudo snap install clion --classic
 <li>После этого вы можете коммитить в любые ветки кроме <code>feedback</code>, которая будет соответствовать <code>upstream/master</code></li>
 </ul>
 <h2 id="Подтягивание-новых-тестов-и-других-изменений"><a class="header" href="#Подтягивание-новых-тестов-и-других-изменений">Подтягивание новых тестов и других изменений</a></h2>
-<p>Иногда нам приходится править какие-то проблемы в конфигурациях или добавлять новые тесты. Чтобы обновлять репозитории и не ломать PR, пользуйтесь специальным скриптом. </p>
-<p><strong>ВНИМАНИЕ:</strong> перед его работой вам необходимо либо закоммитить последние изменения, либо сохранить куда-то незакомиченные изменения, например, с помощью <a href="https://git-scm.com/docs/git-stash">git-stash</a>. </p>
+<p>Иногда нам приходится править какие-то проблемы в конфигурациях или добавлять новые тесты. Чтобы обновлять репозитории и не ломать PR, пользуйтесь специальным скриптом.</p>
+<p><strong>ВНИМАНИЕ:</strong> перед его работой вам необходимо либо закоммитить последние изменения, либо сохранить куда-то незакомиченные изменения, например, с помощью <a href="https://git-scm.com/docs/git-stash">git-stash</a>.</p>
 <p>Чтобы подтянуть сами изменения, достаточно выполнить следующую команду из корня репозитория:</p>
 <pre><code class="language-bash">./update-repo.sh
 </code></pre>
@@ -468,21 +478,22 @@ $ sudo snap install clion --classic
 <p>Для сдачи решения необходимо сделать следующее:</p>
 <ul>
 <li>Сделайте коммит(ы) с вашим решением. Проследите, чтобы в коммит попали только файлы с решением (при необходимости можете дополнять <a href="https://git-scm.com/docs/gitignore">.gitignore</a>), а файлы с тестами <strong>не изменились</strong>.</li>
-<li>Перенести решение в ветку <code>master</code>, если не делали сразу всё в ней.</li>
-<li>Запушить <code>master</code> на удалённый репозиторий.</li>
+<li>Перенесите решение в ветку <code>master</code>, если не делали сразу всё в ней.</li>
+<li>Запушьте <code>master</code> на удалённый репозиторий.</li>
 <li>Проверьте, что у вас обновлены тесты и конфигурации (можно просто запустить соответствующий скрипт).</li>
 <li>Создайте <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">Pull Request (PR)</a> <code>master -&gt; feedback</code>, если у вас его ещё нет.</li>
-<li>Удостоверьтесь, что тесты в тестирующей системе прошли (в PR появится зелёная галочка, так же можно посмотреть подробности на вкладке &quot;Checks&quot;).</li>
-<li><strong>ВНИМАНИЕ! НИ В КАКОЙ МОМЕНТ ВРЕМЕНИ НЕ НУЖНО МЁРЖИТЬ PR!</strong></li>
-<li>Пришлите с помощью формы заявку на проверку с ссылкой на этот PR. В случае первой сдачи выберите режим <code>сдача</code>, иначе - <code>правки</code>.</li>
+<li>Удостоверьтесь, что тесты в тестирующей системе прошли (в PR появится зелёная галочка, также можно посмотреть подробности на вкладке &quot;Checks&quot;).</li>
+<li><strong>ВНИМАНИЕ! НИ В КАКОЙ МОМЕНТ ВРЕМЕНИ НЕ НУЖНО МЁРДЖИТЬ PR!</strong></li>
+<li>Пришлите с помощью формы заявку на проверку с ссылкой на этот PR.</li>
+<li>В случае первой сдачи (или если все ваши сдачи были проверены на <code>/</code>) выберите режим <code>сдача</code>, иначе — <code>правки</code>.</li>
 <li>Дождитесь проверки. Исправьте замечания и, если они есть, повторите процесс.</li>
 </ul>
 <h2 id="Процесс-проверки"><a class="header" href="#Процесс-проверки">Процесс проверки</a></h2>
 <ul>
-<li>В процессе проверки преподаватель будет оставлять комментарии в вашем пулл-реквесте. Комментарии - это замечания, которые нужно исправлять.</li>
-<li>Некоторые комментарии могут быть помечены <code>[note]</code>, их исправление необязательно - чаще всего это предложения альтернативных решений, иногда выходящих за рамки курса.</li>
+<li>В процессе проверки преподаватель будет оставлять комментарии в вашем пулл-реквесте. Комментарии — это замечания, которые нужно исправлять.</li>
+<li>Некоторые комментарии могут быть помечены <code>[note]</code>, их исправление необязательно — чаще всего это предложения альтернативных решений, иногда выходящих за рамки курса.</li>
 <li>Закрывать (&quot;resolve&quot;) комментарии может только преподаватель.</li>
-<li>На каждый оставленный комментарий <strong>нужно ответить</strong>: либо кратко написать, как поправили (если комментарий однозначно указывает, как решить проблему - достаточно &quot;fixed&quot;), либо, если вы считаете, что замечание некорректно и вам не нужно ничего исправлять, обосновать это в ответе. Это требование уменьшает вероятность того, что какое-то из замечаний будет случайно проигнорировано.</li>
+<li>На каждый оставленный комментарий <strong>нужно ответить</strong>: либо кратко написать, как поправили (если комментарий однозначно указывает, как решить проблему — достаточно &quot;fixed&quot;), либо, если вы считаете, что замечание некорректно и вам не нужно ничего исправлять, обосновать это в ответе. Это требование уменьшает вероятность того, что какое-то из замечаний будет случайно проигнорировано.</li>
 <li>Задание считается полностью сделанным, только если не осталось ни одного неисправленного комментария кроме <code>[note]</code>.</li>
 <li>Не стоит посылать заявку на проверку правок до того, как вы исправили все замечания (или ответили на них).</li>
 <li>Любые коммиты, сделанные после посылки формы и до её проверки, делаются на ваш страх и риск, так как могут произойти уже после того, как преподаватель начал проверку.</li>

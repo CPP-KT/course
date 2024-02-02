@@ -92,7 +92,9 @@
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html" class="active"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> Настройка окружения</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="ide/asm_mac.html"><strong aria-hidden="true">3.2.</strong> Emulate x86_64 on mac</a></li><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.3.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.4.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -179,28 +181,47 @@
                         <h1 id="Баллы"><a class="header" href="#Баллы">Баллы</a></h1>
 <p>Подробнее о балльно-рейтинговой системе:</p>
 <ul>
-<li>Оценка — это ваши суммарные баллы за практические, домашние задания и экзамен (а также — бонусы).</li>
+<li>Оценка состоит из ваших баллов за практические, домашние задания и экзамен (+ бонусы).</li>
 <li>Без успешной сдачи экзамена вы не можете получить положительную оценку (то есть, выше FX), иначе говоря:</li>
 </ul>
-<pre><code class="language-c++">int score = practice + hw + exam;
-int grade = (exam &gt; 0) ? score : std::min(score, 59);
-// grade -&gt; de.ifmo
+<pre><code class="language-c++">auto score = combine(practice, hw) + exam + bonus;
+auto bars = (exam &gt; 0) ? score : std::min(score, 59);
+// grade -&gt; bars.itmo.ru
 </code></pre>
 <ul>
 <li>При необходимости система может меняться в течение семестра в любую из сторон.</li>
-<li><strong>Разбалловка</strong>
+<li><strong>Разбалловка</strong>:
 <ul>
-<li><strong>Практика</strong> — 20 баллов. Несколько небольших заданий, о которых вам расскажут преподаватели на отдельной паре, напишут какую-то часть кода, ответят на вопросы. Выполняются обычно за 2-5 дней, отправка <em>любых</em> посылок по практикам после дедлайна невозможна.</li>
-<li><strong>Домашние задания</strong> — 66 баллов. Задания, которые будут выдавать в течение семестра. Для каждой будет отдельный дедлайн, за просрочку которого будет штраф на количество баллов за задачу.</li>
-<li><strong>Экзамен</strong> — 20 баллов. Состоит из практической и теоретической частей, каждая стоит по 10 баллов. В практической вы за несколько часов пишете задание, которое оценит преподаватель, а в теоретическом — отвечаете на вопросы по курсу. Чтобы получить положительную оценку за курс, нужно сдать каждую из частей экзамена. Минимально можно получить 8 баллов за практическую и 5 баллов за теоретическую часть.</li>
-<li><strong>Итого 106 баллов</strong>, оценки по баллам такие же как в системе БаРС.</li>
+<li><strong>Практика</strong> и <strong>Домашние задания</strong> — суммарно 86 баллов.
+<ul>
+<li><strong>Практические задания</strong> — Несколько небольших заданий, о которых вам расскажут преподаватели на отдельной паре, напишут какую-то часть кода, ответят на вопросы. Выполняются обычно за 3-7 дней, отправка <em>любых</em> посылок по практикам после дедлайна невозможна (исключение: доп. сессия).</li>
+<li><strong>Домашние задания</strong> — Задания, которые будут выдавать в течение семестра для полностью самостоятельного выполнения. Для каждой будет отдельный дедлайн, за просрочку которого будет штраф на количество баллов за задачу (подробнее о штрафах ниже).</li>
+<li>Первичные баллы за практику и ДЗ преобразуются в баллы по БаРС по следующей формуле: \[ S = \sqrt{\left(\frac{P}{M_P}\right)\cdot\left(\frac{H}{M_H}\right)^2} \cdot 86 \]
+<ul>
+<li>\( P \) — набранный первичный балл за все практики</li>
+<li>\( M_P \) — максимальный первичный балл за все практики</li>
+<li>\( H \) — набранный первичный балл за все ДЗ</li>
+<li>\( M_H \) — максимальный первичный балл за все ДЗ</li>
 </ul>
 </li>
-<li><strong>Баллы за ДЗ</strong> считаются по формуле \[ R = S \cdot B \cdot \left(0.65 + \frac{0.35}{C} \right)\]
+<li>Таким образом, чтобы получить ненулевой балл за практику и ДЗ, нужно решать и то, и другое.</li>
+</ul>
+</li>
+<li><strong>Экзамен</strong> — 20 баллов. Состоит из практической и теоретической частей, каждая стоит по 10 баллов.
+<ul>
+<li>В <strong>практической части</strong> вам даётся задание, по сложности сопоставимое с типичной практикой, но для самостоятельного выполнения в течение нескольких часов. Задание оценит преподаватель.</li>
+<li>В <strong>теоретической части</strong> экзамена вы отвечаете на вопросы по курсу.</li>
+<li>Чтобы получить положительную оценку за курс, нужно успешно сдать каждую из частей экзамена.</li>
+</ul>
+</li>
+<li><strong>Итого 106 баллов</strong>. В оценку переводятся в соответствии с БаРС.</li>
+</ul>
+</li>
+<li><strong>Баллы за ДЗ</strong> считаются по формуле: \[ h = G \cdot M_h \cdot \left(0.6 + \frac{0.4}{C} \right)\]
 \[ C = 1 + 0.35 \cdot \left\lceil \frac{d}{3} \right\rceil \]
 <ul>
-<li>\( B \) — максимальный балл за задачу </li>
-<li>\( S \) — ваша оценка за задачу</li>
+<li>\( M_h \) — максимальный балл за задачу</li>
+<li>\( G \) — ваша оценка за задачу</li>
 <li>\( d \) — кол-во дней прошедших после дедлайна до вашей посылки</li>
 </ul>
 </li>
@@ -215,29 +236,19 @@ int grade = (exam &gt; 0) ? score : std::min(score, 59);
 </tbody></table>
 </div>
 <ul>
-<li>
-<p>Штрафы <strong>распространяются</strong> на любые посылки после дедлайна, даже правки. Штрафа на количество посылок нет.</p>
-</li>
-<li>
-<p>Сдать ДЗ с первого раза скорее всего не получится, и это нормально. Мы все тут ещё учимся.</p>
-</li>
-<li>
-<p>Проверка занимает достаточно ненулевое время. Тот факт, что вы сдали до дедлайна, не означает, что вы успеете и исправить до него. Чаще всего чем ближе дедлайн, тем больше время проверки в силу увеличивающейся очереди посылок. Рекомендуется сдавать как можно раньше, чтобы получить больше шансов на проверки правок до дедлайна.</p>
-</li>
-<li>
-<p>Оценку <code>/</code> можно получить, например, за проблемы оформления или непройденные тесты.</p>
-</li>
-<li>
-<p><strong>Пример</strong>. Пусть дано домашнее задание, которое оценивается при полном выполнении в 10 баллов. В таблице ниже отражено поведение формулы для рассчёта баллов в зависимости от переменных. Пусть дедлайн сдачи — 1 марта, 23:59. Тогда: </p>
-</li>
+<li>Штрафы <strong>распространяются</strong> на любые посылки после дедлайна, даже правки. Штрафа на количество посылок нет.</li>
+<li>Сдать ДЗ с первого раза скорее всего не получится, и это нормально. Мы все тут ещё учимся.</li>
+<li>Проверка занимает достаточно ненулевое время. Тот факт, что вы сдали до дедлайна, не означает, что вы успеете и исправить до него. Чаще всего чем ближе дедлайн, тем больше время проверки в силу увеличивающейся очереди посылок. Рекомендуется сдавать как можно раньше, чтобы получить больше шансов на проверки правок до дедлайна.</li>
+<li>Оценку <code>/</code> можно получить, например, за проблемы оформления или непройденные тесты.</li>
 </ul>
+<p><strong>Пример</strong>. Пусть дано домашнее задание, которое оценивается при полном выполнении в 10 баллов. В таблице ниже отражено поведение формулы для рассчёта баллов в зависимости от переменных. Пусть дедлайн сдачи — 1 марта, 23:59. Тогда:</p>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: right">Timestamp \ Symbol</th><th style="text-align: center">+</th><th style="text-align: center">+-</th><th style="text-align: center">-+</th><th style="text-align: center">-</th></tr></thead><tbody>
 <tr><td style="text-align: right"><strong>1 марта, 23:59</strong></td><td style="text-align: center">10</td><td style="text-align: center">8</td><td style="text-align: center">6</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>2 марта, 00:00</strong></td><td style="text-align: center">9.09</td><td style="text-align: center">7.27</td><td style="text-align: center">5.46</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>4 марта, 23:59</strong></td><td style="text-align: center">9.09</td><td style="text-align: center">7.27</td><td style="text-align: center">5.46</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>5 марта, 00:00</strong></td><td style="text-align: center">8.56</td><td style="text-align: center">6.85</td><td style="text-align: center">5.14</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>30 апреля, 12:00</strong></td><td style="text-align: center">6.94</td><td style="text-align: center">5.56</td><td style="text-align: center">4.16</td><td style="text-align: center">0</td></tr>
-<tr><td style="text-align: right"><strong>1 сентября, 12:00</strong></td><td style="text-align: center">6.66</td><td style="text-align: center">5.36</td><td style="text-align: center">3.99</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>2 марта, 00:00</strong></td><td style="text-align: center">8.96</td><td style="text-align: center">7.17</td><td style="text-align: center">5.38</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>4 марта, 23:59</strong></td><td style="text-align: center">8.96</td><td style="text-align: center">7.17</td><td style="text-align: center">5.38</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>5 марта, 00:00</strong></td><td style="text-align: center">8.35</td><td style="text-align: center">6.68</td><td style="text-align: center">5.01</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>20 апреля, 12:00</strong></td><td style="text-align: center">6.58</td><td style="text-align: center">5.26</td><td style="text-align: center">3.95</td><td style="text-align: center">0</td></tr>
+<tr><td style="text-align: right"><strong>1 сентября, 12:00</strong></td><td style="text-align: center">6.18</td><td style="text-align: center">5.07</td><td style="text-align: center">3.71</td><td style="text-align: center">0</td></tr>
 </tbody></table>
 </div>
                     </main>

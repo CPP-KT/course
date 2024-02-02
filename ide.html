@@ -92,7 +92,9 @@
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html" class="active"><strong aria-hidden="true">3.</strong> Настройка окружения</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="ide/asm_mac.html"><strong aria-hidden="true">3.2.</strong> Emulate x86_64 on mac</a></li><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.3.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.4.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -186,7 +188,7 @@
 <h2 id="Пакетный-менеджер"><a class="header" href="#Пакетный-менеджер">Пакетный менеджер</a></h2>
 <p>Пакетный менеджер нужен для упраления зависимостями в проекте. В рамках данного курса мы будет использовать для этих целей vcpkg.</p>
 <p>vcpkg - это не только инструмент, но и репозиторий с рецептами пакетов, который нужно склонировать.</p>
-<pre><code class="language-bash">git clone https://github.com/microsoft/vcpkg 
+<pre><code class="language-bash">git clone https://github.com/microsoft/vcpkg
 ./vcpkg/bootstrap-vcpkg.sh
 </code></pre>
 <p>или <code>.\vcpkg\bootstrap-vcpkg.bat</code> для Windows</p>
@@ -213,14 +215,14 @@ hayai                    2019-08-10#1     C++ benchmarking framework
 <p>Установить пакет можно при помощи команды <code>vcpkg install</code>:</p>
 <pre><code class="language-bash">vcpkg install benchmark
 </code></pre>
-<p>Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть <code>./vcpkg/ports/PACKAGE_NAME</code>. Чтобы понять в какой конфигурации --- ознакомьтесь с <code>vcpkg help triplets</code>, а также со скриптами триплетов, которые находятся в <code>./vcpkg/triplets/</code>. 
+<p>Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть <code>./vcpkg/ports/PACKAGE_NAME</code>. Чтобы понять в какой конфигурации — ознакомьтесь с <code>vcpkg help triplets</code>, а также со скриптами триплетов, которые находятся в <code>./vcpkg/triplets/</code>.
 По умолчанию на Windows используется MS тулчейн (MSVC/clang-cl), для работы с MinGW нужно явно указать параметр <code>--triplet=x64-mingw-dynamic</code> при выполнении <code>vcpkg install</code>
 После исполнения команды, вам скорее всего подскажут как использовать этот пакет, вроде:</p>
 <pre><code class="language-CMake">find_package(benchmark CONFIG REQUIRED)
 target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_main)
 </code></pre>
-<p>Если вы повторите команду <code>vcpkg install</code>, то он напишет, что пакет установлен, и продублирует сообщение <code>find_package(...</code>. И если вы добавите этот код в ваш CMakeLists.txt, то ничего не заработает! </p>
-<p>Нужно подсказать CMake где хранятся find-package скрипты из vcpkg. Для этого используется следующий флаг при конфигурации cmake (<code>D:\src\vcpkg</code> в данном примере в качестве полного путь до <code>vcpkg</code> директории, <strong>замените на свой!</strong>): </p>
+<p>Если вы повторите команду <code>vcpkg install</code>, то он напишет, что пакет установлен, и продублирует сообщение <code>find_package(...</code>. И если вы добавите этот код в ваш CMakeLists.txt, то ничего не заработает!</p>
+<p>Нужно подсказать CMake где хранятся find-package скрипты из vcpkg. Для этого используется следующий флаг при конфигурации cmake (<code>D:\src\vcpkg</code> в данном примере в качестве полного путь до <code>vcpkg</code> директории, <strong>замените на свой!</strong>):</p>
 <pre><code class="language-bash">-DCMAKE_TOOLCHAIN_FILE=D:\src\vcpkg\scripts\buildsystems\vcpkg.cmake
 </code></pre>
 <p>Также, если вы пользуетесь Windows нативно (т.е. не WSL), нужно добавить <code>-DVCPKG_TARGET_TRIPLET=x64-mingw-static</code> для тулчейна MinGW и <code>-DVCPKG_TARGET_TRIPLET=x64-windows-static</code> для тулчейна MSVC/clang-cl</p>
