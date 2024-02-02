@@ -1,19 +1,18 @@
 # О курсе
 Данный курс читается студентам кафедры КТ в университете ИТМО.
 
-Лектор —  __Иван Сорокин__ [@vanyacpp](https://t.me/vanyacpp)
+Лектор &mdash; __Иван Сорокин__ [@vanyacpp](https://t.me/vanyacpp)
 
 Преподаватели практики и контакты:
 * Лев Довжик [@Dogzik](https://t.me/Dogzik)
-* Денис Воркожоков [@lejabq](https://t.me/lejabq)
 * Артём Котóн [@dedlocc](https://t.me/dedlocc)
 * Егор Макаревич [@Flarembo](https://t.me/Flarembo)
 * Кирилл Санников [@KirillSanik](https://t.me/KirillSanik)
 * Тимофей Иванов [@PurrVessel](https://t.me/PurrVessel)
-* Павел Безбородов [@hazzus](https://t.me/hazzus)
+* Иван Медведев [@spcc02](https://t.me/spcc02)
 
 ## Организационные вопросы
-* __Discord & Telegram Chat__ — можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы 
-* [Twitch](https://www.twitch.tv/sorokin_ivan) — стримы лекций
-* [Youtube](https://www.youtube.com/playlist?list=PLd7QXkfmSY7a2zw_PVPn7vKs9F9BG6Pd4) — записи лекций прошлого года
-* [cpp-notes](https://cpp-kt.github.io/cpp-notes/) — конспекты студентов прошлого года. Приветствуются правки и дополнения
+* __Discord & Telegram Chat__ &mdash; можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы
+* [Twitch](https://www.twitch.tv/sorokin_ivan) &mdash; стримы лекций
+* [YouTube](https://www.youtube.com/channel/UCmSlUseJEVQifMaH7PqlRoA) &mdash; записи лекций
+* [cpp-notes](https://cpp-kt.github.io/cpp-notes/) &mdash; конспекты студентов прошлого года. Приветствуются правки и дополнения

@@ -14,7 +14,7 @@
 
 vcpkg - это не только инструмент, но и репозиторий с рецептами пакетов, который нужно склонировать.
 ```bash
-git clone https://github.com/microsoft/vcpkg 
+git clone https://github.com/microsoft/vcpkg
 ./vcpkg/bootstrap-vcpkg.sh
 ```
 или `.\vcpkg\bootstrap-vcpkg.bat` для Windows
@@ -53,16 +53,16 @@ vcpkg upgrade --no-dry-run
 ```bash
 vcpkg install benchmark
 ```
-Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть `./vcpkg/ports/PACKAGE_NAME`. Чтобы понять в какой конфигурации --- ознакомьтесь с `vcpkg help triplets`, а также со скриптами триплетов, которые находятся в `./vcpkg/triplets/`. 
+Эта команда по умолчанию соберёт выбранный пакет в Release и Debug конфигурациях. Чтобы понять что и как будет собираться для выбранного пакета, можно заглянуть `./vcpkg/ports/PACKAGE_NAME`. Чтобы понять в какой конфигурации &mdash; ознакомьтесь с `vcpkg help triplets`, а также со скриптами триплетов, которые находятся в `./vcpkg/triplets/`.
 По умолчанию на Windows используется MS тулчейн (MSVC/clang-cl), для работы с MinGW нужно явно указать параметр `--triplet=x64-mingw-dynamic` при выполнении `vcpkg install`
 После исполнения команды, вам скорее всего подскажут как использовать этот пакет, вроде:
 ```CMake
 find_package(benchmark CONFIG REQUIRED)
 target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_main)
 ```
-Если вы повторите команду `vcpkg install`, то он напишет, что пакет установлен, и продублирует сообщение `find_package(...`. И если вы добавите этот код в ваш CMakeLists.txt, то ничего не заработает! 
+Если вы повторите команду `vcpkg install`, то он напишет, что пакет установлен, и продублирует сообщение `find_package(...`. И если вы добавите этот код в ваш CMakeLists.txt, то ничего не заработает!
 
-Нужно подсказать CMake где хранятся find-package скрипты из vcpkg. Для этого используется следующий флаг при конфигурации cmake (`D:\src\vcpkg` в данном примере в качестве полного путь до `vcpkg` директории, **замените на свой!**): 
+Нужно подсказать CMake где хранятся find-package скрипты из vcpkg. Для этого используется следующий флаг при конфигурации cmake (`D:\src\vcpkg` в данном примере в качестве полного путь до `vcpkg` директории, **замените на свой!**):
 ```bash
 -DCMAKE_TOOLCHAIN_FILE=D:\src\vcpkg\scripts\buildsystems\vcpkg.cmake
 ```
