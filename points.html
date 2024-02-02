@@ -217,8 +217,8 @@ auto bars = (exam &gt; 0) ? score : std::min(score, 59);
 <li><strong>Итого 106 баллов</strong>. В оценку переводятся в соответствии с БаРС.</li>
 </ul>
 </li>
-<li><strong>Баллы за ДЗ</strong> считаются по формуле: \[ h = S \cdot M_h \cdot \left(0.6 + \frac{0.4}{C} \right)\]
-\[ C = 1 + 0.35 \cdot \left\lceil \frac{d}{3} \right\rceil \]
+<li><strong>Баллы за ДЗ</strong> считаются по формуле: \[ h = S \cdot M_h \cdot \left(0.6 + \frac{0.4}{1 + 0.35 \cdot D} \right)\]
+\[ D = \left\lceil \frac{d}{3} \right\rceil \]
 <ul>
 <li>\( M_h \) — максимальный балл за задачу</li>
 <li>\( S \) — ваша оценка за задачу</li>
