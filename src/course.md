@@ -12,7 +12,7 @@
 * Иван Медведев [@spcc02](https://t.me/spcc02)
 
 ## Организационные вопросы
-* __Discord & Telegram Chat__ &mdash; можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а так же задавать вопросы
+* __Discord & Telegram Chat__ &mdash; можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а также задавать вопросы
 * [Twitch](https://www.twitch.tv/sorokin_ivan) &mdash; стримы лекций
 * [YouTube](https://www.youtube.com/channel/UCmSlUseJEVQifMaH7PqlRoA) &mdash; записи лекций
 * [cpp-notes](https://cpp-kt.github.io/cpp-notes/) &mdash; конспекты студентов прошлого года. Приветствуются правки и дополнения
