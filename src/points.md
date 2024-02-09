@@ -4,7 +4,7 @@
 * Оценка состоит из ваших баллов за практические, домашние задания и экзамен.
 * Без успешной сдачи экзамена вы не можете получить положительную оценку (то есть, выше FX), иначе говоря:
 ```c++
-auto score = combine(practice, hw) + exam + bonus;
+auto score = combine(practice, hw) + exam;
 auto bars = (exam > 0) ? score : std::min(score, 59);
 // grade -> bars.itmo.ru
 ```
