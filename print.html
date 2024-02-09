@@ -201,7 +201,7 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Баллы"><a class="header" href="#Баллы">Баллы</a></h1>
 <p>Подробнее о балльно-рейтинговой системе:</p>
 <ul>
-<li>Оценка состоит из ваших баллов за практические, домашние задания и экзамен (+ бонусы).</li>
+<li>Оценка состоит из ваших баллов за практические, домашние задания и экзамен.</li>
 <li>Без успешной сдачи экзамена вы не можете получить положительную оценку (то есть, выше FX), иначе говоря:</li>
 </ul>
 <pre><code class="language-c++">auto score = combine(practice, hw) + exam + bonus;
@@ -285,7 +285,7 @@ auto bars = (exam &gt; 0) ? score : std::min(score, 59);
 </code></pre>
 <p>или <code>.\vcpkg\bootstrap-vcpkg.bat</code> для Windows</p>
 <p>Далее будет удобно добавить <code>./vcpkg/vcpkg</code> в <code>PATH</code>:</p>
-<pre><code class="language-bash">sudo ln -s &quot;$(pwd)/vcpkg/vcpkg&quot; /usr/bin/vcpkg
+<pre><code class="language-bash">sudo ln -s "$(pwd)/vcpkg/vcpkg" /usr/bin/vcpkg
 </code></pre>
 <p>Самая главная команда vcpkg:</p>
 <pre><code class="language-bash">vcpkg help
@@ -375,7 +375,7 @@ sudo apt install qtwayland5
 <div style="break-before: page; page-break-before: always;"></div><h1 id="clion"><a class="header" href="#clion">CLion</a></h1>
 <p>Крайне рекомендуется пользоваться EAP версией, ибо имеено в ней все свежие фиксы и фичи.</p>
 <h2 id="Установка"><a class="header" href="#Установка"><a href="https://www.jetbrains.com/help/clion/installation-guide.html">Установка</a></a></h2>
-<p>На официальном сайте (ссылка в header-e - кликабельна) можно найти информацию об установке через <em>Toolbox</em> (если вы используете другие IDE от Jetbrains) или об установке на <strong>Windows</strong>. </p>
+<p>На официальном сайте (ссылка в header-e - кликабельна) можно найти информацию об установке через <em>Toolbox</em> (если вы используете другие IDE от Jetbrains) или об установке на <strong>Windows</strong>.</p>
 <p>На <strong>Ubuntu</strong> рекомендуется следующий процесс установки (чтобы можно было обновлять среду разработки через пакетный менеджер):</p>
 <pre><code class="language-console">$ sudo apt install snap
 $ sudo snap install clion --classic
@@ -427,11 +427,11 @@ $ sudo snap install clion --classic
 <h2 id="Полезные-ссылки-1"><a class="header" href="#Полезные-ссылки-1">Полезные ссылки</a></h2>
 <ul>
 <li><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000919039-Clion-how-to-build-cmake-to-support-debug-release">Выбор конфигурации сборки</a>. Чем сборка в дебаге отличается от сборки в релизе, рассказывают <a href="https://youtu.be/LXdAN2f3KX0?list=PLd7QXkfmSY7akIHUbZ-zT9pG-G3zIGQBh">в 3 семестре на курсе операционных систем</a>.</li>
-<li><a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind memcheck</a>: проверки утечек памяти и т.д. </li>
+<li><a href="https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html">Valgrind memcheck</a>: проверки утечек памяти и т.д.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="qtcreator"><a class="header" href="#qtcreator">QtCreator</a></h1>
 <h2 id="Установка-1"><a class="header" href="#Установка-1"><a href="https://doc.qt.io/qtcreator/creator-getting-started.html">Установка</a></a></h2>
-<p>Есть мануал на официальном сайте (ссылка в header-e - кликабельна). <a href="https://www.qt.io/offline-installers">Здесь</a> можно найти offline установщики Qt (в который собственно и входит Creator) для Windows и Linux/MacOS. </p>
+<p>Есть мануал на официальном сайте (ссылка в header-e - кликабельна). <a href="https://www.qt.io/offline-installers">Здесь</a> можно найти offline установщики Qt (в который собственно и входит Creator) для Windows и Linux/MacOS.</p>
 <p>На <strong>Ubuntu</strong> рекомендуется следующий процесс установки (чтобы можно было обновлять среду разработки через пакетный менеджер):</p>
 <pre><code class="language-console">$ sudo apt install qtcreator
 </code></pre>
@@ -482,7 +482,7 @@ $ sudo snap install clion --classic
 <li>Запушьте <code>master</code> на удалённый репозиторий.</li>
 <li>Проверьте, что у вас обновлены тесты и конфигурации (можно просто запустить соответствующий скрипт).</li>
 <li>Создайте <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">Pull Request (PR)</a> <code>master -&gt; feedback</code>, если у вас его ещё нет.</li>
-<li>Удостоверьтесь, что тесты в тестирующей системе прошли (в PR появится зелёная галочка, также можно посмотреть подробности на вкладке &quot;Checks&quot;).</li>
+<li>Удостоверьтесь, что тесты в тестирующей системе прошли (в PR появится зелёная галочка, также можно посмотреть подробности на вкладке "Checks").</li>
 <li><strong>ВНИМАНИЕ! НИ В КАКОЙ МОМЕНТ ВРЕМЕНИ НЕ НУЖНО МЁРДЖИТЬ PR!</strong></li>
 <li>Пришлите с помощью формы заявку на проверку с ссылкой на этот PR.</li>
 <li>В случае первой сдачи (или если все ваши сдачи были проверены на <code>/</code>) выберите режим <code>сдача</code>, иначе — <code>правки</code>.</li>
@@ -492,8 +492,8 @@ $ sudo snap install clion --classic
 <ul>
 <li>В процессе проверки преподаватель будет оставлять комментарии в вашем пулл-реквесте. Комментарии — это замечания, которые нужно исправлять.</li>
 <li>Некоторые комментарии могут быть помечены <code>[note]</code>, их исправление необязательно — чаще всего это предложения альтернативных решений, иногда выходящих за рамки курса.</li>
-<li>Закрывать (&quot;resolve&quot;) комментарии может только преподаватель.</li>
-<li>На каждый оставленный комментарий <strong>нужно ответить</strong>: либо кратко написать, как поправили (если комментарий однозначно указывает, как решить проблему — достаточно &quot;fixed&quot;), либо, если вы считаете, что замечание некорректно и вам не нужно ничего исправлять, обосновать это в ответе. Это требование уменьшает вероятность того, что какое-то из замечаний будет случайно проигнорировано.</li>
+<li>Закрывать ("resolve") комментарии может только преподаватель.</li>
+<li>На каждый оставленный комментарий <strong>нужно ответить</strong>: либо кратко написать, как поправили (если комментарий однозначно указывает, как решить проблему — достаточно "fixed"), либо, если вы считаете, что замечание некорректно и вам не нужно ничего исправлять, обосновать это в ответе. Это требование уменьшает вероятность того, что какое-то из замечаний будет случайно проигнорировано.</li>
 <li>Задание считается полностью сделанным, только если не осталось ни одного неисправленного комментария кроме <code>[note]</code>.</li>
 <li>Не стоит посылать заявку на проверку правок до того, как вы исправили все замечания (или ответили на них).</li>
 <li>Любые коммиты, сделанные после посылки формы и до её проверки, делаются на ваш страх и риск, так как могут произойти уже после того, как преподаватель начал проверку.</li>
