@@ -6,7 +6,7 @@
 ```c++
 auto score = combine(practice, hw) + exam;
 auto bars = (exam > 0) ? score : std::min(score, 59);
-// grade -> bars.itmo.ru
+// bars -> bars.itmo.ru
 ```
 * При необходимости система может меняться в течение семестра в любую из сторон.
 * __Разбалловка__:
