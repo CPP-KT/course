@@ -328,8 +328,15 @@ target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_mai
 <p><strong>Также необходимо иметь драйвера последней версии.</strong></p>
 <h2 id="Установка-wsl-и-ubuntu"><a class="header" href="#Установка-wsl-и-ubuntu">Установка WSL и Ubuntu</a></h2>
 <p>Для начала откроем командную строку и введем туда команду:</p>
-<pre><code class="language-bash">wsl --install
+<pre><code class="language-cmd">wsl --install
 </code></pre>
+<p>Эта команда утсановит вам какой-то дистрибутив Linux в качестве подсистемы. Если вас не устраивает "какой-то" дистрибутив, можно сначала проверить, какие дистрибутивы доступны при помощи команды</p>
+<pre><code class="language-cmd">wsl --list --oneline
+</code></pre>
+<p>А потом запустить установку конкретного из них командой</p>
+<pre><code class="language-cmd">wsl --install &lt;DistributionName&gt;
+</code></pre>
+<p>Очень советую устанавливать Ubuntu-22.04, нежели что-нибудь другое.</p>
 <p>После установки нужно ввести <code>wsl --update</code> и <code>wsl --set-default-version 2</code>.</p>
 <p>Сразу после рекомендуется <strong>перезагрузить</strong> компьютер.</p>
 <p>После этого вы можете найти в поисковой строке Ubuntu и запустить её. Понадобится некоторое время на предварительную инициализацию.</p>
