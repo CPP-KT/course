@@ -334,7 +334,7 @@ target_link_libraries(main PRIVATE benchmark::benchmark benchmark::benchmark_mai
 <pre><code class="language-cmd">wsl --list --online
 </code></pre>
 <p>А потом запустить установку конкретного из них командой</p>
-<pre><code class="language-cmd">wsl --install &lt;DistributionName&gt;
+<pre><code class="language-cmd">wsl --install -d &lt;DistributionName&gt;
 </code></pre>
 <p>Рекомендуется устанавливать Ubuntu-22.04 (или новее). Так вы с меньшей вероятностью столкнётесь с невозможностью установить пакет достаточно новой версии.</p>
 <p>После установки нужно ввести <code>wsl --update</code> и <code>wsl --set-default-version 2</code>.</p>
