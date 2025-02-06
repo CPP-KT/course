@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="ayu" dir="ltr">
+<html lang="en" class="ayu sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -33,15 +33,17 @@
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -63,19 +65,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('ayu')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -85,45 +84,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About & Links</a></li><li class="chapter-item expanded "><a href="points.html"><strong aria-hidden="true">2.</strong> Баллы</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">3.</strong> Настройка окружения</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ide/wsl.html"><strong aria-hidden="true">3.1.</strong> WSL</a></li><li class="chapter-item expanded "><a href="ide/asm_mac.html"><strong aria-hidden="true">3.2.</strong> Emulate x86_64 on mac</a></li><li class="chapter-item expanded "><a href="ide/clion.html"><strong aria-hidden="true">3.3.</strong> CLion (рекомендуемый)</a></li><li class="chapter-item expanded "><a href="ide/qtcreator.html"><strong aria-hidden="true">3.4.</strong> QtCreator</a></li></ol></li><li class="chapter-item expanded "><a href="instruction.html"><strong aria-hidden="true">4.</strong> Инструкция по сдаче заданий</a></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -186,19 +165,20 @@
 <ul>
 <li>Лев Довжик <a href="https://t.me/Dogzik">@Dogzik</a></li>
 <li>Артём Котóн <a href="https://t.me/dedlocc">@dedlocc</a></li>
-<li>Егор Макаревич <a href="https://t.me/Flarembo">@Flarembo</a></li>
-<li>Кирилл Санников <a href="https://t.me/KirillSanik">@KirillSanik</a></li>
-<li>Тимофей Иванов <a href="https://t.me/PurrVessel">@PurrVessel</a></li>
 <li>Иван Медведев <a href="https://t.me/spcc02">@spcc02</a></li>
+<li>Тимофей Иванов <a href="https://t.me/PurrVessel">@PurrVessel</a></li>
 <li>Николай Черкашин <a href="https://t.me/nikkirche">@nikkirche</a></li>
 <li>Максим Мурысин <a href="https://t.me/murysinm">@murysinm</a></li>
+<li>Алиса Холодова <a href="https://t.me/cpp_martyr">@cpp_martyr</a></li>
+<li>Егор Шамшура <a href="https://t.me/egorcpp">@egorcpp</a></li>
+<li>Григорий Сосновцев <a href="https://t.me/hyperb0rean">@hyperb0rean</a></li>
 </ul>
 <h2 id="Организационные-вопросы"><a class="header" href="#Организационные-вопросы">Организационные вопросы</a></h2>
 <ul>
 <li><strong>Discord &amp; Telegram Chat</strong> — можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а также задавать вопросы</li>
 <li><a href="https://www.twitch.tv/sorokin_ivan">Twitch</a> — стримы лекций</li>
 <li><a href="https://www.youtube.com/channel/UCmSlUseJEVQifMaH7PqlRoA">YouTube</a> — записи лекций</li>
-<li><a href="https://cpp-kt.github.io/cpp-notes/">cpp-notes</a> — конспекты студентов прошлого года. Приветствуются правки и дополнения</li>
+<li><a href="https://cpp-kt.github.io/cpp-notes/">cpp-notes</a> — конспекты студентов прошлого года. Приветствуются (и поощряются бонусными баллами) правки и дополнения</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Баллы"><a class="header" href="#Баллы">Баллы</a></h1>
 <p>Подробнее о балльно-рейтинговой системе:</p>
@@ -206,41 +186,26 @@
 <li>Оценка состоит из ваших баллов за практические, домашние задания и экзамен.</li>
 <li>Без успешной сдачи экзамена вы не можете получить положительную оценку (то есть, выше FX), иначе говоря:</li>
 </ul>
-<pre><code class="language-c++">auto score = combine(practice, hw) + exam;
+<pre><code class="language-c++">auto score = practice + hw + exam;
 auto bars = (exam &gt; 0) ? score : std::min(score, 59);
 // bars -&gt; bars.itmo.ru
 </code></pre>
 <ul>
 <li>При необходимости система может меняться в течение семестра в любую из сторон.</li>
-<li><strong>Разбалловка</strong>:
+</ul>
+<h3 id="Разбалловка"><a class="header" href="#Разбалловка">Разбалловка</a></h3>
 <ul>
-<li><strong>Практика</strong> и <strong>Домашние задания</strong> — суммарно 86 баллов.
-<ul>
-<li><strong>Практические задания</strong> — Несколько небольших заданий, о которых вам расскажут преподаватели на отдельной паре, напишут какую-то часть кода, ответят на вопросы. Выполняются обычно за 3-7 дней, отправка <em>любых</em> посылок по практикам после дедлайна невозможна (исключение: доп. сессия).</li>
-<li><strong>Домашние задания</strong> — Задания, которые будут выдавать в течение семестра для полностью самостоятельного выполнения. Для каждой будет отдельный дедлайн, за просрочку которого будет штраф на количество баллов за задачу (подробнее о штрафах ниже).</li>
-<li>Первичные баллы за практику и ДЗ преобразуются в баллы по БаРС по следующей формуле: \[ B = \sqrt{\frac{P}{M_P}} \cdot \frac{H}{M_H} \cdot 86 \]
-<ul>
-<li>\( P \) — набранный первичный балл за все практики</li>
-<li>\( M_P \) — максимальный первичный балл за все практики</li>
-<li>\( H \) — набранный первичный балл за все ДЗ</li>
-<li>\( M_H \) — максимальный первичный балл за все ДЗ</li>
+<li><strong>Практические задания</strong> — 20 баллов.</li>
+<li><strong>Домашние задания</strong> — 60 баллов.</li>
+<li><strong>Экзамен</strong> — 25 баллов.</li>
+<li><strong>Итого 105 баллов.</strong> В оценку переводятся в соответствии с БаРС.</li>
 </ul>
-</li>
-<li>Таким образом, чтобы получить ненулевой балл за практику и ДЗ, нужно решать и то, и другое.</li>
-</ul>
-</li>
-<li><strong>Экзамен</strong> — 20 баллов. Состоит из практической и теоретической частей, каждая стоит по 10 баллов.
-<ul>
-<li>В <strong>практической части</strong> вам даётся задание, по сложности сопоставимое с типичной практикой, но для самостоятельного выполнения в течение нескольких часов. Задание оценит преподаватель.</li>
-<li>В <strong>теоретической части</strong> экзамена вы отвечаете на вопросы по курсу.</li>
-<li>Чтобы получить положительную оценку за курс, нужно успешно сдать каждую из частей экзамена.</li>
-</ul>
-</li>
-<li><strong>Итого 106 баллов</strong>. В оценку переводятся в соответствии с БаРС.</li>
-</ul>
-</li>
-<li><strong>Оценки за ДЗ</strong>. Для простоты переведены в символьную систему</li>
-</ul>
+<h3 id="Практические-задания"><a class="header" href="#Практические-задания">Практические задания</a></h3>
+<p>Несколько небольших заданий, о которых вам расскажут преподаватели на отдельной паре, напишут какую-то часть кода, ответят на вопросы. Выполняются обычно за 3-7 дней, отправка <em>любых</em> посылок по практикам после дедлайна (т.е. с положительной просрочкой, см. про неё ниже) невозможна (исключение: доп. сессия).</p>
+<h3 id="Домашние-задания"><a class="header" href="#Домашние-задания">Домашние задания</a></h3>
+<p>Задания, которые будут выдавать в течение семестра для полностью самостоятельного выполнения. Для каждой будет отдельный дедлайн, за просрочку которого будет штраф на количество баллов за задачу.</p>
+<h3 id="Система-оценивания-заданий"><a class="header" href="#Система-оценивания-заданий">Система оценивания заданий</a></h3>
+<p>Оценки за задания для простоты переведены в символьную систему:</p>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: center">Symbol</th><th style="text-align: left">Description</th><th style="text-align: center">Score</th></tr></thead><tbody>
 <tr><td style="text-align: center">+</td><td style="text-align: left">Задание выполнено</td><td style="text-align: center">1</td></tr>
 <tr><td style="text-align: center">+-</td><td style="text-align: left">Есть недочёты</td><td style="text-align: center">0.8</td></tr>
@@ -249,22 +214,24 @@ auto bars = (exam &gt; 0) ? score : std::min(score, 59);
 <tr><td style="text-align: center">/</td><td style="text-align: left">Не проверялось</td><td style="text-align: center">0</td></tr>
 </tbody></table>
 </div>
-<ul>
-<li><strong>Баллы за ДЗ</strong> считаются по формуле: \[ h = S \cdot M_h \cdot \left(0.6 + \frac{0.4}{1 + 0.35 \cdot D} \right)\]
-\[ D = \left\lceil \frac{d}{3} \right\rceil \]
+<p>Оценку <code>/</code> можно получить, например, за проблемы оформления или непройденные тесты.</p>
+<p><strong>Баллы за ДЗ</strong> считаются по формуле: \[ h = S \cdot M_h \cdot \left(0.6 + \frac{0.4}{1 + 0.35 \cdot D} \right)\]
+\[ D = \left\lceil \frac{d}{3} \right\rceil \]</p>
 <ul>
 <li>\( M_h \) — максимальный балл за задачу</li>
 <li>\( S \) — ваша оценка за задачу</li>
 <li>\( d \) — кол-во дней, на которые просрочен дедлайн</li>
 </ul>
-</li>
-<li>Штрафы <strong>распространяются</strong> на любые просроченные посылки, даже правки. Штрафа на количество посылок нет. Итоговым баллом за задание служит максимум из баллов за соответствующие посылки.</li>
-<li>Дедлайн для каждого задания задаётся в виде числа дней, которые должны суммарно занять выполнение задания и внесение правок. Просрочка — это разница между реальным временем, которое у вас ушло на задание, и дедлайном (без учёта времени, в течение которого ожидается проверка).</li>
-<li>Сдать ДЗ с первого раза скорее всего не получится, и это нормально. Мы все тут ещё учимся.</li>
-<li>Проверка занимает достаточно ненулевое время. Тот факт, что вы сдали до дедлайна, не означает, что вы успеете и исправить до него. Чаще всего чем ближе дедлайн, тем больше время проверки в силу увеличивающейся очереди посылок. Рекомендуется сдавать как можно раньше, чтобы получить больше шансов на проверки правок до дедлайна.</li>
-<li>Оценку <code>/</code> можно получить, например, за проблемы оформления или непройденные тесты.</li>
+<p>Штрафы <strong>распространяются</strong> на любые просроченные посылки, даже правки. Штрафа на количество посылок нет. Итоговым баллом за задание служит максимум из баллов за соответствующие посылки.</p>
+<p>Дедлайн для каждого задания задаётся в виде двух составляющих:</p>
+<ul>
+<li>Время и дата дедлайна сдачи (<code>D_сдачи</code>)</li>
+<li>Количество дней на правки (<code>D_правок</code>)</li>
 </ul>
-<p><strong>Пример</strong>. Пусть дано домашнее задание, которое оценивается при полном выполнении в 10 баллов. В таблице ниже отражено поведение формулы для рассчёта баллов для первой посылки в зависимости от переменных. Пусть дедлайн заканчивается 1 марта, 23:59. Тогда:</p>
+<p>Просрочка (<code>d</code>) — это просрочка первой сдачи по сравнению с <code>D_сдачи</code>, плюс накопленная просрочка правок, превышающая <code>D_правок</code>. Дни правок тратятся на время внесения правок, только если оно происходит после <code>D_сдачи</code>.</p>
+<p>Сдать ДЗ с первого раза скорее всего не получится, и это нормально. Мы все тут ещё учимся.</p>
+<p>Проверка занимает достаточно ненулевое время. Чаще всего чем ближе дедлайн, тем больше время проверки в силу увеличивающейся очереди посылок. Рекомендуется сдавать как можно раньше, чтобы получить больше шансов на проверки правок до дедлайна.</p>
+<p><strong>Пример</strong>. Пусть дано домашнее задание, которое оценивается при полном выполнении в 10 баллов. В таблице ниже отражено поведение формулы для рассчёта баллов для первой посылки (сдачи) в зависимости от переменных. Пусть дедлайн заканчивается 1 марта, 23:59. Тогда:</p>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: right">Timestamp \ Symbol</th><th style="text-align: center">+</th><th style="text-align: center">+-</th><th style="text-align: center">-+</th><th style="text-align: center">-</th></tr></thead><tbody>
 <tr><td style="text-align: right"><strong>1 марта, 23:59</strong></td><td style="text-align: center">10</td><td style="text-align: center">8</td><td style="text-align: center">6</td><td style="text-align: center">0</td></tr>
 <tr><td style="text-align: right"><strong>2 марта, 00:00</strong></td><td style="text-align: center">8.96</td><td style="text-align: center">7.17</td><td style="text-align: center">5.38</td><td style="text-align: center">0</td></tr>
@@ -273,7 +240,15 @@ auto bars = (exam &gt; 0) ? score : std::min(score, 59);
 <tr><td style="text-align: right"><strong>20 апреля, 12:00</strong></td><td style="text-align: center">6.58</td><td style="text-align: center">5.26</td><td style="text-align: center">3.95</td><td style="text-align: center">0</td></tr>
 <tr><td style="text-align: right"><strong>1 сентября, 12:00</strong></td><td style="text-align: center">6.18</td><td style="text-align: center">5.07</td><td style="text-align: center">3.71</td><td style="text-align: center">0</td></tr>
 </tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h1 id="ide-и-пакетный-менеджер"><a class="header" href="#ide-и-пакетный-менеджер">IDE и пакетный менеджер</a></h1>
+</div>
+<h3 id="Экзамен"><a class="header" href="#Экзамен">Экзамен</a></h3>
+<p>Состоит из практической и теоретической частей.</p>
+<ul>
+<li>В <strong>практической части</strong> вам даётся задание, по сложности сопоставимое с типичной практикой, но для самостоятельного выполнения в течение нескольких часов. Задание оценит преподаватель. Баллы за эту часть экзамена не выставляются, но её успешная сдача является необходимой для допуска к теоретической части.</li>
+<li>В <strong>теоретической части</strong> экзамена вы отвечаете на вопросы по курсу. Результат — до 25 баллов (+20%, если практическая сдана на "+").</li>
+<li>Чтобы получить положительную оценку за курс, нужно успешно сдать каждую из частей экзамена.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ide-и-пакетный-менеджер"><a class="header" href="#ide-и-пакетный-менеджер">IDE и пакетный менеджер</a></h1>
 <h2 id="ide"><a class="header" href="#ide">IDE</a></h2>
 <p>Вы можете использовать <strong>IDE</strong> по вкусу для выполнения практик/домашних заданий.</p>
 <blockquote>
@@ -499,7 +474,8 @@ $ sudo snap install clion --classic
 <li>В процессе проверки преподаватель будет оставлять комментарии в вашем пулл-реквесте. Комментарии — это замечания, которые нужно исправлять.</li>
 <li>Некоторые комментарии могут быть помечены <code>[note]</code>, их исправление необязательно — чаще всего это предложения альтернативных решений, иногда выходящих за рамки курса.</li>
 <li>Закрывать ("resolve") комментарии может только преподаватель.</li>
-<li>На каждый оставленный комментарий <strong>нужно ответить</strong>: либо кратко написать, как поправили (если комментарий однозначно указывает, как решить проблему — достаточно "fixed"), либо, если вы считаете, что замечание некорректно и вам не нужно ничего исправлять, обосновать это в ответе. Это требование уменьшает вероятность того, что какое-то из замечаний будет случайно проигнорировано.</li>
+<li>На каждый оставленный комментарий <strong>нужно ответить</strong>: либо кратко написать, как поправили (если комментарий однозначно указывает, как решить проблему — достаточно "fixed"), либо, если вы считаете, что замечание некорректно и вам не нужно ничего исправлять, обосновать это в ответе.</li>
+<li>Обратите внимание, что "fixed" хватает далеко не всегда. Часто у проверяющих возникают к вашему коду вопросы, на которые нужно ответить. Или же мы указываем на проблему в решении, котору можно адресовать множеством способов, в случае чего хочется знать, каким путём пошли вы.</li>
 <li>Задание считается полностью сделанным, только если не осталось ни одного неисправленного комментария кроме <code>[note]</code>.</li>
 <li>Не стоит посылать заявку на проверку правок до того, как вы исправили все замечания (или ответили на них).</li>
 <li>Любые коммиты, сделанные после посылки формы и до её проверки, делаются на ваш страх и риск, так как могут произойти уже после того, как преподаватель начал проверку.</li>
