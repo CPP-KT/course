@@ -15,7 +15,7 @@
 * Григорий Сосновцев [@hyperb0rean](https://t.me/hyperb0rean)
 
 ## Организационные вопросы
-* __Discord & Telegram Chat__ &mdash; можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а также задавать вопросы
+* __Telegram Chat__ &mdash; можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а также задавать вопросы
 * [Twitch](https://www.twitch.tv/sorokin_ivan) &mdash; стримы лекций
 * [YouTube](https://www.youtube.com/channel/UCmSlUseJEVQifMaH7PqlRoA) &mdash; записи лекций
 * [cpp-notes](https://cpp-kt.github.io/cpp-notes/) &mdash; конспекты студентов прошлого года. Приветствуются (и поощряются бонусными баллами) правки и дополнения
