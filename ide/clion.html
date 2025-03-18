@@ -24,9 +24,9 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -158,10 +158,10 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="clion"><a class="header" href="#clion">CLion</a></h1>
-<p>Крайне рекомендуется пользоваться EAP версией, ибо имеено в ней все свежие фиксы и фичи.</p>
+<p>Рекомендуется пользоваться EAP версией, ибо именно в ней все свежие фиксы и фичи.</p>
 <h2 id="Установка"><a class="header" href="#Установка"><a href="https://www.jetbrains.com/help/clion/installation-guide.html">Установка</a></a></h2>
 <p>На официальном сайте (ссылка в header-e - кликабельна) можно найти информацию об установке через <em>Toolbox</em> (если вы используете другие IDE от Jetbrains) или об установке на <strong>Windows</strong>.</p>
-<p>На <strong>Ubuntu</strong> рекомендуется следующий процесс установки (чтобы можно было обновлять среду разработки через пакетный менеджер):</p>
+<p>На <strong>Ubuntu</strong> альтернативно доступна установка через <code>snap</code>, если вы хотите обновлять среду разработки через пакетный менеджер:</p>
 <pre><code class="language-console">$ sudo apt install snap
 $ sudo snap install clion --classic
 </code></pre>
@@ -181,34 +181,23 @@ $ sudo snap install clion --classic
 <p><img src="../images/clang-format-clion.png" alt="clang-format-clion" /></p>
 <p>Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
 <img src="../images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
-<h2 id="Интеграция-с-vcpkg-и-cmake-preets"><a class="header" href="#Интеграция-с-vcpkg-и-cmake-preets">Интеграция с vcpkg и CMake preets</a></h2>
-<p>Для начала нам нужно попасть в окно конфигурации CMake. Это происходит автоматически при первом открытии проекта или же можно найти в <code>File</code>-&gt;<code>Settings</code>-&gt;<code>Build,Execution...</code>-&gt;<code>CMake</code></p>
-<p><img src="../images/cmake-configure.png" alt="cmake-configure" /></p>
-<p>Для интеграции с vcpkg вне зависимости от сборки вам нужно в <code>CMake options</code> добавить <code>-DCMAKE_TOOLCHAIN_FILE=&lt;path-to-vcpkg&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake</code></p>
-<p>Также, если вы пользуетесь Windows нативно (т.е. не WSL), нужно добавить <code>-DVCPKG_TARGET_TRIPLET=x64-mingw-static</code> для тулчейна MinGW и <code>-DVCPKG_TARGET_TRIPLET=x64-windows-static</code> для тулчейна MSVC/clang-cl.
-Дело в том, что по умолчанию vcpkg на Windows использует MS тулчейн и установленные с ним библиотеки не будут линковаться при сборке с тулчейном MinGW.</p>
-<p>Далее добавляем три основные конфигурации, каждый раз нажимая на плюсик для создания новой конфигурации:</p>
-<ul>
-<li>Release
-<ul>
-<li><code>Build type</code>: <code>Release</code></li>
-<li>В <code>CMake options</code> добавляем <code>--preset Release</code></li>
-</ul>
-</li>
-<li>SanitizedDebug
-<ul>
-<li><code>Build type</code>: <code>Debug</code></li>
-<li>В <code>CMake options</code> добавляем <code>--preset SanitizedDebug</code></li>
-</ul>
-</li>
-<li>RelWithDebInfo
-<ul>
-<li><code>Build type</code>: <code>RelWithDebInfo</code></li>
-<li>В <code>CMake options</code> добавляем <code>--preset RelWithDebInfo</code></li>
-</ul>
-</li>
-</ul>
-<p>Если после добавление конфигураций CMake падает с ошибкой при попытке сконфигурироваться, то нужно в каждой конфигурации указать в качестве <code>Build directory</code> папку вида <code>cmake-build-&lt;configuration-name&gt;</code></p>
+<h2 id="Интеграция-с-cmake-presets"><a class="header" href="#Интеграция-с-cmake-presets">Интеграция с CMake presets</a></h2>
+<p>При первом открытии проекта, содержащего файл <code>CMakePresets.json</code>, CLion сгенерирует вам профили сборки и предложит активировать нужные.</p>
+<p>Текущий профиль далее выбирается в правом верхнем углу, возле списка конфигураций запуска.</p>
+<p>На момент написания профили делятся на:</p>
+<ol>
+<li>Непосредственно использующиеся для сборки в рамках CI — такие обычно обозначены префиксом <code>CI-</code>. С их помощью можно максимально приблизиться к сборке в GitHub, но такие пресеты ожидают конкретную версию конкретного компилятора. Лучше всего их использовать в сочетании с <a href="https://github.com/CPP-KT/containers">нашими Docker-контейнерами</a>.</li>
+<li>Упрощённые и оптимизированные под запуск на широком спектре систем — такие обычно обозначены префиксом <code>Default-</code>. Они подойдут, чтобы без дополнительных сложностей собрать и запустить тесты, но в них используется урезанное множество опций компиляции/линковки по сравнению с первыми.</li>
+</ol>
+<p>Если в какой-то момент вы захотите активировать или деактивировать какие-то профили, это можно сделать в <code>File</code>-&gt;<code>Settings</code>-&gt;<code>Build,Execution...</code>-&gt;<code>CMake</code>.</p>
+<p><img src="../images/clion-cmake-configure.png" alt="clion-cmake-configure" /></p>
+<p>Если после добавления конфигураций CMake падает с ошибкой при попытке сконфигурироваться, и вы не понимаете, с чем она связана, есть следующие возможные шаги решения (применяйте до первого сработавшего):</p>
+<ol>
+<li><code>Tools</code>-&gt;<code>CMake</code>-&gt;<code>Reload CMake Project</code>;</li>
+<li><code>Tools</code>-&gt;<code>CMake</code>-&gt;<code>Reset Cache and Reload Project</code>;</li>
+<li>Удалить директорию <code>build</code> (и <code>cmake-build-*</code>, если такие есть), после чего повторить п.2;</li>
+<li>Обратиться за помощью к преподавателям курса.</li>
+</ol>
 <h2 id="Полезные-ссылки"><a class="header" href="#Полезные-ссылки">Полезные ссылки</a></h2>
 <ul>
 <li><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000919039-Clion-how-to-build-cmake-to-support-debug-release">Выбор конфигурации сборки</a>. Чем сборка в дебаге отличается от сборки в релизе, рассказывают <a href="https://youtu.be/LXdAN2f3KX0?list=PLd7QXkfmSY7akIHUbZ-zT9pG-G3zIGQBh">в 3 семестре на курсе операционных систем</a>.</li>
