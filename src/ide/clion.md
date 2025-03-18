@@ -1,11 +1,11 @@
 # CLion
 
-Крайне рекомендуется пользоваться EAP версией, ибо имеено в ней все свежие фиксы и фичи.
+Рекомендуется пользоваться EAP версией, ибо именно в ней все свежие фиксы и фичи.
 
 ## [Установка](https://www.jetbrains.com/help/clion/installation-guide.html)
 На официальном сайте (ссылка в header-e - кликабельна) можно найти информацию об установке через *Toolbox* (если вы используете другие IDE от Jetbrains) или об установке на __Windows__. 
 
-На __Ubuntu__ рекомендуется следующий процесс установки (чтобы можно было обновлять среду разработки через пакетный менеджер):
+На __Ubuntu__ альтернативно доступна установка через `snap`, если вы хотите обновлять среду разработки через пакетный менеджер:
 ```console
 $ sudo apt install snap
 $ sudo snap install clion --classic
@@ -33,32 +33,28 @@ Path: `Settings / Preferences | Editor | Code Style - ClangFormat`
 Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
 ![clang-format-clion-another](../images/clang-format-another-clion.png)
 
-## Интеграция с vcpkg и CMake preets
+## Интеграция с CMake presets
 
-Для начала нам нужно попасть в окно конфигурации CMake. Это происходит автоматически при первом открытии проекта или же можно найти в `File`->`Settings`->`Build,Execution...`->`CMake`
+При первом открытии проекта, содержащего файл `CMakePresets.json`, CLion сгенерирует вам профили сборки и предложит активировать нужные.
 
-![cmake-configure](../images/cmake-configure.png)
+Текущий профиль далее выбирается в правом верхнем углу, возле списка конфигураций запуска.
 
-Для интеграции с vcpkg вне зависимости от сборки вам нужно в `CMake options` добавить `-DCMAKE_TOOLCHAIN_FILE=<path-to-vcpkg>/vcpkg/scripts/buildsystems/vcpkg.cmake`
+На момент написания профили делятся на:
 
-Также, если вы пользуетесь Windows нативно (т.е. не WSL), нужно добавить `-DVCPKG_TARGET_TRIPLET=x64-mingw-static` для тулчейна MinGW и `-DVCPKG_TARGET_TRIPLET=x64-windows-static` для тулчейна MSVC/clang-cl.
-Дело в том, что по умолчанию vcpkg на Windows использует MS тулчейн и установленные с ним библиотеки не будут линковаться при сборке с тулчейном MinGW.
+1. Непосредственно использующиеся для сборки в рамках CI &mdash; такие обычно обозначены префиксом `CI-`. С их помощью можно максимально приблизиться к сборке в GitHub, но такие пресеты ожидают конкретную версию конкретного компилятора. Лучше всего их использовать в сочетании с [нашими Docker-контейнерами](https://github.com/CPP-KT/containers).
+2. Упрощённые и оптимизированные под запуск на широком спектре систем &mdash; такие обычно обозначены префиксом `Default-`. Они подойдут, чтобы без дополнительных сложностей собрать и запустить тесты, но в них используется урезанное множество опций компиляции/линковки по сравнению с первыми.
 
-Далее добавляем три основные конфигурации, каждый раз нажимая на плюсик для создания новой конфигурации:
-* Release
-  * `Build type`: `Release`
-  * В `CMake options` добавляем `--preset Release`
-* SanitizedDebug
-  * `Build type`: `Debug`
-  * В `CMake options` добавляем `--preset SanitizedDebug`
-* RelWithDebInfo
-  * `Build type`: `RelWithDebInfo`
-  * В `CMake options` добавляем `--preset RelWithDebInfo`
+Если в какой-то момент вы захотите активировать или деактивировать какие-то профили, это можно сделать в `File`->`Settings`->`Build,Execution...`->`CMake`.
 
-Если после добавление конфигураций CMake падает с ошибкой при попытке сконфигурироваться, то нужно в каждой конфигурации указать в качестве `Build directory` папку вида `cmake-build-<configuration-name>`
+![clion-cmake-configure](../images/clion-cmake-configure.png)
+
+Если после добавления конфигураций CMake падает с ошибкой при попытке сконфигурироваться, и вы не понимаете, с чем она связана, есть следующие возможные шаги решения (применяйте до первого сработавшего):
+
+1. `Tools`->`CMake`->`Reload CMake Project`;
+2. `Tools`->`CMake`->`Reset Cache and Reload Project`;
+3. Удалить директорию `build` (и `cmake-build-*`, если такие есть), после чего повторить п.2;
+4. Обратиться за помощью к преподавателям курса.
 
 ## Полезные ссылки
 - [Выбор конфигурации сборки](https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000919039-Clion-how-to-build-cmake-to-support-debug-release). Чем сборка в дебаге отличается от сборки в релизе, рассказывают [в 3 семестре на курсе операционных систем](https://youtu.be/LXdAN2f3KX0?list=PLd7QXkfmSY7akIHUbZ-zT9pG-G3zIGQBh).
-- [Valgrind memcheck](https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html): проверки утечек памяти и т.д. 
-
-
+- [Valgrind memcheck](https://www.jetbrains.com/help/clion/memory-profiling-with-valgrind.html): проверки утечек памяти и т.д.
