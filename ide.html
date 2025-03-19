@@ -169,7 +169,7 @@
 <p>Для управления зависимостями (например, фреймворки для юнит-тестирования) мы используем пакетный менеджер vcpkg.</p>
 <p>Вам не требуется его устанавливать самостоятельно, это происходит в рамках конфигурации CMake-проекта. Однако у него есть <a href="https://learn.microsoft.com/en-us/vcpkg/concepts/supported-hosts#dependencies">некоторые зависимости</a>, которые должны быть установлены в вашей системе.</p>
 <p>Например, на <strong>Ubuntu</strong> их можно установить следующей командой:</p>
-<pre><code class="language-bash">apt install git curl zip unzip pkgconfig
+<pre><code class="language-bash">apt install git curl zip unzip tar pkgconfig
 </code></pre>
 <h2 id="cmake-presets"><a class="header" href="#cmake-presets">CMake Presets</a></h2>
 <p>В большинстве репозиториев этого курса для организации проекта используется CMake и пресеты сборки для него (указаны в <code>CMakePresets.json</code> в корне репозитория).</p>
