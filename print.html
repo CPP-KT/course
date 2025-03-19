@@ -266,6 +266,12 @@ auto bars = (exam &gt; 0) ? score : std::min(score, 59);
 </blockquote>
 <p>В подразделах описаны этапы конфигурации некоторых <strong>IDE</strong> (рекомендуется <strong>CLion</strong>).</p>
 <p>Также рекомендуем присмотреться к запуску тестов в Docker-контейнерах, использующихся в CI, и уже содержащих все нужные части тулчейна нужных версий. Найти их и информацию о том, как ими воспользоваться, можно <a href="https://github.com/CPP-KT/containers">тут</a>.</p>
+<h2 id="vcpkg"><a class="header" href="#vcpkg">Vcpkg</a></h2>
+<p>Для управления зависимостями (например, фреймворки для юнит-тестирования) мы используем пакетный менеджер vcpkg.</p>
+<p>Вам не требуется его устанавливать самостоятельно, это происходит в рамках конфигурации CMake-проекта. Однако у него есть <a href="https://learn.microsoft.com/en-us/vcpkg/concepts/supported-hosts#dependencies">некоторые зависимости</a>, которые должны быть установлены в вашей системе.</p>
+<p>Например, на <strong>Ubuntu</strong> их можно установить следующей командой:</p>
+<pre><code class="language-bash">apt install git curl zip unzip pkgconfig
+</code></pre>
 <h2 id="cmake-presets"><a class="header" href="#cmake-presets">CMake Presets</a></h2>
 <p>В большинстве репозиториев этого курса для организации проекта используется CMake и пресеты сборки для него (указаны в <code>CMakePresets.json</code> в корне репозитория).</p>
 <p>Выбор пресета позволяет выбрать режим сборки и установить типичный для него набор флагов и опций.</p>
