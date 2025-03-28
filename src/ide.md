@@ -18,7 +18,7 @@
 
 Например, на __Ubuntu__ их можно установить следующей командой:
 ```bash
-apt install git curl zip unzip tar pkgconfig
+apt install git curl zip unzip tar pkg-config
 ```
 
 ## CMake Presets
