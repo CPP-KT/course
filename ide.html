@@ -33,10 +33,11 @@
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-        <!-- Provide site root to javascript -->
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+            const path_to_root = "";
+            const default_light_theme = "ayu";
+            const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
@@ -46,8 +47,8 @@
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -61,7 +62,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             const html = document.documentElement;
@@ -74,8 +76,8 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -111,6 +113,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -166,7 +169,7 @@
 <p>В подразделах описаны этапы конфигурации некоторых <strong>IDE</strong> (рекомендуется <strong>CLion</strong>).</p>
 <p>Также рекомендуем присмотреться к запуску тестов в Docker-контейнерах, использующихся в CI, и уже содержащих все нужные части тулчейна нужных версий. Найти их и информацию о том, как ими воспользоваться, можно <a href="https://github.com/CPP-KT/containers">тут</a>.</p>
 <h2 id="vcpkg"><a class="header" href="#vcpkg">Vcpkg</a></h2>
-<p>Для управления зависимостями (например, фреймворки для юнит-тестирования) мы используем пакетный менеджер vcpkg.</p>
+<p>В некоторых заданиях для управления зависимостями (например, фреймворки для юнит-тестирования) мы используем пакетный менеджер vcpkg.</p>
 <p>Вам не требуется его устанавливать самостоятельно, это происходит в рамках конфигурации CMake-проекта. Однако у него есть <a href="https://learn.microsoft.com/en-us/vcpkg/concepts/supported-hosts#dependencies">некоторые зависимости</a>, которые должны быть установлены в вашей системе.</p>
 <p>Например, на <strong>Ubuntu</strong> их можно установить следующей командой:</p>
 <pre><code class="language-bash">apt install git curl zip unzip tar pkg-config
@@ -174,11 +177,6 @@
 <h2 id="cmake-presets"><a class="header" href="#cmake-presets">CMake Presets</a></h2>
 <p>В большинстве репозиториев этого курса для организации проекта используется CMake и пресеты сборки для него (указаны в <code>CMakePresets.json</code> в корне репозитория).</p>
 <p>Выбор пресета позволяет выбрать режим сборки и установить типичный для него набор флагов и опций.</p>
-<p>На момент написания предлагаемые пресеты делятся на:</p>
-<ol>
-<li>Непосредственно использующиеся для сборки в рамках CI — такие обычно обозначены префиксом <code>CI-</code>. С их помощью можно максимально приблизиться к сборке в GitHub, но такие пресеты ожидают конкретную версию конкретного компилятора. Лучше всего их использовать в сочетании с <a href="https://github.com/CPP-KT/containers">нашими Docker-контейнерами</a>.</li>
-<li>Упрощённые и оптимизированные под запуск на широком спектре систем — такие обычно обозначены префиксом <code>Default-</code>. Они подойдут, чтобы без дополнительных сложностей собрать и запустить тесты, но в них используется урезанное множество опций компиляции/линковки по сравнению с первыми.</li>
-</ol>
 <p>При ручном использовании CMake, пресет нужно задать флагом <code>--preset</code> на этапе конфигурации, например:</p>
 <pre><code class="language-bash"># Configure CMake
 cmake -S . --preset Default-Debug
@@ -189,6 +187,15 @@ cmake --build build/Default-Debug -j
 # Run tests
 build/Default-Debug/tests
 </code></pre>
+<h3 id="Устарело-Категории-пресетов"><a class="header" href="#Устарело-Категории-пресетов">(Устарело) Категории пресетов</a></h3>
+<blockquote>
+<p>Информация из этой секции не является актуальной для новых репозиториев.</p>
+</blockquote>
+<p>Предлагаемые пресеты делятся на:</p>
+<ol>
+<li>Непосредственно использующиеся для сборки в рамках CI — такие обычно обозначены префиксом <code>CI-</code>. С их помощью можно максимально приблизиться к сборке в GitHub, но такие пресеты ожидают конкретную версию конкретного компилятора. Лучше всего их использовать в сочетании с <a href="https://github.com/CPP-KT/containers">нашими Docker-контейнерами</a>.</li>
+<li>Упрощённые и оптимизированные под запуск на широком спектре систем — такие обычно обозначены префиксом <code>Default-</code>. Они подойдут, чтобы без дополнительных сложностей собрать и запустить тесты, но в них используется урезанное множество опций компиляции/линковки по сравнению с первыми.</li>
+</ol>
 
                     </main>
 
