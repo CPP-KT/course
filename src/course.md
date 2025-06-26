@@ -10,7 +10,6 @@
 * Тимофей Иванов [@PurrVessel](https://t.me/PurrVessel)
 * Николай Черкашин [@nikkirche](https://t.me/nikkirche)
 * Максим Мурысин [@murysinm](https://t.me/murysinm)
-* Алиса Холодова [@cpp_martyr](https://t.me/cpp_martyr)
 * Егор Шамшура [@egorcpp](https://t.me/egorcpp)
 * Григорий Сосновцев [@hyperb0rean](https://t.me/hyperb0rean)
 
