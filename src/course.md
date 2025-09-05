@@ -7,7 +7,6 @@
 * Лев Довжик [@Dogzik](https://t.me/Dogzik)
 * Артём Котóн [@dedlocc](https://t.me/dedlocc)
 * Иван Медведев [@spcc02](https://t.me/spcc02)
-* Тимофей Иванов [@PurrVessel](https://t.me/PurrVessel)
 * Николай Черкашин [@nikkirche](https://t.me/nikkirche)
 * Максим Мурысин [@murysinm](https://t.me/murysinm)
 * Егор Шамшура [@egorcpp](https://t.me/egorcpp)
