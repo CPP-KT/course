@@ -39,6 +39,7 @@
             const path_to_root = "";
             const default_light_theme = "ayu";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
@@ -95,10 +96,13 @@
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
@@ -152,7 +156,12 @@
 
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -180,7 +189,6 @@
 <li>Лев Довжик <a href="https://t.me/Dogzik">@Dogzik</a></li>
 <li>Артём Котóн <a href="https://t.me/dedlocc">@dedlocc</a></li>
 <li>Иван Медведев <a href="https://t.me/spcc02">@spcc02</a></li>
-<li>Тимофей Иванов <a href="https://t.me/PurrVessel">@PurrVessel</a></li>
 <li>Николай Черкашин <a href="https://t.me/nikkirche">@nikkirche</a></li>
 <li>Максим Мурысин <a href="https://t.me/murysinm">@murysinm</a></li>
 <li>Егор Шамшура <a href="https://t.me/egorcpp">@egorcpp</a></li>
@@ -513,6 +521,7 @@ $ sudo snap install clion --classic
             });
         });
         </script>
+
 
     </div>
     </body>
