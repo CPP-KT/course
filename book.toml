@@ -1,7 +1,6 @@
 [book]
 authors = ["Nursan Valeyev"]
 language = "en"
-multilingual = false
 src = "src"
 title = "C++ Course"
 
