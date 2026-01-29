@@ -11,6 +11,8 @@
 * Максим Мурысин [@murysinm](https://t.me/murysinm)
 * Егор Шамшура [@egorcpp](https://t.me/egorcpp)
 * Григорий Сосновцев [@hyperb0rean](https://t.me/hyperb0rean)
+* Егор Туисов [@egaegaeg](https://t.me/egaegaeg)
+* Алексей Заречнев [@stratocasster](https://t.me/stratocasster)
 
 ## Организационные вопросы
 * __Telegram Chat__ &mdash; можно получить у преподавателей. Там можно найти все объявления и актуальные ссылки, а также задавать вопросы
